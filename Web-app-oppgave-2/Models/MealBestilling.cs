@@ -1,4 +1,5 @@
 ﻿using System;
+using Web_app_oppgave_2.Models;
 
 namespace WebAppOppgave1.Models
 {

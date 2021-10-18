@@ -16,6 +16,5 @@ namespace Web_app_oppgave_2.Models
         public virtual Bestilling Bestilling { get; set; }
         public virtual Rute Tur { get; set; }
         public virtual Rute Retur { get; set; }
-
     }
 }
