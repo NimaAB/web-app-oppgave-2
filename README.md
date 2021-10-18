@@ -8,4 +8,4 @@ ITPE3200
 - [ ] Kunde-side | getter
 - [ ] Login funksjonalitet
 - [ ] Enhetstester og Logger
-- [ ] Valideringer for Admin CRUD-Opperasjoner
+- [ ] Valideringer for Admin CRUD-Operasjoner
