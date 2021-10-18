@@ -11,6 +11,22 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
         {
             _db = db;
         }
+
+        public async Task<bool> HentAlleBestilling()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<bool> OppdaterBestilling(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task<bool> SlettBestilling(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task<bool> LagreBestilling(Bestilling innBestilling)
         {
             try
