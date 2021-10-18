@@ -1,0 +1,393 @@
+﻿
+// Variables
+
+$theme-color: #0081a7; // Endrer hele farge tema av hele nettsiden
+$theme-color-secondary: transparentize($theme-color, .9); // endrer seg dynamisk basert på theme-color
+
+
+
+
+
+
+
+
+
+
+// Global
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html, header {
+  min-width: 320px !important;
+}
+
+:target::before {
+  content: "";
+  display: block;
+  height: 53px; /* fixed header height*/
+  margin: -53px 0 0; /* negative fixed header height */
+}
+
+a.a-link {
+  color: $theme-color;
+  display: block;
+  text-decoration: none;
+  padding: 5px 0;
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+}
+
+a.a-link:hover {
+  border-bottom: 1px solid $theme-color;
+}
+
+a.a-link-block div {
+  background-color: $theme-color !important;
+  border: 1px solid transparent;
+  transition: ease .3s;
+  
+  p {
+    transition: ease .3s;
+  }
+}
+
+a.a-link-block:hover div {
+  background-color: white !important;
+  color: $theme-color;
+  border: 1px solid $theme-color;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.btn-theme {
+  min-width: 100px !important;
+  background: $theme-color !important;
+  color: white !important;
+  border: 1px solid transparent !important;
+  transition: ease .3s;
+}
+
+.btn-theme:hover {
+  background: $theme-color-secondary !important;
+  color: $theme-color !important;
+  border: 1px solid $theme-color !important;
+}
+
+.btn-theme-secondary {
+  background: $theme-color-secondary !important;
+  color: $theme-color !important;
+  border: 1px solid transparent !important;
+  transition: ease .3s;
+  padding: 2.5px 7px !important;
+  min-width: 100px;
+}
+
+.btn-theme-secondary:hover {
+  background: $theme-color-secondary !important;
+  border: 1px solid $theme-color !important;
+}
+
+.btn-icon {
+  background: $theme-color-secondary !important;
+  color: $theme-color !important;
+  border: 1px solid transparent !important;
+  transition: ease .3s;
+  font-size: 22px !important;
+  border-radius: 50% !important;
+  padding: 2.5px 7px !important;
+}
+
+.btn-icon:hover {
+  background: $theme-color-secondary !important;
+  border: 1px solid $theme-color !important;
+}
+
+.border-theme {
+  border-color: $theme-color !important;
+}
+
+.bg-theme {
+  background: $theme-color;
+}
+
+.bg-theme-secondary {
+  background: $theme-color-secondary;
+}
+
+.text-theme {
+  color: $theme-color;
+}
+
+.text-danger {
+  color: darkred !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Header > menu toggle
+
+#btn-toggle {
+  border: none !important;
+
+  .bi {
+    font-size: 30px;
+    color: $theme-color;
+  }
+}
+
+#btn-toggle:focus {
+  box-shadow: none !important;
+}
+
+.bi-x.close-icon {
+  display: none;
+}
+
+.on .bi-x.close-icon {
+  display: block;
+}
+
+.on .bi-list {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// cover section
+
+.cover-section {
+  min-height: 77vh;
+  position: relative;
+
+  .cover-entry {
+    max-width: 500px;
+  }
+}
+
+.cover-section::before {
+  content: "";
+  height: 77vh;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+
+  background-image: url("../assets/cover.png");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.cover-section::after {
+  content: "";
+  height: 77vh;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  background-image: linear-gradient(transparent, white);
+  background-size: cover;
+  background-position: bottom;
+}
+
+
+
+
+
+
+
+
+
+.bestill-section {
+  min-height: calc(100vh - 53px); // min-height - header height
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// rom section
+
+$card-height: 200px;
+
+.a-link-block .rom {
+  position: relative;
+  min-height: $card-height;
+  background-color: unset !important;
+}
+
+.a-link-block:hover .rom {
+  background-color: $theme-color !important;
+  color: white;
+  border: 1px solid $theme-color;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.a-link-block:hover .rom p {
+  font-size: 30px !important;
+}
+
+.a-link-block .rom::after {
+  content: "";
+  height: $card-height;
+  width: 100%;
+  transition: ease .3s !important;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  background-image: linear-gradient(to bottom right, $theme-color, transparent);
+  background-size: cover;
+  background-position: bottom;
+}
+
+@mixin replace-rom-img($rom, $rom-img) {
+  .a-link-block #{$rom}::before {
+    content: "";
+    height: $card-height;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+
+    background-image: url($rom-img);
+    background-size: cover;
+    background-position: bottom;
+  }
+}
+
+@include replace-rom-img("#sete-1", "../assets/lugar/air-seat.jpg");
+@include replace-rom-img("#rom-1", "../assets/lugar/standard.jpg");
+@include replace-rom-img("#rom-2", "../assets/lugar/family.jpg");
+@include replace-rom-img("#rom-3", "../assets/lugar/deluxe.jpg");
+@include replace-rom-img("#rom-4", "../assets/lugar/suite.jpg");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// måltid og rute section
+
+.maaltid-row {
+  &:hover {
+    cursor: pointer !important;
+  }
+
+  .maaltid-info:hover {
+    background: whitesmoke;
+  }
+
+    .maaltid-info.on {
+    background: $theme-color-secondary;
+  }
+}
+
+#no-de-col .rb-group label{
+  display: block;
+  height: 200px;
+  background-image: url("../assets/ruter/kiel.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#no-se-col .rb-group label{
+  display: block;
+  height: 200px;
+  background-image: url("../assets/ruter/stromstad.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#no-dk-col .rb-group label{
+  display: block;
+  height: 200px;
+  background-image: url("../assets/ruter/hirtshals.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cb-group, .rb-group {
+  position: relative;
+  
+  .cb-icon, .rb-icon {
+    text-align: center;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 25px;
+    border: 2px solid $theme-color;
+    border-radius: 50%;
+    color: $theme-color;
+    background: white;
+    padding: 0 5px;
+  }
+}

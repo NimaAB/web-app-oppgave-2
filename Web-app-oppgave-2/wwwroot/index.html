@@ -1,0 +1,932 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.svg">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- flag icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.1/css/flag-icon.min.css" 
+          integrity="sha512-RYqXH3Tn/sC/iuKrQ0idMEQFSU7HEuPpQDhd/kzsIkE/1WxG43RN2RGp9bx2sX/Gdh1G0Gn3zActuCHqE4t6rg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Jquery Ui css -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- my styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <title>Norway Cruise</title>
+</head>
+<body>
+
+<!-- Nav Section -->
+<header class="sticky-top bg-light border-bottom border-1">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/logo.svg" alt="logo image" style="width: 35px">
+                    <small class="mx-4 d-lg-block d-none">Norway Cruise</small>
+                </a>
+
+                <button class="navbar-toggler" id="btn-toggle" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarMenu"
+                        aria-controls="navbarMenu"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="bi bi-list"></span>
+                    <span class="bi bi-x close-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <div class="navbar-nav ms-auto">
+                        <hr class="d-lg-none d-block w-100 bg-secondary">
+                        <h3 class="d-lg-none d-block fw-light m-0">Norway Cruise</h3>
+                        <hr class="d-lg-none d-block w-100 bg-secondary">
+                        <a class="me-lg-4 a-link" href="#bestill">Bestill</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Cover section -->
+<div id="cover" class="cover-section container-fluid d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-start align-content-center">
+        <div class="cover-entry m-0 p-5 bg-white text-center text-lg-start">
+            <h1 class="fw-light">Båtreiser med</h1>
+            <p class="display-4 text-theme">Norway Cruise</p>
+            <hr class="w-100 bg-theme">
+            <p class="">Ta en pause fra hverdagen. Gjør drømmeferien til en virkelighet.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Bestill section -->
+<div class="bestill-section container-fluid my-5" id="bestill">
+
+    <!-- Trinn 1 -->
+    <div id="trinn-1" class="container my-5">
+        <div class="row g-3 mb-3">
+            <div class="col-12 mb-5">
+                <h1 class="fw-light text-center text-theme">Hvor vil du reise?</h1>
+            </div>
+            
+            <div class="col-lg-4 col-md-6 p-2" id="no-de-col">
+                <div class="rb-group">
+                    <div class="p-3 d-flex justify-content-center">
+                        <p class="m-0 rute-fra"><span class="flag-icon flag-icon-no me-3"></span>Oslo</p>
+                        <span class="bi bi-arrow-right mx-3"></span>
+                        <p class="m-0 rute-til"><span class="flag-icon flag-icon-de me-3"></span>Kiel</p>
+                    </div>
+                    <p class="m-0 p-2 bg-theme-secondary text-center fs-5 text-theme">
+                        <span id="no-de-pris">910</span> kr
+                    </p>
+                    <input type="radio" name="ruter" id="no-de" class="d-none" value="no-de" onchange="validerRute()">
+                    <label for="no-de"></label>
+                    <div class="rb-icon d-none shadow" id="no-de-ikon">
+                        <i class="bi bi-check"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-2" id="no-se-col">
+                <div class="rb-group">
+                    <div class="p-3 d-flex justify-content-center">
+                        <p class="m-0 rute-fra"><span class="flag-icon flag-icon-no me-3"></span>Oslo</p>
+                        <span class="bi bi-arrow-right mx-3"></span>
+                        <p class="m-0 rute-til"><span class="flag-icon flag-icon-se me-3"></span>Strømstad</p>
+                    </div>
+                    <p class="m-0 p-2 bg-theme-secondary text-center fs-5 text-theme">
+                        <span id="no-se-pris">810</span> kr
+                    </p>
+                    <input type="radio" name="ruter" id="no-se" class="d-none" value="no-se" onchange="validerRute()">
+                    <label for="no-se"></label>
+                    <div class="rb-icon d-none shadow" id="no-se-ikon">
+                        <i class="bi bi-check"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-2" id="no-dk-col">
+                <div class="rb-group">
+                    <div class="p-3 d-flex justify-content-center">
+                        <p class="m-0 rute-fra"><span class="flag-icon flag-icon-no me-3"></span>Larvik</p>
+                        <span class="bi bi-arrow-right mx-3"></span>
+                        <p class="m-0 rute-til"><span class="flag-icon flag-icon-dk me-3"></span>Hirtshals</p>
+                    </div>
+                    <p class="m-0 p-2 bg-theme-secondary text-center fs-5 text-theme">
+                        <span id="no-dk-pris">1200</span> kr
+                    </p>
+                    <input type="radio" name="ruter" id="no-dk" class="d-none" value="no-dk" onchange="validerRute()">
+                    <label for="no-dk"></label>
+                    <div class="rb-icon d-none shadow" id="no-dk-ikon">
+                        <i class="bi bi-check"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <input type="hidden" id="rute-input-placeholder" aria-describedby="rute-feil-melding">
+                <div class="invalid-feedback d-none text-center" id="rute-feil-melding">Velg en rute.</div>
+            </div>
+        </div>
+
+        <form class="form" autocomplete="off">
+            <div class="row g-3">
+                <div class="col-lg">
+                    <div class="form-floating">
+                        <select class="form-select" id="reise-type" aria-describedby="reise-type-feil-melding"
+                                onchange="validerReiseType()">
+                            <option value="">Type</option>
+                            <option value="en-vei">Èn vei</option>
+                            <option value="tur-retur">Tur/Retur</option>
+                        </select>
+                        <label for="reise-type">Reise Type</label>
+                        <div class="invalid-feedback d-none" id="reise-type-feil-melding">Velg reise type.</div>
+                    </div>
+                </div>
+
+                <div class="col-md col-sm-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="_" id="fra-dato" onchange="validerFraDato()"
+                               data-date-open-on-focus="true" aria-describedby="fra-dato-feil-melding" onfocus="this.blur()">
+                        <label for="fra-dato">Avreise</label>
+                        <div class="invalid-feedback d-none" id="fra-dato-feil-melding"></div>
+                    </div>
+                </div>
+
+                <div class="col-md col-sm-12" id="til-dato-col">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="_" id="til-dato" onchange="validerTilDato()"
+                               data-date-open-on-focus="true" aria-describedby="til-dato-feil-melding" onfocus="this.blur()">
+                        <label for="til-dato">Retur</label>
+                        <div class="invalid-feedback d-none" id="til-dato-feil-melding"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-3 col-md">
+                <button class="btn btn-theme w-100" onclick="lagreRute()">Søk og Bestill</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="neste-trinn" class="container my-5 d-none">
+        <div class="row">
+            <!-- Progress info -->
+            <div class="col-xl-3 col-lg-4 order-last order-lg-first my-5 m-lg-0">
+                <div class="py-3">
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="text-group text-end">
+                                <p class="m-0 fs-5">Reise</p>
+                                <small class="m-0 text-black-50">Avreise og retur</small>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center border-start">
+                            <i class="bi bi-check-circle fs-4" style="color: lightseagreen"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="text-group text-end">
+                                <p class="m-0 fs-5">Reisefølge</p>
+                                <small class="m-0 text-black-50">Antall personer</small>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center border-start">
+                            <i id="neste-trinn-ikon" class="bi bi-dash-circle fs-4" style="color: lightgrey"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="text-group text-end">
+                                <p class="m-0 fs-5">Lugar</p>
+                                <small class="m-0 text-black-50">Velg cabin/rom/sete</small>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center border-start">
+                            <i id="trinn-3-ikon" class="bi bi-dash-circle fs-4" style="color: lightgrey"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="text-group text-end">
+                                <p class="m-0 fs-5">Måltider</p>
+                                <small class="m-0 text-black-50">Velg måltid</small>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center border-start">
+                            <i id="trinn-4-ikon" class="bi bi-dash-circle fs-4" style="color: lightgrey"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="text-group text-end">
+                                <p class="m-0 fs-5">Passasjerer</p>
+                                <small class="m-0 text-black-50">Form</small>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center border-start">
+                            <i id="trinn-5-ikon" class="bi bi-dash-circle fs-4" style="color: lightgrey"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="text-group text-end">
+                                <p class="m-0 fs-5">Bekreft</p>
+                                <small class="m-0 text-black-50">Se over bestillingen</small>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center border-start">
+                            <i id="trinn-6-ikon" class="bi bi-dash-circle fs-4" style="color: lightgrey"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <div class="text-group text-end">
+                                <p class="m-0 fs-5">Betal</p>
+                                <small class="m-0 text-black-50"></small>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex align-items-center border-start">
+                            <i id="trinn-7-ikon" class="bi bi-dash-circle fs-4" style="color: lightgrey"></i>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            
+            <!-- Resten av trinn på bestillingen -->
+            <div class="col-xl-9 col-lg-8 order-first order-lg-last">
+                <div id="trinn-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fw-light m-0 text-center text-lg-start text-theme">Hvem og hva reiser?</h3>
+                            <hr class="w-100 bg-theme">
+                        </div>
+                    </div>
+                    <div class="row g-3 text-center mb-3">
+                        <div class="col-md" id="avreise-info-col">
+                            <div class="py-3 bg-light">
+                                <p class="fs-5 m-0 text-theme">
+                                    <span class="fra-sted-tekst"></span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <span class="til-sted-tekst"></span>
+                                </p>
+                                <small class="text-black-50 d-block fra-dato-tekst"></small>
+                                <small class="text-black-50 d-block">Kl. 14:30</small>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md retur-element">
+                            <div class="py-3 bg-light">
+                                <p class="fs-5 m-0 text-theme">
+                                    <span class="til-sted-tekst"></span>
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <span class="fra-sted-tekst"></span>
+                                </p>
+                                <small class="text-black-50 d-block til-dato-tekst"></small>
+                                <small class="text-black-50 d-block">Kl. 16:30</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="d-flex align-items-center border-bottom pb-2" id="voksen">
+                                <p class="m-0 fs-5 m-lg-0 flex-fill">Voksen</p>
+                                <i class="bi bi-dash btn btn-icon minus" onclick="minusReisefolger('voksen', 1)"></i>
+                                <span class="mx-3 antall-voksen">1</span>
+                                <i class="bi bi-plus btn btn-icon pluss" onclick="plussReisefolger('voksen', 6)"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex align-items-center border-bottom pb-2" id="barn">
+                                <p class="m-0 fs-5 m-lg-0 flex-fill">Barn</p>
+                                <small class="text-black-50 me-3">0 - 16 år</small>
+                                <i class="bi bi-dash btn btn-icon minus" onclick="minusReisefolger('barn', 0)"></i>
+                                <span class="mx-3 antall-barn">0</span>
+                                <i class="bi bi-plus btn btn-icon pluss" onclick="plussReisefolger('barn', 6)"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex align-items-center border-bottom pb-2" id="dyr">
+                                <p class="m-0 fs-5 m-lg-0 flex-fill">Kjæledyr</p>
+                                <i class="bi bi-dash btn btn-icon minus" onclick="minusReisefolger('dyr', 0)"></i>
+                                <span class="mx-3 antall-dyr">0</span>
+                                <i class="bi bi-plus btn btn-icon pluss" onclick="plussReisefolger('dyr', 3)"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex align-items-center border-bottom pb-2" id="sykkel">
+                                <p class="m-0 fs-5 m-lg-0 flex-fill">Sykkel</p>
+                                <i class="bi bi-dash btn btn-icon minus" onclick="minusReisefolger('sykkel', 0)"></i>
+                                <span class="mx-3 antall-sykkel">0</span>
+                                <i class="bi bi-plus btn btn-icon pluss" onclick="plussReisefolger('sykkel', 6)"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="trinn-3" class="d-none">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fw-light m-0 text-center text-lg-start text-theme">Velg Lugar</h3>
+                            <hr class="w-100 bg-theme">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <a href="index.html" class="text-decoration-none text-white a-link-block" id="air-seat"
+                               data-bs-toggle="modal" data-bs-target="#rom-info-modal" onclick="tildeleRomId(this.id)">
+                                <div class="p-3 d-flex flex-column mb-3 rom" id="sete-1">
+                                    <p class="lead m-0 my-2">Air Seat</p>
+                                    <small class="d-block fw-bold">1 Person</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="index.html" class="text-decoration-none text-white a-link-block" id="standard-rom"
+                               data-bs-toggle="modal" data-bs-target="#rom-info-modal" onfocus="tildeleRomId(this.id)">
+                                <div class="p-3 d-flex flex-column mb-3 rom" id="rom-1">
+                                    <p class="lead m-0 my-2">Standard Rom</p>
+                                    <small class="d-block fw-bold">1-3 Personer</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="index.html" class="text-decoration-none text-white a-link-block" id="familie-rom"
+                               data-bs-toggle="modal" data-bs-target="#rom-info-modal" onfocus="tildeleRomId(this.id)">
+                                <div class="p-3 d-flex flex-column mb-3 rom" id="rom-2">
+                                    <p class="lead m-0 my-2">Familie Rom</p>
+                                    <small class="d-block fw-bold">3-5 Personer</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="index.html" class="text-decoration-none text-white a-link-block" id="deluxe-rom"
+                               data-bs-toggle="modal" data-bs-target="#rom-info-modal" onfocus="tildeleRomId(this.id)">
+                                <div class="p-3 d-flex flex-column mb-3 rom" id="rom-3">
+                                    <p class="lead m-0 my-2">Captain's Deluxe</p>
+                                    <small class="d-block fw-bold">1-4 Person</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4">
+                            <a href="index.html" class="text-decoration-none text-white a-link-block" id="suite-rom"
+                               data-bs-toggle="modal" data-bs-target="#rom-info-modal" onfocus="tildeleRomId(this.id)">
+                                <div class="p-3 d-flex flex-column mb-3 rom" id="rom-4">
+                                    <p class="lead m-0 my-2">Captain's Suite</p>
+                                    <small class="d-block fw-bold">1-4 Person</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="hidden" aria-describedby="lugar-feil-melding" id="lugar-fm-placeholder">
+                        <div class="invalid-feedback d-none lugar-feil-melding"></div>
+                        <p class="fs-5 text-center text-md-start text-theme">Reservert Lugarer</p>
+                        <template id="lugar-template">
+                            <div class="col-lg-6 d-flex flex-md-row flex-column text-lg-start text-center">
+                                <div class="w-100">
+                                    <div class="d-flex justify-content-between align-items-center p-3 mb-3 bg-light">
+                                        <small><span class="antall"></span> x <span class="tittel"></span></small>
+                                        <button class="btn btn-theme-secondary rom-fjern-btn"
+                                                onclick="fjernLugar(this)">Fjern</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                    <div class="row" id="valgt-lugar-template-tray"></div>
+                </div>
+
+                <div id="trinn-4" class="d-none">
+                    <div class="row">
+                        <div class="col-12 p-0">
+                            <h3 class="fw-light m-0 text-center text-lg-start text-theme">Velg Måltid</h3>
+                            <hr class="w-100 bg-theme">
+                        </div>
+                    </div>
+                    
+                    <div class="row g-3 maaltid-row mb-3" id="frokost-row">
+                        <div class="col-lg-4 p-0">
+                            <div class="cb-group">
+                                <input type="checkbox" id="frokost" class="d-none">
+                                <img src="assets/maaltid/frokost.jpg" class="img-fluid" alt="lunsj-img">
+                                <div class="cb-icon d-none shadow" id="frokost-ikon">
+                                    <i class="bi bi-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-3 maaltid-info" id="frokost-info">
+                            <h4 class="text-theme tittel">Frokost Buffet</h4>
+                            <p class="m-0">Reiser du ut på morgen anbefaler vi deg å starte dagen med en god
+                                frokostbuffet. Her kan du sette sammen frokosten etter dine ønsker. Utvalget er stort -
+                                enten du ønsker noe søtt eller sunt.
+                                Du får en god start på dagen med utvalgte pålegg og frokostklassikere som eggerøre og
+                                bacon. Kaffe, te, juice, melk og mineralvann er inkludert.
+                                Vi har eget utvalg av glutenfrie produkter.</p>
+                            <p class="pt-3 fs-5 text-theme">+ <span class="pris">119</span> kr</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-3 maaltid-row mb-3" id="lunsj-row">
+                        <div class="col-lg-4 p-0">
+                            <div class="cb-group">
+                                <input type="checkbox" id="lunsj" class="d-none">
+                                <img src="assets/maaltid/lunsj.jpg" class="img-fluid" alt="lunsj-img">
+                                <div class="cb-icon d-none shadow" id="lunsj-ikon">
+                                    <i class="bi bi-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-3 maaltid-info" id="lunsj-info">
+                            <h4 class="text-theme tittel">Lunsj Buffet</h4>
+                            <p class="m-0">I Grand Buffet kan du la syn og aroma friste deg til å smake på kjente og
+                                ukjente retter. Alt fra norsk sjømat av høy kvalitet til eksotiske smaker fra de ulike
+                                kontinenter.
+                                Her får du et godt utvalg av varme og kalde fisk- og kjøttretter, skalldyr, salater og
+                                desserter, samt egen Captain Kid-buffet for de minste og allergivennlige
+                                alternativer.</p>
+                            <p class="pt-3 fs-5 text-theme">+ <span class="pris">129</span> kr</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-3 maaltid-row mb-3" id="middag-row">
+                        <div class="col-lg-4 p-0">
+                            <div class="cb-group">
+                                <input type="checkbox" id="middag" class="d-none">
+                                <img src="assets/maaltid/middag.jpg" class="img-fluid" alt="lunsj-img">
+                                <div class="cb-icon d-none shadow" id="middag-ikon">
+                                    <i class="bi bi-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-3 maaltid-info" id="middag-info">
+                            <h4 class="text-theme tittel">Middag Buffet</h4>
+                            <p class="m-0">I Grand Buffet kan du la syn og aroma friste deg til å smake på kjente og
+                                ukjente retter.
+                                Her får du et godt utvalg av varme og kalde fisk- og kjøttretter, skalldyr, salater og
+                                desserter, samt egen Captain Kid-buffet for de minste og allergivennlige alternativer.
+                                Buffeten skifter innhold i løpet av året, med tema satt for sesongen. For reservasjoner
+                                kl. 1800 gjør vi oppmerksom på at buffeten stenger kl. 1930 fram til neste
+                                bordsitting.</p>
+                            <p class="pt-3 fs-5 text-theme">+ <span class="pris">199</span> kr</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="trinn-5" class="d-none">
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fw-light m-0 text-center text-lg-start text-theme">Passasjerer</h3>
+                            <hr class="w-100 bg-theme">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <form class="form" autocomplete="off" id="passasjerer-form-template-tray"></form>
+                        
+                        <template id="template-passasjer-form">
+                            <div class="row g-3 mb-4">
+                                <div class="col-lg-12">
+                                    <p class="text-theme fs-5 m-0 passasjer-tittel"></p>
+                                </div>
+
+                                <div class="col-md col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" placeholder="_" name="fornavn"
+                                               oninput="validerFornavn(this.id)">
+                                        <label>Fornavn</label>
+                                        <div class="invalid-feedback d-none fornavn-feil-melding"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" placeholder="_" name="etternavn"
+                                               oninput="validerEtternavn(this.id)">
+                                        <label>Etternavn</label>
+                                        <div class="invalid-feedback d-none etternavn-feil-melding"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md col-sm-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control fodselsdato" placeholder="_"
+                                               name="fodselsdato" data-date-open-on-focus="true" onfocus="this.blur()" 
+                                               onchange="validerFodselsDato(this.id)">
+                                        <div class="invalid-feedback d-none fodselsdato-feil-melding"></div>
+                                        <label>Fødselsdato</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div id="trinn-6" class="d-none">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fw-light m-0 text-center text-lg-start text-theme">Bekreft</h3>
+                            <hr class="w-100 bg-theme">
+                        </div>
+                        <div class="col-12">
+                            <div class="row justify-content-md-start justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="row"> 
+                                        <div class="col-12 text-center text-md-start">
+                                            <p class="fs-5 m-0">Avreise til
+                                                <span class="text-theme til-sted-tekst"></span>
+                                            </p>
+                                            <small class="text-black-50">fra <span class="fra-sted-tekst"></span></small>
+                                            <p class="d-flex text-lg-start text-center flex-md-row flex-column fs-6">
+                                                <small class="fra-dato-tekst me-2"></small>
+                                                <small>Kl 14:30</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 retur-element">
+                                    <div class="row">
+                                        <div class="col-12 text-center text-md-start">
+                                            <p class="fs-5 m-0">Retur til
+                                                <span class="text-theme fra-sted-tekst"></span>
+                                            </p>
+                                            <small class="text-black-50">fra <span class="til-sted-tekst"></span></small>
+                                            <p class="d-flex text-lg-start text-center flex-md-row flex-column">
+                                                <small class="til-dato-tekst me-2"></small>
+                                                <small>Kl 16:30</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="fs-5 m-0 text-center text-md-start text-theme">Reisefølger</p>
+                                        </div>
+                                        <div class="col-lg-12 d-flex flex-md-row flex-column text-lg-start text-center">
+                                            <small class="me-2"><span class="antall-voksen-tekst"></span> Voksen, </small>
+                                            <small class="me-2"><span class="antall-barn-tekst"></span> Barn, </small>
+                                            <small class="me-2"><span class="antall-dyr-tekst"></span> Kjæledyr, </small>
+                                            <small class="me-2"><span class="antall-sykkel-tekst"></span> Sykler </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="fs-5 m-0 text-center text-md-start text-theme">Lugar</p>
+                                        </div>
+                                        <div class="col-lg-12 d-flex flex-md-row flex-column text-lg-start text-center">
+                                            <div id="lugar-tekst-template-tray"></div>
+                                            <template id="valgt-lugar-tekst-template">
+                                                <small class="me-2"></small>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3 maaltid-element">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="fs-5 m-0 text-center text-md-start text-theme">Måltid</p>
+                                        </div>
+                                        <div class="col-lg-12 d-flex flex-md-row flex-column text-lg-start text-center">
+                                            <div id="maaltid-tekst-template-tray"></div>
+                                            <template id="valgt-maaltid-tekst-template">
+                                                <small class="me-2"></small>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="fs-5 m-0 text-center text-md-start text-theme">Passasjerer</p>
+                                        </div>
+                                        <div class="col-lg-12 d-flex flex-md-row flex-column text-lg-start text-center">
+                                            <div id="passasjer-tekst-template-tray"></div>
+                                            <template id="passasjer-tekst-template">
+                                                <small class="me-2"></small>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="trinn-7" class="d-none">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="fw-light m-0 text-center text-lg-start text-theme">Kontaktinformasjon</h3>
+                            <hr class="w-100 bg-theme">
+                        </div>
+                    </div>
+                    <div class="row mb-3 g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" placeholder="_" id="kunde-fornavn"
+                                       oninput="validerFornavn(this.id)" aria-describedby="kunde-fornavn-feil-melding">
+                                <label>Fornavn</label>
+                                <div class="invalid-feedback d-none" id="kunde-fornavn-feil-melding"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" placeholder="_" id="kunde-etternavn"
+                                       oninput="validerEtternavn(this.id)" aria-describedby="kunde-etternavn-feil-melding">
+                                <label>Etternavn</label>
+                                <div class="invalid-feedback d-none" id="kunde-etternavn-feil-melding"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" placeholder="_" id="kunde-tlf"
+                                       oninput="validerTlf(this.id)" aria-describedby="kunde-tlf-feil-melding">
+                                <label>Telefonnummer</label>
+                                <div class="invalid-feedback d-none" id="kunde-tlf-feil-melding"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" placeholder="_" id="kunde-epost"
+                                       oninput="validerEpost(this.id)" aria-describedby="kunde-epost-feil-melding">
+                                <label>E-post</label>
+                                <div class="invalid-feedback d-none" id="kunde-epost-feil-melding"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" placeholder="_" id="kunde-adresse"
+                                       oninput="validerAdresse(this.id)" aria-describedby="kunde-adresse-feil-melding">
+                                <label>Adresse</label>
+                                <div class="invalid-feedback d-none" id="kunde-adresse-feil-melding"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input type="number" class="form-control" placeholder="_" id="kunde-postnr"
+                                       oninput="validerPostnr(this.id)" aria-describedby="kunde-postnr-feil-melding">
+                                <label>Postnummer</label>
+                                <div class="invalid-feedback d-none" id="kunde-postnr-feil-melding"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" placeholder="_" id="kunde-poststed"
+                                       oninput="validerPoststed(this.id)" aria-describedby="kunde-poststed-feil-melding">
+                                <label>Poststed</label>
+                                <div class="invalid-feedback d-none" id="kunde-poststed-feil-melding"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h3 class="fw-light m-0 text-center text-lg-start text-theme">Ordresammendrag</h3>
+                            <hr class="w-100 bg-theme">
+                        </div>
+                        <div class="col-12 p-3 bg-light">
+                            <div class="d-flex justify-content-between">
+                                <p class="m-0 text-black-50">
+                                    <span class="fra-sted-tekst"></span> / 
+                                    <span class="til-sted-tekst"></span>
+                                </p>
+                                <p class="m-0 text-theme">
+                                    <span class="rute-pris-tekst"></span> kr
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p class="m-0 text-black-50">Måltider
+                                    <small class=""></small>
+                                    <small class=""></small>
+                                </p>
+                                <p class="m-0 text-theme">
+                                    <span class="maaltid-totalpris-tekst"></span> kr
+                                </p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <p class="m-0 text-black-50">Lugarer
+                                    <small class=""></small>
+                                    <small class=""></small>
+                                </p>
+                                <p class="m-0 text-theme">
+                                    <span class="lugar-totalpris-tekst"></span> kr
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 p-3 bg-theme-secondary">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="m-0">Totalpris:</p>
+                                <p class="fs-3 m-0">
+                                    <span class="bestilling-totalpris-tekst">5400</span> kr
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        
+        <div class="row justify-content-center justify-content-md-end mt-4" id="trinn-2-btns">
+            <div class="col-lg-3 text-center text-lg-end">
+                <button class="btn btn-outline-secondary" 
+                        onclick="tilbake('#neste-trinn','#trinn-1','','')">Tilbake</button>
+                <button class="btn btn-theme ms-3" 
+                        onclick="lagreAntallPassasjerer()">Gå videre</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center justify-content-md-end mt-4 d-none" id="trinn-3-btns">
+            <div class="col-lg-3 text-center text-lg-end">
+                <button class="btn btn-outline-secondary"
+                        onclick="tilbake('#trinn-3','#trinn-2','#trinn-3-btns','#trinn-2-btns')">Tilbake</button>
+                <button class="btn btn-theme ms-3"
+                        onclick="lagreLugar()">Gå videre</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center justify-content-md-end mt-4 d-none" id="trinn-4-btns">
+            <div class="col-lg-3 text-center text-lg-end">
+                <button class="btn btn-outline-secondary"
+                        onclick="tilbake('#trinn-4','#trinn-3','#trinn-4-btns','#trinn-3-btns')">Tilbake</button>
+                <button class="btn btn-theme ms-3"
+                        onclick="lagreMaaltider()">Gå videre</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center justify-content-md-end mt-4 d-none" id="trinn-5-btns">
+            <div class="col-lg-3 text-center text-lg-end">
+                <button class="btn btn-outline-secondary"
+                        onclick="tilbake('#trinn-5','#trinn-4','#trinn-5-btns','#trinn-4-btns')">Tilbake</button>
+                <button class="btn btn-theme ms-3"
+                        onclick="lagrePassasjerInfo()">Gå videre</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center justify-content-md-end mt-4 d-none" id="trinn-6-btns">
+            <div class="col-lg-3 text-center text-lg-end">
+                <button class="btn btn-outline-secondary"
+                        onclick="tilbake('#trinn-6','#trinn-5','#trinn-6-btns','#trinn-5-btns')">Tilbake</button>
+                <button class="btn btn-theme ms-3"
+                        onclick="bekreft()">Bekreft</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center justify-content-md-end mt-4 d-none" id="trinn-7-btns">
+            <div class="col-lg-3 text-center text-lg-end">
+                <button class="btn btn-outline-secondary"
+                        onclick="tilbake('#trinn-7','#trinn-6','#trinn-7-btns', '#trinn-6-btns')">Tilbake</button>
+                <button class="btn btn-theme ms-3" onclick="lagreBestilling()">Bestill</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer section -->
+<div class="container-fluid p-3 bg-theme text-white">
+    <p class="text-center m-0">Copyright &copy; Webapplikasjoner - Gruppe 3</p>
+</div>
+
+<!-- Modals -->
+<div class="modal fade" id="rom-info-modal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="rom-info-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header text-lg-center text-start">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-lg-12">
+                                <h2 class="rom-tittel fw-light modal-title text-theme">Title</h2>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="assets/cover.png" class="rom-bilde img-fluid" alt="img">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="rom-beskrivelse m-0">Beskrivelse</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-lg-end justify-content-start">
+                            <div class="col-lg-6">
+                                <p class="m-0 fs-5 text-theme text-lg-end text-start">
+                                    +<span class="rom-pris">500</span> kr
+                                </p>
+                            </div>
+                        </div>
+
+                        <hr class="w-100 bg-theme">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row mb-4">
+                                    <div class="col-lg-6">
+                                        <p class="m-0 fs-5 m-lg-0 flex-fill">Hvor mange vil du reservere?</p>
+                                    </div>
+                                    <div class="col-lg-6 d-lg-flex d-block align-items-center justify-content-lg-end">
+                                        <p class="text-black-50 m-0 me-3 fs-6">
+                                            Reservere opp til 
+                                            <span class="rom-max-reservasjon">30</span>
+                                            <span class="rom-span"> seter</span>
+                                        </p>
+                                        <div class="d-flex align-items-center mt-lg-0 mt-3 rom-btns">
+                                            <i class="bi bi-dash btn btn-icon minus" onclick="minusLugar()"></i>
+                                            <span class="mx-3 rom-antall-reservasjon">1</span>
+                                            <i class="bi bi-plus btn btn-icon pluss" onclick="plussLugar()"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <p class="d-flex justify-content-between p-3 bg-light border">
+                                    <span class="text-theme fw-bold">
+                                         <i class="bi bi-people-fill me-2"></i>Personer
+                                    </span>
+                                    <span class="rom-kapasitet">2</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-6">
+                                <p class="d-flex justify-content-between p-3 bg-light border">
+                                    <span class="text-theme fw-bold">
+                                        <i class="bi bi-grid me-2"></i>Vindu
+                                    </span>
+                                    <span class="rom-vindu">Ja</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="row g-3 flex-fill justify-content-center">
+                    <div class="col-lg-3">
+                        <button type="button" class="btn btn-outline-secondary w-100"
+                                data-bs-dismiss="modal" aria-label="Close">Lukk</button>
+                    </div>
+                    <div class="col-lg-3">
+                        <input type="hidden" id="valgt-lugar">
+                        <button type="button" class="btn btn-theme w-100"
+                                data-bs-dismiss="modal" aria-label="Close"
+                                id="velg-rom-btn" onclick="validerLugar()">Velg</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+<!-- jquery script -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<!-- jquery ui script -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- jquery ui date languages script -->
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js"></script>
+<!-- bootstrap script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+<!-- moment script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- my scripts -->
+<script src="js/ui.js"></script>
+<script src="js/validering.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
