@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
-using WebAppOppgave1.DAL.BestillingServices;
-using WebAppOppgave1.Models;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Web_app_oppgave_2.DAL.BestillingServices;
+using Web_app_oppgave_2.Models;
 
-namespace WebAppOppgave1.Contollers
+namespace Web_app_oppgave_2.Controllers
 {
     [Route("[controller]/[action]")]
     public class BestillingController : ControllerBase

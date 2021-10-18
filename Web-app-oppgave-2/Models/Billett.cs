@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace WebAppOppgave1.Models
+namespace Web_app_oppgave_2.Models
 {
     public class Billett
     {
