@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using WebAppOppgave1.Models;
+using Web_app_oppgave_2.Models;
 
-namespace WebAppOppgave1.DAL.BestillingServices
+namespace Web_app_oppgave_2.DAL.BestillingServices
 {
     public class BestillingRepository : IBestillingRepository
     {
