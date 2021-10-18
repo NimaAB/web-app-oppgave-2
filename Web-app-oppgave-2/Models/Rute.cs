@@ -8,6 +8,5 @@ namespace Web_app_oppgave_2.Models
         public int RuteID { get; set; }
         public string Tur { get; set; }
         public double Pris { get; set; }
-        //public virtual Billett Billett { get; set; }
     }
 }
