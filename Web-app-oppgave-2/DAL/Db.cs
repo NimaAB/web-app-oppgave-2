@@ -11,7 +11,9 @@ namespace Web_app_oppgave_2.DAL
             Database.EnsureCreated();
         }
 
-        public virtual DbSet<Kunde> Kunder { get; set; }
+        public DbSet<Lugar> Lugarer { get; set; }
+
+        /*public virtual DbSet<Kunde> Kunder { get; set; }
         public virtual DbSet<Bestilling> Bestillinger { get; set; }
         public virtual DbSet<Billett> Billetter { get; set; }
         public virtual DbSet<Passasjer> Passasjerer { get; set; }
@@ -20,7 +22,7 @@ namespace Web_app_oppgave_2.DAL
         public virtual DbSet<MealBestilling> MealBestillinger { get; set; }
         public virtual DbSet<LugarBestilling> LugarBestillinger { get; set; }
         public virtual DbSet<Postnummer> Poststeder { get; set; }
-        public virtual DbSet<Rute> Ruter { get; set; }
+        public virtual DbSet<Rute> Ruter { get; set; }*/
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

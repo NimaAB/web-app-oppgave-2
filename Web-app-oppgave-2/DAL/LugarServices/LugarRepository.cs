@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Web_app_oppgave_2.Models;
 
 namespace Web_app_oppgave_2.DAL.LugarServices
@@ -9,39 +9,46 @@ namespace Web_app_oppgave_2.DAL.LugarServices
     {
         //metodene mangler logger for nå, vi implementer det i stage 3.
         private readonly Db _db;
+        
         public LugarRepository(Db db)
         {
             _db = db;
         }
+        
         public async Task<List<Lugar>> HentAlleLugar()
         {
-            return _db.Lugarer.ToList();
+            var lugarer = await _db.Lugarer.ToListAsync();
+            return lugarer;
         }
 
-        public async Task<bool> OppdaterLugar(Lugar nyLugar)
+        public async Task<bool> OppdaterLugar(int id, Lugar nyLugar)
         {
-            throw new System.NotImplementedException();
+            var lugar = await _db.Lugarer.FindAsync(id);
+            if (lugar == null) return false;
+
+            lugar.Type = nyLugar.Type;
+            lugar.Beskrivelse = nyLugar.Beskrivelse;
+            lugar.Pris = nyLugar.Pris;
+            
+            await _db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> SlettLugar(int id)
         {
-            try
-            {
-                var lugar = await _db.Lugarer.FindAsync(id);
-                if (lugar == null) return false;
-                _db.Lugarer.Remove(lugar);
-                _db.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            var lugar = await _db.Lugarer.FindAsync(id);
+            if (lugar == null) return false;
+            _db.Lugarer.Remove(lugar);
+            await _db.SaveChangesAsync();
+            return true;
         }
 
         public async Task<bool> LagreLugar(Lugar lugar)
         {
-            throw new System.NotImplementedException();
+            if (lugar.Type is null || lugar.Beskrivelse is null || lugar.Pris <= 0) return false;
+            await _db.Lugarer.AddAsync(lugar);
+            await _db.SaveChangesAsync();
+            return true;
         }
     }
 }

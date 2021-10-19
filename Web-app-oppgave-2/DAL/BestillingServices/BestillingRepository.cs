@@ -26,8 +26,13 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
         {
             throw new System.NotImplementedException();
         }
+        
+        public async Task<bool> LagreBestilling(Bestilling bestilling)
+        {
+            throw new System.NotImplementedException();
+        }
 
-        public async Task<bool> LagreBestilling(Bestilling innBestilling)
+        /*public async Task<bool> LagreBestilling(Bestilling innBestilling)
         {
             try
             {
@@ -89,6 +94,6 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
             {
                 return false;
             }
-        }
+        }*/
     }
 }
