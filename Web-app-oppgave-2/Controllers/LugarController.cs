@@ -25,7 +25,7 @@ namespace Web_app_oppgave_2.Controllers
         }
 
         // POST: api/lugar/oppdater/3
-        [HttpPost("oppdater/{id}")]
+        [HttpPut("oppdater/{id}")]
         public async Task<IActionResult> OppdaterLugar(int id, Lugar lugar)
         {
             var value = await _repo.OppdaterLugar(id, lugar);
@@ -34,7 +34,7 @@ namespace Web_app_oppgave_2.Controllers
         }
 
         // POST: api/lugar/slett/3
-        [HttpPost("slett/{id}")]
+        [HttpDelete("slett/{id}")]
         public async Task<IActionResult> SlettLugar(int id)
         {
             var value = await _repo.SlettLugar(id);
