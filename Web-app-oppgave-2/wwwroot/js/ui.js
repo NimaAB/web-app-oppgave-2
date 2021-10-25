@@ -247,9 +247,9 @@ function generereRomDetaljer(id) {
     }
 }
 
-// Oppdater UI verdier basert på valgt verdier på de forskjellige trinnene
+// Oppdaterer tekst verdier på 'Se Overbestilling trinn' basert på valgt verdier på de forskjellige trinnene
 
-function oppdaterUIForRute(){
+function oppdaterRuteTekst(){
     let fraStedTekst = $('.fra-sted-tekst');
     let tilStedTekst = $('.til-sted-tekst');
     let fraDatoTekst = $('.fra-dato-tekst');
@@ -263,7 +263,7 @@ function oppdaterUIForRute(){
     rutePrisTekst.text(rute.pris);
 }
 
-function oppdaterUIForReisefolger(){
+function oppdaterReisefolgerTekst(){
     let antallVoksenTekst = $('.antall-voksen-tekst');
     let antallBarnTekst = $('.antall-barn-tekst');
     let antallDyrTekst = $('.antall-dyr-tekst');
@@ -275,7 +275,7 @@ function oppdaterUIForReisefolger(){
     antallSykkelTekst.text(antallSykler);
 }
 
-function oppdaterUIForLugarer(){
+function oppdaterLugarerTekst(){
     let lugarTekstTemplate = document.getElementById('valgt-lugar-tekst-template');
     let parent = $("#lugar-tekst-template-tray");
     lugarTotalPris = 0;
@@ -291,7 +291,7 @@ function oppdaterUIForLugarer(){
     $('.lugar-totalpris-tekst').text(lugarTotalPris);
 }
 
-function oppdaterUIForMaaltid(){
+function oppdaterMaaltidTekst(){
     let maaltidTekstTemplate = document.getElementById('valgt-maaltid-tekst-template');
     let parent = $('#maaltid-tekst-template-tray');
     maaltidTotalPris = 0;
@@ -316,7 +316,7 @@ function oppdaterUIForMaaltid(){
     maaltidTotalPris = totalPris;
 }
 
-function oppdaterUIForPassasjerer(){
+function oppdaterPassasjererTekst(){
     let passasjerTekstTemplate = document.getElementById('passasjer-tekst-template');
     let parent = $("#passasjer-tekst-template-tray");
     parent.empty();
@@ -329,7 +329,7 @@ function oppdaterUIForPassasjerer(){
 }
 
 // form hvor alle passasjerer må gi navnet og fødselsdato
-function oppdaterUIForPassasjerForm(){
+function oppdaterPassasjerForm(){
     let passasjerFormTemplate = document.getElementById('template-passasjer-form');
     let parent = $('#passasjerer-form-template-tray');
     parent.empty();

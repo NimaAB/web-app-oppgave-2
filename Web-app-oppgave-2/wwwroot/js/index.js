@@ -35,28 +35,28 @@ let bestillingTotalPris = 0;
 
 function lagreRute(){
     validerTrinn1();
-    oppdaterUIForRute();
+    oppdaterRuteTekst();
 }
 
 function lagreAntallPassasjerer(){
     validerTrinn2();
-    oppdaterUIForReisefolger();
-    oppdaterUIForPassasjerForm();
+    oppdaterReisefolgerTekst();
+    oppdaterPassasjerForm();
 }
 
 function lagreLugar(){
     validerTrinn3();
-    oppdaterUIForLugarer();
+    oppdaterLugarerTekst();
 }
 
 function lagreMaaltider(){
     validerTrinn4();
-    oppdaterUIForMaaltid();
+    oppdaterMaaltidTekst();
 }
 
 function lagrePassasjerInfo(){
     validerTrinn5();
-    oppdaterUIForPassasjerer();
+    oppdaterPassasjererTekst();
 }
 
 function bekreft(){
