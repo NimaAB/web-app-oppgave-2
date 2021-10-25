@@ -31,7 +31,8 @@ namespace Web_app_oppgave_2.DAL.LugarServices
                 lugar.Type = nyLugar.Type;
                 lugar.Beskrivelse = nyLugar.Beskrivelse;
                 lugar.Pris = nyLugar.Pris;
-            
+                
+                _db.Lugarer.Update(lugar);
                 await _db.SaveChangesAsync();
                 return true;
             }
