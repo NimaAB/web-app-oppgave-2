@@ -23,12 +23,31 @@ namespace Web_app_oppgave_2.Controllers
             return Ok(value);
         }
 
-        [HttpPost("oppdater/{id}")]
+        [HttpPut("oppdater/{id}")]
         public async Task<IActionResult> OppdaterMeal(int id, Meal nyMeal)
         {
             var value = await _repo.Oppdater(id, nyMeal);
             return !value ? NotFound("Måltiden du prøver å oppdatere finnes ikke.")
                 : StatusCode(200, "Måltid er oppdatert");
         }
+
+        [HttpDelete("slett/{id}")]
+        public async Task<IActionResult> SlettMeal(int id)
+        {
+            var value = await _repo.Slett(id);
+            return !value
+                ? NotFound("Måltiden du prøver å oppdatere finnes ikke.")
+                : StatusCode(200, "Måltid er slettet");
+        }
+
+        [HttpPost("lagre")]
+        public async Task<IActionResult> LagreMeal(Meal meal)
+        {
+            var value = await _repo.Lagre(meal);
+            return !value
+                ? BadRequest("Noe gikk galt. Måltid ble ikke lagret")
+                : StatusCode(200, "Ny måltid er lagret.");
+        }
+        
     }
 }
