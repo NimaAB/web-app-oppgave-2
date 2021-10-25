@@ -12,7 +12,6 @@ let avreiseDato = ""; // string: DD/MM/YYYY
 let returDato = ""; // string: DD/MM/YYYY
 
 // Trinn 2: Antall reisefølger
-
 let antallVoksen = 1; // minst 1 voksen må være tilstedet
 let antallBarn = 0;
 let antallDyr = 0;
