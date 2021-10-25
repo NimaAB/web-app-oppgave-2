@@ -23,32 +23,55 @@ namespace Web_app_oppgave_2.DAL.LugarServices
 
         public async Task<bool> OppdaterLugar(int id, Lugar nyLugar)
         {
-            var lugar = await _db.Lugarer.FindAsync(id);
-            if (lugar == null) return false;
+            try
+            {
+                var lugar = await _db.Lugarer.FindAsync(id);
+                if (lugar == null) return false;
 
-            lugar.Type = nyLugar.Type;
-            lugar.Beskrivelse = nyLugar.Beskrivelse;
-            lugar.Pris = nyLugar.Pris;
+                lugar.Type = nyLugar.Type;
+                lugar.Beskrivelse = nyLugar.Beskrivelse;
+                lugar.Pris = nyLugar.Pris;
             
-            await _db.SaveChangesAsync();
-            return true;
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public async Task<bool> SlettLugar(int id)
         {
-            var lugar = await _db.Lugarer.FindAsync(id);
-            if (lugar == null) return false;
-            _db.Lugarer.Remove(lugar);
-            await _db.SaveChangesAsync();
-            return true;
+            try
+            {
+                var lugar = await _db.Lugarer.FindAsync(id);
+                if (lugar == null) return false;
+                _db.Lugarer.Remove(lugar);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
 
         public async Task<bool> LagreLugar(Lugar lugar)
         {
-            if (lugar.Type is null || lugar.Beskrivelse is null || lugar.Pris <= 0) return false;
-            await _db.Lugarer.AddAsync(lugar);
-            await _db.SaveChangesAsync();
-            return true;
+            try
+            {
+                if (lugar.Type is null || lugar.Beskrivelse is null || lugar.Pris <= 0) return false;
+                await _db.Lugarer.AddAsync(lugar);
+                await _db.SaveChangesAsync();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
     }
 }
