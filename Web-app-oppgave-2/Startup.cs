@@ -7,7 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Web_app_oppgave_2.DAL;
+using Web_app_oppgave_2.DAL.BestillingServices;
 using Web_app_oppgave_2.DAL.LugarServices;
+using Web_app_oppgave_2.DAL.MealServices;
 
 namespace Web_app_oppgave_2
 {
@@ -27,7 +29,9 @@ namespace Web_app_oppgave_2
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
             services.AddDbContext<Db>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IBestillingRepository, BestillingRepository>();
             services.AddScoped<ILugarRepository, LugarRepository>();
+            services.AddScoped<IMealRepository, MealRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
