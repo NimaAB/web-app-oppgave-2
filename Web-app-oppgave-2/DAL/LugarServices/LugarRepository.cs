@@ -33,7 +33,10 @@ namespace Web_app_oppgave_2.DAL.LugarServices
                 if (lugar == null) return false;
 
                 lugar.Type = nyLugar.Type;
+                lugar.Navn = nyLugar.Navn;
+                lugar.Kapasitet = nyLugar.Kapasitet;
                 lugar.Beskrivelse = nyLugar.Beskrivelse;
+                lugar.MaxReservasjon = nyLugar.MaxReservasjon;
                 lugar.Pris = nyLugar.Pris;
                 
                 _db.Lugarer.Update(lugar);

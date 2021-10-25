@@ -9,7 +9,10 @@ namespace Web_app_oppgave_2.Models
         [Key]
         public int LugarNummer { get; set; }
         public string Type { get; set; }
+        public string Navn { get; set; }
+        public int Kapasitet { get; set; }
         public string Beskrivelse { get; set; }
+        public int MaxReservasjon { get; set; }
         //public MediaTypeNames.Image Bilde { get; set; }
         public double Pris { get; set; }
     }

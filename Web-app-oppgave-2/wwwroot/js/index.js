@@ -41,6 +41,7 @@ function lagreAntallPassasjerer(){
     validerTrinn2();
     oppdaterReisefolgerTekst();
     oppdaterPassasjerForm();
+    hentAlleLugarer();
 }
 
 function lagreLugar(){
@@ -61,6 +62,21 @@ function lagrePassasjerInfo(){
 function bekreft(){
     validerTrinn6()
     $('.bestilling-totalpris-tekst').text(bestillingTotalPris);
+}
+
+function hentAlleLugarer(){
+    let url = '/api/lugar';
+    $.get(url, response => {
+        console.log(response);
+        genererLugarModalToggles(response); 
+    });
+}
+
+function hentEnLugar(id){
+    let url = '/api/lugar/' + id;
+    $.get(url, response => {
+       tildeleLugarDetaljer(response);
+    });
 }
 
 function lagreBestilling(){

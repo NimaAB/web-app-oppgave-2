@@ -110,6 +110,8 @@ function merkerValgtRute() {
     });
 }
 
+// TODO: Fix lugar counter
+
 function plussLugar() {
     let lugar = $("#valgt-lugar").val();
     let btnWrapper = $('#' + lugar + '-btns');
@@ -149,36 +151,71 @@ function minusLugar() {
     }
 }
 
-// Setter id på valgt rom for separat tildeling av verdier
-function tildeleRomId(id){
-    // assign ids
-    $("#valgt-lugar").val(id);
-    $(".rom-btns").attr('id', id + '-btns');
-    $(".rom-tittel").attr('id', id + '-tittel');
-    $(".rom-beskrivelse").attr('id', id + '-beskrivelse');
-    $(".rom-pris").attr('id', id + '-pris');
-    $(".rom-kapasitet").attr('id', id + '-kapasitet');
-    $(".rom-max-reservasjon").attr('id', id + '-max-reservasjon');
-    $(".rom-antall-reservasjon").attr('id', id + '-antall-reservasjon');
-    $(".rom-bilde").attr('id', id + '-bilde');
-    $(".rom-vindu").attr('id', id + '-vindu');
-    $(".rom-span").attr('id', id + '-span');
-    generereRomDetaljer(id);
+// Generer lugar modal toggles (alle lugarer deler samme modal)
+function genererLugarModalToggles(lugarer){
+    
+    // lugar toggle template (child)
+    let toggle = document.getElementById('lugar-toggle-template');
+    
+    // lugar toggle container (parent)
+    let parent = $("#lugar-toggle-template-container");
+    parent.empty();
+    
+    for(let i = 0; i < lugarer.length; i++) {
+        let child = toggle.content.cloneNode(true);
+        
+        let el = child.querySelector('a');
+        let navn = child.querySelector('.lugar-navn');
+        let kapasitet = child.querySelector('.lugar-kapasitet');
+        
+        // TODO: Set background-image from db.
+        el.setAttribute('id', lugarer[i].lugarNummer);
+        navn.innerText = lugarer[i].navn;
+        kapasitet.innerText = lugarer[i].kapasitet > 1 ? '1-' + lugarer[i].kapasitet + ' Personer' : lugarer[i].kapasitet + ' Person';
+        
+        parent.append(child);
+    }
 }
 
 // Genererer rom info fordi alle romene deler kun en modal
-function generereRomDetaljer(id) {
-    let romTittel = $('#'+ id + '-tittel');
-    let romBeskrivelse = $('#'+ id + '-beskrivelse');
-    let romPris = $('#'+ id + '-pris');
-    let romKapasitet = $('#'+ id + '-kapasitet');
-    let romMaxReservasjon = $('#'+ id + '-max-reservasjon');
-    let romAntallReservasjon = $('#'+ id + '-antall-reservasjon');
-    let romBilde = $('#'+ id + '-bilde');
-    let romVindu = $('#'+ id + '-vindu');
-    let romSpan = $('#'+ id + '-span');
+function tildeleLugarDetaljer(lugar) {
     
-    switch (id) {
+    let romTittel = $('.rom-tittel');
+    let romBeskrivelse = $('.rom-beskrivelse');
+    let romPris = $('.rom-pris');
+    let romKapasitet = $('.rom-kapasitet');
+    let romMaxReservasjon = $('.rom-max-reservasjon');
+    let romAntallReservasjon = $('.rom-antall-reservasjon');
+    let romBilde = $('.rom-bilde');
+    let romVindu = $('.rom-vindu');
+    let romSpan = $('.rom-span');
+
+    romTittel.text(lugar.navn);
+    romPris.text(lugar.pris);
+    romKapasitet.text(lugar.kapasitet > 1 ? '1-' + lugar.kapasitet + ' Personer' : lugar.kapasitet + ' Person');
+    romMaxReservasjon.text(lugar.maxReservasjon);
+    romAntallReservasjon.text('0');
+    romBilde.attr('src', 'assets/lugar/air-seat.jpg');
+    romVindu.text('Ja');
+    romSpan.text(lugar.type);
+    romBeskrivelse.text(lugar.beskrivelse);
+
+    // Sette html verdier til dataen hentet fra server
+    /*if(lugar) {
+        romTittel.text(lugar.navn);
+        romPris.text(lugar.pris);
+        romKapasitet.text(lugar.kapasitet > 1 ? '1-' + lugar.kapasitet + ' Personer' : lugar.kapasitet + ' Person');
+        romMaxReservasjon.text(lugar.maxReservasjon);
+        romAntallReservasjon.text('0');
+        romBilde.attr('src', 'assets/lugar/air-seat.jpg');
+        romVindu.text('Ja');
+        romSpan.text(lugar.type);
+        romBeskrivelse.text(lugar.beskrivelse);
+    } else {
+        console.log('Not shown');
+    }*/
+    
+    /*switch (id) {
         case 'air-seat':
             romTittel.text('Air Seat');
             romPris.text('299');
@@ -244,7 +281,32 @@ function generereRomDetaljer(id) {
                 "minibar, bad med dusj og WC. Størrelsen på denne typen lugar er ca. 24 m² og de ligger " +
                 "midtskips/akter på dekk 9. ");
             break;
-    }
+    }*/
+}
+
+// Setter id på valgt lugar for separat tildeling av verdier
+function tildeleLugarId(id){
+    // assign ids
+    $("#valgt-lugar").val(id);
+    $(".rom-btns").attr('id', id + '-btns');
+    $(".rom-tittel").attr('id', id + '-tittel');
+    $(".rom-beskrivelse").attr('id', id + '-beskrivelse');
+    $(".rom-pris").attr('id', id + '-pris');
+    $(".rom-kapasitet").attr('id', id + '-kapasitet');
+    $(".rom-max-reservasjon").attr('id', id + '-max-reservasjon');
+    $(".rom-antall-reservasjon").attr('id', id + '-antall-reservasjon');
+    $(".rom-bilde").attr('id', id + '-bilde');
+    $(".rom-vindu").attr('id', id + '-vindu');
+    $(".rom-span").attr('id', id + '-span');
+}
+
+// Generer lugar detaljer i modalen
+function genererLugarDetaljer(id){
+    // assign ids
+    tildeleLugarId(id);
+    // laste opp lugar detaljer
+    tildeleLugarDetaljer(id);
+
 }
 
 // Oppdaterer tekst verdier på 'Se Overbestilling trinn' basert på valgt verdier på de forskjellige trinnene

@@ -348,17 +348,22 @@
                             <hr class="w-100 bg-theme">
                         </div>
                     </div>
-                    <div class="row">
+                    
+                    <template id="lugar-toggle-template">
                         <div class="col-lg-4">
-                            <a href="index.html" class="text-decoration-none text-white a-link-block" id="air-seat"
-                               data-bs-toggle="modal" data-bs-target="#rom-info-modal" onclick="tildeleRomId(this.id)">
-                                <div class="p-3 d-flex flex-column mb-3 rom" id="sete-1">
-                                    <p class="lead m-0 my-2">Air Seat</p>
-                                    <small class="d-block fw-bold">1 Person</small>
+                            <a href="index.html" class="text-decoration-none text-white a-link-block"
+                               data-bs-toggle="modal" data-bs-target="#rom-info-modal" onclick="hentEnLugar(this.id)">
+                                <div class="p-3 d-flex flex-column mb-3 rom">
+                                    <p class="lead m-0 my-2 lugar-navn"></p>
+                                    <small class="d-block lugar-kapasitet"></small>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-4">
+                    </template>
+                    
+                    <div class="row" id="lugar-toggle-template-container">
+                        
+                        <!-- <div class="col-lg-4">
                             <a href="index.html" class="text-decoration-none text-white a-link-block" id="standard-rom"
                                data-bs-toggle="modal" data-bs-target="#rom-info-modal" onfocus="tildeleRomId(this.id)">
                                 <div class="p-3 d-flex flex-column mb-3 rom" id="rom-1">
@@ -393,8 +398,9 @@
                                     <small class="d-block fw-bold">1-4 Person</small>
                                 </div>
                             </a>
-                        </div>
+                        </div>-->
                     </div>
+                    
                     <div class="row">
                         <input type="hidden" aria-describedby="lugar-feil-melding" id="lugar-fm-placeholder">
                         <div class="invalid-feedback d-none lugar-feil-melding"></div>
