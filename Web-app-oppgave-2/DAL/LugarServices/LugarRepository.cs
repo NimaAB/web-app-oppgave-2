@@ -15,13 +15,17 @@ namespace Web_app_oppgave_2.DAL.LugarServices
             _db = db;
         }
         
-        public async Task<List<Lugar>> HentAlleLugar()
+        public async Task<List<Lugar>> HentAlle()
         {
-            var lugarer = await _db.Lugarer.ToListAsync();
-            return lugarer;
+            return await _db.Lugarer.ToListAsync();
         }
 
-        public async Task<bool> OppdaterLugar(int id, Lugar nyLugar)
+        public async Task<Lugar> HentEn(int id)
+        {
+            return await _db.Lugarer.FindAsync(id);
+        }
+
+        public async Task<bool> Oppdater(int id, Lugar nyLugar)
         {
             try
             {
@@ -42,7 +46,7 @@ namespace Web_app_oppgave_2.DAL.LugarServices
             }
         }
 
-        public async Task<bool> SlettLugar(int id)
+        public async Task<bool> Slett(int id)
         {
             try
             {
@@ -59,7 +63,7 @@ namespace Web_app_oppgave_2.DAL.LugarServices
             
         }
 
-        public async Task<bool> LagreLugar(Lugar lugar)
+        public async Task<bool> Lagre(Lugar lugar)
         {
             try
             {

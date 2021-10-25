@@ -19,7 +19,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpGet]
         public async Task<IActionResult> HentAlleMeals()
         {
-            var value = _repo.HentAlle();
+            var value = await _repo.HentAlle();
             return Ok(value);
         }
 
@@ -27,7 +27,8 @@ namespace Web_app_oppgave_2.Controllers
         public async Task<IActionResult> OppdaterMeal(int id, Meal nyMeal)
         {
             var value = await _repo.Oppdater(id, nyMeal);
-            return !value ? NotFound("Måltiden du prøver å oppdatere finnes ikke.")
+            return !value 
+                ? NotFound("Måltiden du prøver å oppdatere finnes ikke.")
                 : StatusCode(200, "Måltid er oppdatert");
         }
 

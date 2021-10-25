@@ -20,7 +20,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpGet]
         public async Task<IActionResult> HentAlleRuter()
         {
-            var value = _repo.HentAlle();
+            var value = await _repo.HentAlle();
             return Ok(value);
         }
 
