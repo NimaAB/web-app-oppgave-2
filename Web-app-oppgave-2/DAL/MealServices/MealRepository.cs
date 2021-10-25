@@ -27,6 +27,7 @@ namespace Web_app_oppgave_2.DAL.MealServices
                 if (meal == null) return false;
                 meal.Maaltid = nyMeal.Maaltid;
                 meal.Beskrivelse = nyMeal.Beskrivelse;
+                meal.Bilde = nyMeal.Bilde;
                 meal.Pris = nyMeal.Pris;
                 
                 _db.Meals.Update(meal);
@@ -59,7 +60,10 @@ namespace Web_app_oppgave_2.DAL.MealServices
         {
             try
             {
-                if (meal.Maaltid is null || meal.Beskrivelse is null || meal.Pris <= 0) return false;
+                if (meal.Maaltid is null 
+                    || meal.Bilde.Length == 0
+                    || meal.Beskrivelse is null 
+                    || meal.Pris <= 0) return false;
                 await _db.Meals.AddAsync(meal);
                 await _db.SaveChangesAsync();
                 return true;
