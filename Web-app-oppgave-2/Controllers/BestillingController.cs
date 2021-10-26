@@ -17,7 +17,7 @@ namespace Web_app_oppgave_2.Controllers
 
         public async Task<bool> Lagre(Bestilling innBestilling)
         {
-            bool saved = await _db.LagreBestilling(innBestilling);
+            bool saved = await _db.Lagre(innBestilling);
             return saved;
         }
     }

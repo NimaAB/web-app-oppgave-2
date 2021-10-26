@@ -10,7 +10,7 @@ namespace Web_app_oppgave_2.DAL
         {
             Database.EnsureCreated();
         }
-
+        
         public virtual DbSet<Kunde> Kunder { get; set; }
         public virtual DbSet<Bestilling> Bestillinger { get; set; }
         public virtual DbSet<Billett> Billetter { get; set; }
