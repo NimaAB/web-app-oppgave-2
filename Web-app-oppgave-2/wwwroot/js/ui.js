@@ -11,7 +11,10 @@ $(document).ready(function () {
     $.datepicker.setDefaults($.datepicker.regional['no']); // endrer dato språk
     enableRuteDatePicker();
     deaktiverInputs(reiseTypeInput ,fraDatoInput, tilDatoInput);
-    merkerValgtRute();
+    
+    // Viser loading gif når vi henter alle lugarer fra db
+    visLoader('Henter tilgjengelig ruter...');
+    hentAlleRuter();
 });
 
 // Noen input felter må først velges før de andre
@@ -269,6 +272,42 @@ function genererMaaltidDetaljer(maaltider){
         tittel.innerText = m.maaltid;
         beskrivelse.innerText = m.beskrivelse;
         pris.innerText = m.pris;
+        
+        parent.append(child);
+    }
+}
+
+// Generer rute detaljer fra db
+function genererRuteDetaljer(ruter){
+    let template = document.getElementById('rute-liste-template');
+    let parent = $('#rute-liste-container');
+    parent.empty();
+    
+    for(let i = 0; i < ruter.length; i++) {
+        let child = template.content.cloneNode(true);
+        let r = ruter[i];
+        let rArr = r.tur.split(';');
+
+        // Elementene vi trenger for å vise en måltid
+        let col = child.querySelector('.rute-col');
+        let ruteFra = col.querySelector('.rute-fra');
+        let ruteTil = col.querySelector('.rute-til');
+        let pris = col.querySelector('.pris');
+        let input = col.querySelector('input');
+        let label = col.querySelector('label');
+        let ikon = col.querySelector('.ikon');
+        
+        // Setter verdier fra db til elementene
+        col.setAttribute('id', 'rute-' + r.ruteID + '-col');
+        input.setAttribute('id', 'rute-' + r.ruteID);
+        input.setAttribute('value', 'rute-' + r.ruteID);
+        label.setAttribute('for', 'rute-' + r.ruteID);
+        ikon.setAttribute('id', 'rute-' + r.ruteID + '-ikon');
+        pris.setAttribute('id', 'rute-' + r.ruteID + '-pris');
+        ruteFra.innerText = rArr[0];
+        ruteTil.innerText = rArr[1];
+        label.innerText = 'Velg'
+        pris.innerText = r.pris;
         
         parent.append(child);
     }

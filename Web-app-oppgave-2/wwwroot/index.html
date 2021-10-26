@@ -80,25 +80,14 @@
                 <h1 class="fw-light text-center text-theme">Hvor vil du reise?</h1>
             </div>
             
-            <div class="col-lg-4 col-md-6 p-2" id="no-de-col">
-                <div class="rb-group">
-                    <div class="p-3 d-flex justify-content-center">
-                        <p class="m-0 rute-fra"><span class="flag-icon flag-icon-no me-3"></span>Oslo</p>
-                        <span class="bi bi-arrow-right mx-3"></span>
-                        <p class="m-0 rute-til"><span class="flag-icon flag-icon-de me-3"></span>Kiel</p>
-                    </div>
-                    <p class="m-0 p-2 bg-theme-secondary text-center fs-5 text-theme">
-                        <span id="no-de-pris">910</span> kr
-                    </p>
-                    <input type="radio" name="ruter" id="no-de" class="d-none" value="no-de" onchange="validerRute()">
-                    <label for="no-de"></label>
-                    <div class="rb-icon d-none shadow" id="no-de-ikon">
-                        <i class="bi bi-check"></i>
-                    </div>
+            <div class="col-12 mb-3">
+                <div class="loader d-none">
+                    <img src="assets/loading-icon.gif" alt="loading" class="img-fluid d-block mx-auto" style="width: 100px">
+                    <p class="text-theme text-center loader-message"></p>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 p-2" id="no-se-col">
+            <!--<div class="col-lg-4 col-md-6 p-2" id="no-se-col">
                 <div class="rb-group">
                     <div class="p-3 d-flex justify-content-center">
                         <p class="m-0 rute-fra"><span class="flag-icon flag-icon-no me-3"></span>Oslo</p>
@@ -132,11 +121,34 @@
                         <i class="bi bi-check"></i>
                     </div>
                 </div>
-            </div>
+            </div>-->
+        </div>
 
+        <div class="row mb-3 justify-content-center" id="rute-liste-container"></div>
+        <template id="rute-liste-template">
+            <div class="col-lg-4 col-md-6 p-2 rute-col">
+                <div class="rb-group">
+                    <p class="m-0 pt-3 bg-light text-center fs-5 text-theme">
+                        <span class="pris"></span> kr
+                    </p>
+                    <div class="p-3 d-flex justify-content-center bg-light">
+                        <p class="m-0 rute-fra"></p>
+                        <span class="bi bi-arrow-right mx-3"></span>
+                        <p class="m-0 rute-til"></p>
+                    </div>
+                    <input type="radio" name="ruter" class="d-none" onchange="validerRute()">
+                    <label class="btn btn-dark w-100 py-2" onclick="merkerValgtRute()"></label>
+                    <div class="rb-icon d-none ikon">
+                        <i class="bi bi-check"></i>
+                    </div>
+                </div>
+            </div>
+        </template>
+        
+        <div class="row">
             <div class="col-12">
                 <input type="hidden" id="rute-input-placeholder" aria-describedby="rute-feil-melding">
-                <div class="invalid-feedback d-none text-center" id="rute-feil-melding">Velg en rute.</div>
+                <div class="invalid-feedback d-none text-center py-3" id="rute-feil-melding">Velg en rute.</div>
             </div>
         </div>
 

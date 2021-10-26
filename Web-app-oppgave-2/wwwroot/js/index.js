@@ -71,6 +71,20 @@ function bekreft(){
     $('.bestilling-totalpris-tekst').text(bestillingTotalPris);
 }
 
+function hentAlleRuter(){
+    let url = '/api/rute';
+    $.get(url, response => {
+        genererRuteDetaljer(response);
+    })
+        .done(function () {
+            visTrinn('#trinn-2', '#trinn-2-btns');
+            skjulLoader();
+        })
+        .fail(function () {
+            console.log('Something went wrong.');
+        });
+}
+
 function hentAlleLugarer(){
     let url = '/api/lugar';
     $.get(url, response => {
