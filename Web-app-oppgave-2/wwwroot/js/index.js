@@ -18,7 +18,7 @@ let antallDyr = 0;
 let antallSykler = 0;
 
 // Trinn 3: Lugarer
-let lugarer = []; // array av lugar objekter: har type, antall og totalPris keys
+let lugarer = []; // array av lugar objekter: har id, tittel, antall og pris keys
 let lugarTotalPris = 0;
 
 // Trinn 4: Måltid
@@ -130,11 +130,6 @@ function lagreBestilling(){
 
     // Reformatter slik at de har samme attributtene som i db tabellen.
     
-    passasjerer.forEach(function (item) {
-       let person = {Fornavn: item.fornavn, Etternavn: item.etternavn, Fodselsdato: item.fodselsDato };
-       Passasjer.push(person);
-    });
-
     maaltider.forEach(function (item) {
         let meal = { Maaltid: item.navn, Pris: item.pris };
         Meals.push(meal);
@@ -145,7 +140,8 @@ function lagreBestilling(){
         Lugarer.push(lugar);
     });
 
-    Passasjer.forEach(function (item) {
+    // Oppretter en billett objekt for hver passasjer
+    passasjerer.forEach(function (item) {
         let tur = {
             tur: rute.ruteFra + "-" + rute.ruteTil,
                 pris: rute.pris
@@ -169,7 +165,8 @@ function lagreBestilling(){
         }
         Billetter.push(billett);
     });
-
+    
+    // Oppretter en bestilling objekt
     let bestilling = {
         Kunde: {
             Fornavn: kunde.fornavn,

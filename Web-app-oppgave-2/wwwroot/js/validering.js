@@ -221,8 +221,6 @@ function leggTilValgtMaaltid(id){
     let maaltidNavn = $('#' + id + ' .tittel').text();
     let input = $(inputId);
     
-    console.log('clicked', id);
-
     // virker som en checked/unchecked toggle
     $(input).attr("checked", !$(input).attr("checked"));
 
@@ -261,15 +259,15 @@ function validerPassajerForm(fornavnListe, etternavnListe, fodselsDatoListe) {
 }
 
 function lagePassasjerObjekt(fornavnListe, etternavnListe, datoListe){
-    // Tæmmer arrayet når bruker går tilbake og endrer antall passasjerer
+    // Tømmer arrayet når bruker går tilbake og endrer antall passasjerer
     passasjerer.length = 0;
     
     for(let i = 0; i < fornavnListe.length; i++) {
         let fornavn = fornavnListe[i].value;
         let etternavn = etternavnListe[i].value;
-        let formattedDate = formatterDato(datoListe[i].id);
+        let formattertDato = formatterDato(datoListe[i].id);
         
-        let objekt = {'fornavn': fornavn, 'etternavn':etternavn, 'fodselsDato': formattedDate };
+        let objekt = {Fornavn: fornavn, Etternavn: etternavn, Fodselsdato: formattertDato };
         passasjerer.push(objekt);
     }
 }

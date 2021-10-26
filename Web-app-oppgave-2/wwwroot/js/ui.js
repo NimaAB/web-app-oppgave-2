@@ -12,7 +12,7 @@ $(document).ready(function () {
     enableRuteDatePicker();
     deaktiverInputs(reiseTypeInput ,fraDatoInput, tilDatoInput);
     
-    // Viser loading gif når vi henter alle lugarer fra db
+    // Viser loading gif når vi henter alle ruter fra db
     visLoader('Henter tilgjengelig ruter...');
     hentAlleRuter();
 });
@@ -168,16 +168,12 @@ function minusLugar() {
 
 // Generer lugar modal toggles (alle lugarer deler samme modal)
 function genererLugarModalToggles(lugarer){
-    
-    // lugar toggle template (child)
-    let toggle = document.getElementById('lugar-toggle-template');
-    
-    // lugar toggle container (parent)
+    let template = document.getElementById('lugar-toggle-template');
     let parent = $("#lugar-toggle-template-container");
     parent.empty();
     
     for(let i = 0; i < lugarer.length; i++) {
-        let child = toggle.content.cloneNode(true);
+        let child = template.content.cloneNode(true);
         let lugar = lugarer[i];
 
         let el = child.querySelector('a');
@@ -193,7 +189,7 @@ function genererLugarModalToggles(lugarer){
     }
 }
 
-// Genererer lugar info fordi alle lugarene deler kun en modal
+// Genererer lugar info fordi fra db
 function genererLugarDetaljer(lugar) {
     let tittel = $('.rom-tittel');
     let beskrivelse = $('.rom-beskrivelse');
@@ -219,12 +215,12 @@ function genererLugarDetaljer(lugar) {
 
 // Viser valgte lugarer på klient siden
 function visValgteLugarer(){
-    let lugarTemplate = document.getElementById('valgt-lugar-template');
+    let template = document.getElementById('valgt-lugar-template');
     let parent = $('#valgt-lugar-template-container');
     parent.empty();
 
     for(let i = 0; i < lugarer.length; i++) {
-        let clone = lugarTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         let lugar = lugarer[i];
         clone.querySelector('.antall').innerText = lugar.antall;
         clone.querySelector('.tittel').innerText = lugar.tittel;
@@ -277,7 +273,7 @@ function genererMaaltidDetaljer(maaltider){
     }
 }
 
-// Generer rute detaljer fra db
+// Genererer rute detaljer fra db
 function genererRuteDetaljer(ruter){
     let template = document.getElementById('rute-liste-template');
     let parent = $('#rute-liste-container');
@@ -342,15 +338,15 @@ function oppdaterReisefolgerTekst(){
 }
 
 function oppdaterLugarerTekst(){
-    let lugarTekstTemplate = document.getElementById('valgt-lugar-tekst-template');
+    let template = document.getElementById('valgt-lugar-tekst-template');
     let parent = $("#lugar-tekst-template-tray");
     lugarTotalPris = 0;
     parent.empty();
     
     for(let i = 0; i < lugarer.length; i++) {
-        let clone = lugarTekstTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         let textElement = clone.querySelector('small');
-        textElement.textContent = lugarer[i].antall + ' x ' + lugarer[i].type + ',';
+        textElement.textContent = lugarer[i].antall + ' x ' + lugarer[i].tittel + ',';
         lugarTotalPris += lugarer[i].pris;
         parent.append(clone);
     }
@@ -358,21 +354,21 @@ function oppdaterLugarerTekst(){
 }
 
 function oppdaterMaaltidTekst(){
-    let maaltidTekstTemplate = document.getElementById('valgt-maaltid-tekst-template');
+    let template = document.getElementById('valgt-maaltid-tekst-template');
     let parent = $('#maaltid-tekst-template-tray');
     maaltidTotalPris = 0;
     
     if(maaltider.length > 0) {
         parent.empty();
         for(let i = 0; i < maaltider.length; i++) {
-            let clone = maaltidTekstTemplate.content.cloneNode(true);
+            let clone = template.content.cloneNode(true);
             let textElement = clone.querySelector('small');
             textElement.textContent = maaltider[i].navn + ', ';
             maaltidTotalPris += maaltider[i].pris;
             parent.append(clone);
         }
     } else {
-        let clone = maaltidTekstTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         let textElement = clone.querySelector('small');
         textElement.textContent = 'Ingen';
         parent.append(clone);
@@ -383,20 +379,20 @@ function oppdaterMaaltidTekst(){
 }
 
 function oppdaterPassasjererTekst(){
-    let passasjerTekstTemplate = document.getElementById('passasjer-tekst-template');
+    let template = document.getElementById('passasjer-tekst-template');
     let parent = $("#passasjer-tekst-template-tray");
     parent.empty();
     for(let i = 0; i < passasjerer.length; i++) {
-        let clone = passasjerTekstTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         let textElement = clone.querySelector('small');
-        textElement.textContent = passasjerer[i].fornavn + ' ' + passasjerer[i].etternavn + ',';
+        textElement.textContent = passasjerer[i].Fornavn + ' ' + passasjerer[i].Etternavn + ',';
         parent.append(clone);
     }
 }
 
 // form hvor alle passasjerer må gi navnet og fødselsdato
 function oppdaterPassasjerForm(){
-    let passasjerFormTemplate = document.getElementById('template-passasjer-form');
+    let template = document.getElementById('template-passasjer-form');
     let parent = $('#passasjerer-form-template-tray');
     parent.empty();
     
@@ -405,7 +401,7 @@ function oppdaterPassasjerForm(){
     let antallPassasjerer = antallVoksen + antallBarn;
     
     for(let i = 0; i < antallPassasjerer; i++) {
-        let clone = passasjerFormTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         
         // Inputs
         let passasjerTittel = clone.querySelector('.passasjer-tittel');
