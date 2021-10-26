@@ -215,29 +215,29 @@ function skjulLugarFeilMelding(){
 
 // Valideringsfunksjon for trinn 4: Måltider
 
-function leggTilValgtMaaltid(){
-    $(".maaltid-row").on('click', function () {
-        let inputId = '#' + $('#' + this.id + ' input').attr('id')
-        let maaltidPris = Number($('#' + this.id + ' span.pris').text());
-        let maaltidNavn = $('#' + this.id + ' .tittel').text();
-        let input = $(inputId);
+function leggTilValgtMaaltid(id){
+    let inputId = '#' + $('#' + id + ' input').attr('id')
+    let maaltidPris = Number($('#' + id + ' span.pris').text());
+    let maaltidNavn = $('#' + id + ' .tittel').text();
+    let input = $(inputId);
+    
+    console.log('clicked', id);
 
-        // virker som en checked/unchecked toggle
-        $(input).attr("checked", !$(input).attr("checked"));
+    // virker som en checked/unchecked toggle
+    $(input).attr("checked", !$(input).attr("checked"));
 
-        if($(input).is(':checked')) {
-            maaltider.push({'id': inputId, 'navn': maaltidNavn, 'pris': maaltidPris});
-            $(inputId + "-ikon").removeClass('d-none');
-            $(inputId + '-info').addClass('on');
-        } else {
-            // Fjern det fra valgt måltid array hvis unchecked
-            maaltider.forEach(function (item, index) {
-                if(item.id === inputId) maaltider.splice(index, 1);
-            });
-            $(inputId + "-ikon").addClass('d-none');
-            $(inputId + '-info').removeClass('on');
-        }
-    });
+    if($(input).is(':checked')) {
+        maaltider.push({'id': inputId, 'navn': maaltidNavn, 'pris': maaltidPris});
+        $(inputId + "-ikon").removeClass('d-none');
+        $(inputId + '-info').addClass('on');
+    } else {
+        // Fjern det fra valgt måltid array hvis unchecked
+        maaltider.forEach(function (item, index) {
+            if(item.id === inputId) maaltider.splice(index, 1);
+        });
+        $(inputId + "-ikon").addClass('d-none');
+        $(inputId + '-info').removeClass('on');
+    }
 }
 
 // Valideringsfunksjoner for trinn 5: Passasjerer form
@@ -326,7 +326,7 @@ function validerTrinn2() {
 function validerTrinn3() {
     if(lugarer.length > 0) {
         merkerFerdig('#trinn-3');
-        skjulOgVisTrinn('#trinn-3','#trinn-4','#trinn-3-btns','#trinn-4-btns');
+        skjulTrinn('#trinn-3','#trinn-3-btns');
         skjulLugarFeilMelding();
     } else {
         visLugarFeilMelding('Du må reservere minst èn lugar.');

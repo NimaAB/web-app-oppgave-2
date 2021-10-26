@@ -396,73 +396,27 @@
                             <hr class="w-100 bg-theme">
                         </div>
                     </div>
-                    
-                    <div class="row g-3 maaltid-row mb-3" id="frokost-row">
-                        <div class="col-lg-4 p-0">
-                            <div class="cb-group">
-                                <input type="checkbox" id="frokost" class="d-none">
-                                <img src="assets/maaltid/frokost.jpg" class="img-fluid" alt="lunsj-img">
-                                <div class="cb-icon d-none shadow" id="frokost-ikon">
-                                    <i class="bi bi-check"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 p-3 maaltid-info" id="frokost-info">
-                            <h4 class="text-theme tittel">Frokost Buffet</h4>
-                            <p class="m-0">Reiser du ut på morgen anbefaler vi deg å starte dagen med en god
-                                frokostbuffet. Her kan du sette sammen frokosten etter dine ønsker. Utvalget er stort -
-                                enten du ønsker noe søtt eller sunt.
-                                Du får en god start på dagen med utvalgte pålegg og frokostklassikere som eggerøre og
-                                bacon. Kaffe, te, juice, melk og mineralvann er inkludert.
-                                Vi har eget utvalg av glutenfrie produkter.</p>
-                            <p class="pt-3 fs-5 text-theme">+ <span class="pris">119</span> kr</p>
-                        </div>
-                    </div>
-                    
-                    <div class="row g-3 maaltid-row mb-3" id="lunsj-row">
-                        <div class="col-lg-4 p-0">
-                            <div class="cb-group">
-                                <input type="checkbox" id="lunsj" class="d-none">
-                                <img src="assets/maaltid/lunsj.jpg" class="img-fluid" alt="lunsj-img">
-                                <div class="cb-icon d-none shadow" id="lunsj-ikon">
-                                    <i class="bi bi-check"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 p-3 maaltid-info" id="lunsj-info">
-                            <h4 class="text-theme tittel">Lunsj Buffet</h4>
-                            <p class="m-0">I Grand Buffet kan du la syn og aroma friste deg til å smake på kjente og
-                                ukjente retter. Alt fra norsk sjømat av høy kvalitet til eksotiske smaker fra de ulike
-                                kontinenter.
-                                Her får du et godt utvalg av varme og kalde fisk- og kjøttretter, skalldyr, salater og
-                                desserter, samt egen Captain Kid-buffet for de minste og allergivennlige
-                                alternativer.</p>
-                            <p class="pt-3 fs-5 text-theme">+ <span class="pris">129</span> kr</p>
-                        </div>
-                    </div>
 
-                    <div class="row g-3 maaltid-row mb-3" id="middag-row">
-                        <div class="col-lg-4 p-0">
-                            <div class="cb-group">
-                                <input type="checkbox" id="middag" class="d-none">
-                                <img src="assets/maaltid/middag.jpg" class="img-fluid" alt="lunsj-img">
-                                <div class="cb-icon d-none shadow" id="middag-ikon">
-                                    <i class="bi bi-check"></i>
+                    <div id="maaltid-template-container"></div>
+                    
+                    <template id="malltid-liste-template">
+                        <div class="row g-3 maaltid-row mb-3" onclick="leggTilValgtMaaltid(this.id)">
+                            <div class="col-lg-4 p-0">
+                                <div class="cb-group">
+                                    <input type="checkbox" class="d-none">
+                                    <img src="assets/maaltid/frokost.jpg" class="img-fluid" alt="lunsj-img">
+                                    <div class="cb-icon d-none shadow">
+                                        <i class="bi bi-check"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-lg-8 p-3 maaltid-info">
+                                <h4 class="text-theme tittel"></h4>
+                                <p class="m-0 beskrivelse"></p>
+                                <p class="pt-3 fs-5 text-theme">+ <span class="pris"></span> kr</p>
+                            </div>
                         </div>
-                        <div class="col-lg-8 p-3 maaltid-info" id="middag-info">
-                            <h4 class="text-theme tittel">Middag Buffet</h4>
-                            <p class="m-0">I Grand Buffet kan du la syn og aroma friste deg til å smake på kjente og
-                                ukjente retter.
-                                Her får du et godt utvalg av varme og kalde fisk- og kjøttretter, skalldyr, salater og
-                                desserter, samt egen Captain Kid-buffet for de minste og allergivennlige alternativer.
-                                Buffeten skifter innhold i løpet av året, med tema satt for sesongen. For reservasjoner
-                                kl. 1800 gjør vi oppmerksom på at buffeten stenger kl. 1930 fram til neste
-                                bordsitting.</p>
-                            <p class="pt-3 fs-5 text-theme">+ <span class="pris">199</span> kr</p>
-                        </div>
-                    </div>
+                    </template>
                 </div>
 
                 <div id="trinn-5" class="d-none">

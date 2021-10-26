@@ -50,6 +50,10 @@ function lagreAntallPassasjerer(){
 function lagreLugar(){
     validerTrinn3();
     oppdaterLugarerTekst();
+
+    // Viser loading gif når vi henter alle måltider fra db
+    visLoader('Henter tilgjengelig måltider...');
+    hentAlleMaaltider();
 }
 
 function lagreMaaltider(){
@@ -72,13 +76,13 @@ function hentAlleLugarer(){
     $.get(url, response => {
         genererLugarModalToggles(response); 
     })
-    .done(function () {
-        visTrinn('#trinn-3', '#trinn-3-btns');
-        skjulLoader();
-    })
-    .fail(function () {
-        console.log('Something went wrong.');        
-    });
+        .done(function () {
+            visTrinn('#trinn-3', '#trinn-3-btns');
+            skjulLoader();
+        })
+        .fail(function () {
+            console.log('Something went wrong.');        
+        });
 }
 
 function hentEnLugar(id){
@@ -86,6 +90,20 @@ function hentEnLugar(id){
     $.get(url, response => {
        genererLugarDetaljer(response);
     });
+}
+
+function hentAlleMaaltider(){
+    let url = '/api/meal';
+    $.get(url, response => {
+        genererMaaltidDetaljer(response);
+    })
+        .done(function () {
+            visTrinn('#trinn-4', '#trinn-4-btns');
+            skjulLoader();
+        })
+        .fail(function () {
+            console.log('Something went wrong.');
+        });
 }
 
 function lagreBestilling(){

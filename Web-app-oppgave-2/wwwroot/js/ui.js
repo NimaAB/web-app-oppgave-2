@@ -12,7 +12,6 @@ $(document).ready(function () {
     enableRuteDatePicker();
     deaktiverInputs(reiseTypeInput ,fraDatoInput, tilDatoInput);
     merkerValgtRute();
-    leggTilValgtMaaltid();
 });
 
 // Noen input felter må først velges før de andre
@@ -240,6 +239,39 @@ function fjernLugar(button){
             visValgteLugarer();
         }
     });
+}
+
+// Genererer måltid detaljer fra db
+function genererMaaltidDetaljer(maaltider){
+    let template = document.getElementById('malltid-liste-template');
+    let parent = $('#maaltid-template-container');
+    parent.empty();
+    
+    for(let i = 0; i < maaltider.length; i++) {
+        let child = template.content.cloneNode(true);
+        let m = maaltider[i];
+        
+        // Elementene vi trenger for å vise en måltid
+        let row = child.querySelector('.maaltid-row');
+        let info = child.querySelector('.maaltid-info');
+        let checkbox = row.querySelector('input[type="checkbox"]');
+        let img = row.querySelector('img'); // TODO: hente måltid bilde fra db
+        let icon = row.querySelector('.cb-icon');
+        let tittel = info.querySelector('.tittel');
+        let beskrivelse = info.querySelector('.beskrivelse');
+        let pris = info.querySelector('.pris');
+        
+        // Setter verdier fra db til elementene
+        row.setAttribute('id', 'maaltid-' + m.mealsNummer + '-row');
+        info.setAttribute('id', 'maaltid-' + m.mealsNummer + '-info');
+        checkbox.setAttribute('id', 'maaltid-' + m.mealsNummer);
+        icon.setAttribute('id', 'maaltid-' + m.mealsNummer + '-ikon');
+        tittel.innerText = m.maaltid;
+        beskrivelse.innerText = m.beskrivelse;
+        pris.innerText = m.pris;
+        
+        parent.append(child);
+    }
 }
 
 // Oppdaterer tekst verdier på 'Se Overbestilling trinn' basert på valgt verdier på de forskjellige trinnene
