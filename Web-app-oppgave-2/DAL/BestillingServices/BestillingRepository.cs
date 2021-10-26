@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Web_app_oppgave_2.Models;
+using WebAppOppgave1.Models;
 
 namespace Web_app_oppgave_2.DAL.BestillingServices
 {
@@ -12,45 +14,38 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
             _db = db;
         }
 
-        public async Task<bool> HentAlleBestilling()
+        public async Task<List<Bestilling>> HentAlle()
+        {
+            return await _db.Bestillinger.ToListAsync();
+        }
+
+        public async Task<bool> Oppdater(int id,Bestilling nyBestilling)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<bool> OppdaterBestilling(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<bool> SlettBestilling(int id)
+        public async Task<bool> Slett(int id)
         {
             throw new System.NotImplementedException();
         }
         
-        public async Task<bool> LagreBestilling(Bestilling bestilling)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        /*public async Task<bool> LagreBestilling(Bestilling innBestilling)
+        public async Task<bool> Lagre(Bestilling bestilling)
         {
             try
             {
                 var nyKunde = new Kunde();
-                nyKunde.Fornavn = innBestilling.Kunde.Fornavn;
-                nyKunde.Etternavn = innBestilling.Kunde.Etternavn;
-                nyKunde.Tlfnummer = innBestilling.Kunde.Tlfnummer;
-                nyKunde.Adresse = innBestilling.Kunde.Adresse;
-                nyKunde.Epost = innBestilling.Kunde.Epost;
-                //nyKunde.Postnummer = innBestilling.Kunde.Postnummer; //midlertidig
-                
-                var sjekketPostnr = await _db.Poststeder.FindAsync(innBestilling.Kunde.Postnummer.Postnr);
+                nyKunde.Fornavn = bestilling.Kunde.Fornavn;
+                nyKunde.Etternavn = bestilling.Kunde.Etternavn;
+                nyKunde.Tlfnummer = bestilling.Kunde.Tlfnummer;
+                nyKunde.Adresse = bestilling.Kunde.Adresse;
+                nyKunde.Epost = bestilling.Kunde.Epost;
+                var sjekketPostnr = await _db.Poststeder.FindAsync(bestilling.Kunde.Postnummer.Postnr);
                 if (sjekketPostnr == null)
                 {
                     var nyPoststedRecord = new Postnummer()
                     {
-                        Postnr = innBestilling.Kunde.Postnummer.Postnr,
-                        Poststed = innBestilling.Kunde.Postnummer.Poststed
+                        Postnr = bestilling.Kunde.Postnummer.Postnr,
+                        Poststed = bestilling.Kunde.Postnummer.Poststed
                     };
                     nyKunde.Postnummer = nyPoststedRecord;
                 }
@@ -58,7 +53,19 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                 {
                     nyKunde.Postnummer = sjekketPostnr;
                 }
+
+                //var lugarbestillinger = new LugarBestilling();
                 
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /*public async Task<bool> LagreBestilling(Bestilling innBestilling)
+        {
                 var nyeBilletter = new List<Billett>();
                 innBestilling.Billetter.ForEach(billett =>
                 {
