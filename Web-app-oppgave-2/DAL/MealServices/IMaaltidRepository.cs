@@ -4,11 +4,11 @@ using Web_app_oppgave_2.Models;
 
 namespace Web_app_oppgave_2.DAL.MealServices
 {
-    public interface IMealRepository
+    public interface IMaaltidRepository
     {
-        Task<List<Meal>> HentAlle();
-        Task<bool> Oppdater(int id, Meal nyMeal);
+        Task<List<Maaltid>> HentAlle();
+        Task<bool> Oppdater(int id, Maaltid nyMaaltid);
         Task<bool> Slett(int id);
-        Task<bool> Lagre(Meal meal);
+        Task<bool> Lagre(Maaltid maaltid);
     }
 }

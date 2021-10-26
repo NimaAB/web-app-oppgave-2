@@ -6,7 +6,7 @@ namespace Web_app_oppgave_2.Models
     public class Kunde
     {
         [Key]
-        public int KundeID { get; set; }
+        public int KundeId { get; set; }
         public string Fornavn { get; set; }
         public string Etternavn { get; set; }
         public string Tlfnummer { get; set; }

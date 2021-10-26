@@ -32,7 +32,7 @@ namespace Web_app_oppgave_2
             services.AddDbContext<Db>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IBestillingRepository, BestillingRepository>();
             services.AddScoped<ILugarRepository, LugarRepository>();
-            services.AddScoped<IMealRepository, MealRepository>();
+            services.AddScoped<IMaaltidRepository, MaaltidRepository>();
             services.AddScoped<IRuteRepository, RuteRepository>();
         }
 

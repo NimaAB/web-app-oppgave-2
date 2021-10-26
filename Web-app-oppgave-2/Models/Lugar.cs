@@ -7,7 +7,7 @@ namespace Web_app_oppgave_2.Models
     public class Lugar
     {
         [Key]
-        public int LugarNummer { get; set; }
+        public int LugarId { get; set; }
         public string Type { get; set; }
         public string Navn { get; set; }
         public int Kapasitet { get; set; }
