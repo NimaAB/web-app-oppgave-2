@@ -67,9 +67,10 @@ function bekreft(){
 function hentAlleLugarer(){
     let url = '/api/lugar';
     $.get(url, response => {
-        console.log(response);
         genererLugarModalToggles(response); 
-    });
+    })
+    .done(() => $('.lugar-loading').addClass('d-none'))
+    .error(() => console.log('Something went wrong'));
 }
 
 function hentEnLugar(id){
