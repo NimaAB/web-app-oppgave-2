@@ -41,6 +41,9 @@ function lagreAntallPassasjerer(){
     validerTrinn2();
     oppdaterReisefolgerTekst();
     oppdaterPassasjerForm();
+    
+    // Viser loading gif når vi henter alle lugarer fra db
+    visLoader('Henter tilgjengelig lugarer...');
     hentAlleLugarer();
 }
 
@@ -69,8 +72,13 @@ function hentAlleLugarer(){
     $.get(url, response => {
         genererLugarModalToggles(response); 
     })
-    .done(() => $('.lugar-loading').addClass('d-none'))
-    .error(() => console.log('Something went wrong'));
+    .done(function () {
+        visTrinn('#trinn-3', '#trinn-3-btns');
+        skjulLoader();
+    })
+    .fail(function () {
+        console.log('Something went wrong.');        
+    });
 }
 
 function hentEnLugar(id){

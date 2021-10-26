@@ -80,6 +80,27 @@ function skjulOgVisTrinn(toHide, toShow, toHideBtns, toShowBtns){
     location.href = "#bestill";
 }
 
+function skjulTrinn(toHide, toHideBtns){
+    $(toHide).addClass('d-none');
+    $(toHideBtns).addClass('d-none');
+    location.href = "#bestill";
+}
+
+function visTrinn(toShow,  toShowBtns){
+    $(toShow).removeClass('d-none');
+    $(toShowBtns).removeClass('d-none');
+    location.href = "#bestill";
+}
+
+function skjulLoader(){
+    $('.loader').addClass('d-none');
+}
+
+function visLoader(message){
+    $('.loader-message').text(message);
+    $('.loader').removeClass('d-none');
+}
+
 function merkerFerdig(ikon_id){
     $(ikon_id + '-ikon').removeClass('bi-dash-circle');
     $(ikon_id + '-ikon').addClass('bi-check-circle');

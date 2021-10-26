@@ -319,7 +319,7 @@ function validerTrinn2() {
     antallDyr = Number($('.antall-dyr').text());
     antallSykler = Number($('.antall-sykkel').text());
     merkerFerdig('#neste-trinn');
-    skjulOgVisTrinn('#trinn-2','#trinn-3','#trinn-2-btns','#trinn-3-btns');
+    skjulTrinn('#trinn-2','#trinn-2-btns');
 }
 
 // Trinn 3: Lugar
