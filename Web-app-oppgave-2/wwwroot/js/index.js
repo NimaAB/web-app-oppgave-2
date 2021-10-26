@@ -48,12 +48,13 @@ function lagreAntallPassasjerer(){
 }
 
 function lagreLugar(){
-    validerTrinn3();
-    oppdaterLugarerTekst();
-
-    // Viser loading gif når vi henter alle måltider fra db
-    visLoader('Henter tilgjengelig måltider...');
-    hentAlleMaaltider();
+    if(validerTrinn3()) {
+        oppdaterLugarerTekst();
+        
+        // Viser loading gif når vi henter alle måltider fra db
+        visLoader('Henter tilgjengelig måltider...');
+        hentAlleMaaltider();
+    }
 }
 
 function lagreMaaltider(){

@@ -328,8 +328,10 @@ function validerTrinn3() {
         merkerFerdig('#trinn-3');
         skjulTrinn('#trinn-3','#trinn-3-btns');
         skjulLugarFeilMelding();
+        return true;
     } else {
         visLugarFeilMelding('Du må reservere minst èn lugar.');
+        return false;
     }
 }
 
