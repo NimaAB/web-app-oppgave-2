@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Web_app_oppgave_2.Models;
-using WebAppOppgave1.Models;
 
 namespace Web_app_oppgave_2.DAL
 {

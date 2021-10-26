@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using WebAppOppgave1.Models;
 
 namespace Web_app_oppgave_2.Models
 {
