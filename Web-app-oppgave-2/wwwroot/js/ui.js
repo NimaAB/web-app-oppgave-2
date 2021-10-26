@@ -261,10 +261,10 @@ function genererMaaltidDetaljer(maaltider){
         let pris = info.querySelector('.pris');
         
         // Setter verdier fra db til elementene
-        row.setAttribute('id', 'maaltid-' + m.mealsNummer + '-row');
-        info.setAttribute('id', 'maaltid-' + m.mealsNummer + '-info');
-        checkbox.setAttribute('id', 'maaltid-' + m.mealsNummer);
-        icon.setAttribute('id', 'maaltid-' + m.mealsNummer + '-ikon');
+        row.setAttribute('id', 'maaltid-' + m.maaltidId + '-row');
+        info.setAttribute('id', 'maaltid-' + m.maaltidId + '-info');
+        checkbox.setAttribute('id', 'maaltid-' + m.maaltidId);
+        icon.setAttribute('id', 'maaltid-' + m.maaltidId + '-ikon');
         tittel.innerText = m.maaltid;
         beskrivelse.innerText = m.beskrivelse;
         pris.innerText = m.pris;

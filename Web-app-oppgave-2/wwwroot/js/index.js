@@ -108,7 +108,7 @@ function hentEnLugar(id){
 }
 
 function hentAlleMaaltider(){
-    let url = '/api/meal';
+    let url = '/api/maaltid';
     $.get(url, response => {
         genererMaaltidDetaljer(response);
     })
@@ -124,15 +124,15 @@ function hentAlleMaaltider(){
 function lagreBestilling(){
     validerTrinn7();
     let Billetter = [];
-    let Meals = [];
+    let Maaltider = [];
     let Lugarer = [];
     let Passasjer = [];
 
     // Reformatter slik at de har samme attributtene som i db tabellen.
     
     maaltider.forEach(function (item) {
-        let meal = { Maaltid: item.navn, Pris: item.pris };
-        Meals.push(meal);
+        let maaltid = { Maaltid: item.navn, Pris: item.pris };
+        Maaltider.push(maaltid);
     });
 
     lugarer.forEach(function (item) {
@@ -180,8 +180,8 @@ function lagreBestilling(){
             }
         },
         Billetter: Billetter,
-        Lugars: Lugarer,
-        Meals: Meals,
+        Lugarer: Lugarer,
+        Maaltider: Maaltider,
         TotalPris: bestillingTotalPris
     };
 
