@@ -168,66 +168,41 @@ function minusReisefolger(type, min) {
 
 // Valideringsfunksjoner for trinn 3: Lugarer
 
-function validerLugar(){
-    let lugar = $('#valgt-lugar').val();
-    let romAntallReservasjon = $('#' + lugar + '-antall-reservasjon').text();
+function validerValgtLugar(){
+    let lugarId = $('#valgt-lugar').val();
+    let romAntallReservasjon = $('.rom-antall-reservasjon').text();
     
     if(Number(romAntallReservasjon > 0)) {
         skjulLugarFeilMelding();
-        lageLugarObjekt(lugar);
+        lageLugarObjekt(lugarId);
         visValgteLugarer();
         return true;
     } else {
-        visLugarFeilMelding();
+        visLugarFeilMelding('Velg og reservere minst èn lugar.');
         return false;
     }
 }
 
 // Lager lugar objekt
-function lageLugarObjekt(lugar){
-    let romAntallReservasjon = $('#' + lugar + '-antall-reservasjon').text();
-    let romPris = $('#' + lugar + '-pris').text();
+function lageLugarObjekt(lugarId){
+    let romTittel = $('.rom-tittel').text();
+    let romAntallReservasjon = $('.rom-antall-reservasjon').text();
+    let romPris = $('.rom-pris').text();
     let totalPris = Number(romAntallReservasjon) * Number(romPris);
-    let objekt = {'type': lugar, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
+    let objekt = {'id': lugarId, 'tittel': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
     
     // Hvis lugar er allerede i arrayet, fjern den og legg den ny lugar: unngår duplikater
     lugarer.forEach(function (item, index) {
-        if(item.type === lugar) lugarer.splice(index, 1);
+        if(item.id === lugarId) lugarer.splice(index, 1);
     });
     lugarer.push(objekt);
 }
 
-// Viser valgte lugarer på klient siden
-function visValgteLugarer(){
-    let lugarTemplate = document.getElementById('lugar-template');
-    let parent = $('#valgt-lugar-template-tray');
-    parent.empty();
-
-    for(let i = 0; i < lugarer.length; i++) {
-        let clone = lugarTemplate.content.cloneNode(true);
-        clone.querySelector('.antall').innerText = lugarer[i].antall;
-        clone.querySelector('.tittel').innerText = lugarer[i].type;
-        clone.querySelector('.rom-fjern-btn').name = lugarer[i].type;
-        parent.append(clone);
-    }
-}
-
-// Fjerner lugar fra arrayet og på klient siden
-function fjernLugar(button){
-    let toRemove = button.name;
-    lugarer.forEach(function (item, index) {
-        if(item.type === toRemove) {
-            lugarer.splice(index, 1);
-            visValgteLugarer();
-        }
-    });
-}
-
-function visLugarFeilMelding(){
+function visLugarFeilMelding(melding){
     let lugarFmPlaceholder = $("#lugar-fm-placeholder");
     let lugarFeilMelding = $(".lugar-feil-melding");
     lugarFmPlaceholder.addClass('is-invalid');
-    lugarFeilMelding.text('Velg minst èn lugar.');
+    lugarFeilMelding.text(melding);
     lugarFeilMelding.removeClass('d-none');
 }
 
@@ -354,7 +329,7 @@ function validerTrinn3() {
         skjulOgVisTrinn('#trinn-3','#trinn-4','#trinn-3-btns','#trinn-4-btns');
         skjulLugarFeilMelding();
     } else {
-        visLugarFeilMelding();
+        visLugarFeilMelding('Du må reservere minst èn lugar.');
     }
 }
 

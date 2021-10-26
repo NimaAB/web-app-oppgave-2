@@ -405,7 +405,7 @@
                         <input type="hidden" aria-describedby="lugar-feil-melding" id="lugar-fm-placeholder">
                         <div class="invalid-feedback d-none lugar-feil-melding"></div>
                         <p class="fs-5 text-center text-md-start text-theme">Reservert Lugarer</p>
-                        <template id="lugar-template">
+                        <template id="valgt-lugar-template">
                             <div class="col-lg-6 d-flex flex-md-row flex-column text-lg-start text-center">
                                 <div class="w-100">
                                     <div class="d-flex justify-content-between align-items-center p-3 mb-3 bg-light">
@@ -417,7 +417,7 @@
                             </div>
                         </template>
                     </div>
-                    <div class="row" id="valgt-lugar-template-tray"></div>
+                    <div class="row" id="valgt-lugar-template-container"></div>
                 </div>
 
                 <div id="trinn-4" class="d-none">
@@ -906,7 +906,7 @@
                         <input type="hidden" id="valgt-lugar">
                         <button type="button" class="btn btn-theme w-100"
                                 data-bs-dismiss="modal" aria-label="Close"
-                                id="velg-rom-btn" onclick="validerLugar()">Velg</button>
+                                id="velg-rom-btn" onclick="validerValgtLugar()">Velg</button>
                     </div>
                 </div>
             </div>

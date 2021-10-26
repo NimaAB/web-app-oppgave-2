@@ -110,17 +110,12 @@ function merkerValgtRute() {
     });
 }
 
-// TODO: Fix lugar counter
-
 function plussLugar() {
-    let lugar = $("#valgt-lugar").val();
-    let btnWrapper = $('#' + lugar + '-btns');
-    let plussBtn = $("#" + btnWrapper.id + " .pluss");
-    let minusBtn = $("#" + btnWrapper.id + " .minus");
-
-    let label = $("#" + lugar + "-antall-reservasjon");
+    let plussBtn = $('.pluss');
+    let minusBtn = $('.minus');
+    let label = $('.rom-antall-reservasjon');
     let value = Number(label.text());
-    let maxValue = Number($('#' + lugar + '-max-reservasjon').text());
+    let maxValue = Number($('.rom-max-reservasjon').text());
     
     if(value < maxValue) {
         value++;
@@ -133,12 +128,9 @@ function plussLugar() {
 }
 
 function minusLugar() {
-    let lugar = $("#valgt-lugar").val();
-    let btnWrapper = $('#' + lugar + '-btns');
-    let plussBtn = $("#" + btnWrapper.id + " .pluss");
-    let minusBtn = $("#" + btnWrapper.id + " .minus");
-    
-    let label = $("#" + lugar + "-antall-reservasjon");
+    let plussBtn = $('.pluss');
+    let minusBtn = $('.minus');
+    let label = $('.rom-antall-reservasjon');
     let value = Number(label.text());
 
     if(value > 0) {
@@ -163,150 +155,70 @@ function genererLugarModalToggles(lugarer){
     
     for(let i = 0; i < lugarer.length; i++) {
         let child = toggle.content.cloneNode(true);
-        
+        let lugar = lugarer[i];
+
         let el = child.querySelector('a');
         let navn = child.querySelector('.lugar-navn');
         let kapasitet = child.querySelector('.lugar-kapasitet');
         
         // TODO: Set background-image from db.
-        el.setAttribute('id', lugarer[i].lugarNummer);
+        el.setAttribute('id', lugar.lugarNummer);
         navn.innerText = lugarer[i].navn;
-        kapasitet.innerText = lugarer[i].kapasitet > 1 ? '1-' + lugarer[i].kapasitet + ' Personer' : lugarer[i].kapasitet + ' Person';
+        kapasitet.innerText = lugar.kapasitet > 1 ? '1-' + lugar.kapasitet + ' Personer' : lugar.kapasitet + ' Person';
         
         parent.append(child);
     }
 }
 
-// Genererer rom info fordi alle romene deler kun en modal
-function tildeleLugarDetaljer(lugar) {
-    
-    let romTittel = $('.rom-tittel');
-    let romBeskrivelse = $('.rom-beskrivelse');
-    let romPris = $('.rom-pris');
-    let romKapasitet = $('.rom-kapasitet');
-    let romMaxReservasjon = $('.rom-max-reservasjon');
-    let romAntallReservasjon = $('.rom-antall-reservasjon');
-    let romBilde = $('.rom-bilde');
-    let romVindu = $('.rom-vindu');
-    let romSpan = $('.rom-span');
+// Genererer lugar info fordi alle lugarene deler kun en modal
+function genererLugarDetaljer(lugar) {
+    let tittel = $('.rom-tittel');
+    let beskrivelse = $('.rom-beskrivelse');
+    let pris = $('.rom-pris');
+    let kapasitet = $('.rom-kapasitet');
+    let maxReservasjon = $('.rom-max-reservasjon');
+    let antallReservasjon = $('.rom-antall-reservasjon');
+    let bilde = $('.rom-bilde');
+    let vindu = $('.rom-vindu');
+    let span = $('.rom-span');
 
-    romTittel.text(lugar.navn);
-    romPris.text(lugar.pris);
-    romKapasitet.text(lugar.kapasitet > 1 ? '1-' + lugar.kapasitet + ' Personer' : lugar.kapasitet + ' Person');
-    romMaxReservasjon.text(lugar.maxReservasjon);
-    romAntallReservasjon.text('0');
-    romBilde.attr('src', 'assets/lugar/air-seat.jpg');
-    romVindu.text('Ja');
-    romSpan.text(lugar.type);
-    romBeskrivelse.text(lugar.beskrivelse);
-
-    // Sette html verdier til dataen hentet fra server
-    /*if(lugar) {
-        romTittel.text(lugar.navn);
-        romPris.text(lugar.pris);
-        romKapasitet.text(lugar.kapasitet > 1 ? '1-' + lugar.kapasitet + ' Personer' : lugar.kapasitet + ' Person');
-        romMaxReservasjon.text(lugar.maxReservasjon);
-        romAntallReservasjon.text('0');
-        romBilde.attr('src', 'assets/lugar/air-seat.jpg');
-        romVindu.text('Ja');
-        romSpan.text(lugar.type);
-        romBeskrivelse.text(lugar.beskrivelse);
-    } else {
-        console.log('Not shown');
-    }*/
-    
-    /*switch (id) {
-        case 'air-seat':
-            romTittel.text('Air Seat');
-            romPris.text('299');
-            romKapasitet.text('1');
-            romMaxReservasjon.text('10');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/air-seat.jpg');
-            romVindu.text('Ja');
-            romSpan.text('seter');
-            romBeskrivelse.text("De komfortable liggestolene er vårt billigste alternativ, og du finner " +
-                "de på dekk 10.");
-            break;
-        case 'standard-rom':
-            romTittel.text('Standard Rom');
-            romPris.text('1200');
-            romKapasitet.text('1-4 med kjæledyr');
-            romMaxReservasjon.text('5');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/standard.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Komfortabel lugar for 1 person. Lugarene er 8,5 m² og er utstyrt med seng og " +
-                "sovesofa, TV, bad med dusj og WC. Lugarene ligger på dekk 8 og 9");
-            break;
-        case 'familie-rom':
-            romTittel.text('Familie Rom');
-            romPris.text('1500');
-            romKapasitet.text('3-5');
-            romMaxReservasjon.text('2');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/family.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Familie rom er familievennlige lugarer som rommer en familie på inntil 5 " +
-                "personer. Lugarene har dobbeltseng (120 cm bred), sovesofa og 2 køyesenger i taket, plass til 1 " +
-                "babyseng. Videre er det TV, samt eget bad med dusj og WC. Størrelsen på lugarene er mellom " +
-                "10,5 og 11,5 m² og de ligger midtskips på dekk 10.");
-            break;
-        case 'deluxe-rom':
-            romTittel.text("Captain's Deluxe");
-            romPris.text('2499');
-            romKapasitet.text('1-4');
-            romMaxReservasjon.text('1');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/deluxe.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Våre største deluxe-lugarer med plass til 1–3 personer. De har dobbeltseng og " +
-                "sovesofa, plass til 2 babysenger, TV, samt eget bad med dusj og WC. Størrelsen på lugarene" +
-                " er på rundt 20 m² og de ligger akter på dekk 8.");
-            break;
-        case 'suite-rom':
-            romTittel.text("Captain's Suite");
-            romPris.text('1999');
-            romKapasitet.text('1-4');
-            romMaxReservasjon.text('1');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/suite.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Flotte lugarer med plass til 1–4 personer. Her får du flott utsikt med vinduer " +
-                "som går fra gulv til tak. Lugarene har dobbeltseng og sovesofa (dobbel), plass til 2 babysenger, TV, " +
-                "minibar, bad med dusj og WC. Størrelsen på denne typen lugar er ca. 24 m² og de ligger " +
-                "midtskips/akter på dekk 9. ");
-            break;
-    }*/
+    $("#valgt-lugar").val(lugar.lugarNummer);
+    tittel.text(lugar.navn);
+    pris.text(lugar.pris);
+    kapasitet.text(lugar.kapasitet > 1 ? '1-' + lugar.kapasitet : lugar.kapasitet);
+    maxReservasjon.text(lugar.maxReservasjon);
+    antallReservasjon.text('0');
+    bilde.attr('src', 'assets/lugar/air-seat.jpg');
+    vindu.text('Ja');
+    span.text(lugar.type);
+    beskrivelse.text(lugar.beskrivelse);
 }
 
-// Setter id på valgt lugar for separat tildeling av verdier
-function tildeleLugarId(id){
-    // assign ids
-    $("#valgt-lugar").val(id);
-    $(".rom-btns").attr('id', id + '-btns');
-    $(".rom-tittel").attr('id', id + '-tittel');
-    $(".rom-beskrivelse").attr('id', id + '-beskrivelse');
-    $(".rom-pris").attr('id', id + '-pris');
-    $(".rom-kapasitet").attr('id', id + '-kapasitet');
-    $(".rom-max-reservasjon").attr('id', id + '-max-reservasjon');
-    $(".rom-antall-reservasjon").attr('id', id + '-antall-reservasjon');
-    $(".rom-bilde").attr('id', id + '-bilde');
-    $(".rom-vindu").attr('id', id + '-vindu');
-    $(".rom-span").attr('id', id + '-span');
+// Viser valgte lugarer på klient siden
+function visValgteLugarer(){
+    let lugarTemplate = document.getElementById('valgt-lugar-template');
+    let parent = $('#valgt-lugar-template-container');
+    parent.empty();
+
+    for(let i = 0; i < lugarer.length; i++) {
+        let clone = lugarTemplate.content.cloneNode(true);
+        let lugar = lugarer[i];
+        clone.querySelector('.antall').innerText = lugar.antall;
+        clone.querySelector('.tittel').innerText = lugar.tittel;
+        clone.querySelector('.rom-fjern-btn').name = lugar.id;
+        parent.append(clone);
+    }
 }
 
-// Generer lugar detaljer i modalen
-function genererLugarDetaljer(id){
-    // assign ids
-    tildeleLugarId(id);
-    // laste opp lugar detaljer
-    tildeleLugarDetaljer(id);
-
+// Fjerner lugar fra arrayet og på klient siden
+function fjernLugar(button){
+    let toRemove = button.name;
+    lugarer.forEach(function (item, index) {
+        if(item.id === toRemove) {
+            lugarer.splice(index, 1);
+            visValgteLugarer();
+        }
+    });
 }
 
 // Oppdaterer tekst verdier på 'Se Overbestilling trinn' basert på valgt verdier på de forskjellige trinnene

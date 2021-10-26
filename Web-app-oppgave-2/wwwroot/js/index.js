@@ -75,7 +75,7 @@ function hentAlleLugarer(){
 function hentEnLugar(id){
     let url = '/api/lugar/' + id;
     $.get(url, response => {
-       tildeleLugarDetaljer(response);
+       genererLugarDetaljer(response);
     });
 }
 
