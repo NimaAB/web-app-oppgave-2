@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Web_app_oppgave_2.DAL;
 using Web_app_oppgave_2.DAL.BestillingServices;
 using Web_app_oppgave_2.DAL.LugarServices;
-using Web_app_oppgave_2.DAL.MealServices;
+using Web_app_oppgave_2.DAL.MaaltidServices;
 using Web_app_oppgave_2.DAL.RuteServices;
 
 namespace Web_app_oppgave_2

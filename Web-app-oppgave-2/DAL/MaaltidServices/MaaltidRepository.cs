@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Web_app_oppgave_2.Models;
 
-namespace Web_app_oppgave_2.DAL.MealServices
+namespace Web_app_oppgave_2.DAL.MaaltidServices
 {
     public class MaaltidRepository : IMaaltidRepository
     {

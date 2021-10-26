@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Web_app_oppgave_2.DAL.MealServices;
+using Web_app_oppgave_2.DAL.MaaltidServices;
 using Web_app_oppgave_2.Models;
 
 namespace Web_app_oppgave_2.Controllers

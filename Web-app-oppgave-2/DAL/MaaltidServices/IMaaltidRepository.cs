@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Web_app_oppgave_2.Models;
 
-namespace Web_app_oppgave_2.DAL.MealServices
+namespace Web_app_oppgave_2.DAL.MaaltidServices
 {
     public interface IMaaltidRepository
     {
