@@ -1,24 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {Tab_barComponent} from "./components/tab_bar/tab_bar.component";
-import {Tab_itemComponent} from "./components/tab-item/tab_item.component";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    Tab_barComponent,
-    Tab_itemComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot([])
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
