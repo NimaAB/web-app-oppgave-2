@@ -13,7 +13,7 @@ export class RuteCardComponent implements OnInit {
     this.rute = {
       tur: "Oslo-Kiel",
       bilde: "../../assets/kiel.jpg",
-      pris: 999.00
+      pris: 999.99
     };
   }
 

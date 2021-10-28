@@ -1,0 +1,13 @@
+<div class="d-flex flex-column align-items-center m-3 shadow" style="background: rgba(0,129,167,0.5); border-radius: 5px; width: 50%;">
+  <div class="d-flex align-items-center justify-content-around w-100 pt-3">
+    <h4 class="fw-normal" style="color: whitesmoke; letter-spacing: 2px;">{{ rute.tur }}</h4>
+    <h4 class="fw-normal" style="color: whitesmoke; letter-spacing: 2px;">{{ rute.pris }} Kr</h4>
+  </div>
+  <img src="{{ rute.bilde }}" class="shadow-sm" style="width: 95%; height: 100%; border-radius: 5px;" alt="bilde av {{rute.tur}}">
+  <div class="w-100 d-flex justify-content-center">
+    <div class="d-flex justify-content-between align-items-center m-2" style="width: 150px;">
+      <button class="btn btn-primary">Rediger</button>
+      <button class="btn btn-danger">Slett</button>
+    </div>
+  </div>
+</div>
