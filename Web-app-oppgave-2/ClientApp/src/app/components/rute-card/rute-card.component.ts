@@ -7,12 +7,14 @@ import { Rute } from 'src/models/rute';
   styleUrls: ['./rute-card.component.css']
 })
 export class RuteCardComponent implements OnInit {
-  ruter: Rute[];
+  rute:Rute;
   constructor() {
 
-    this.ruter = [
-
-    ];
+    this.rute = {
+      tur: "Oslo-Kiel",
+      bilde: "../../assets/kiel.jpg",
+      pris: 999.00
+    };
   }
 
   ngOnInit(): void {
