@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RuteCardComponent } from './components/rute-card/rute-card.component';
 import { MaaltidCardComponent } from './components/maaltid-card/maaltid-card.component';
+import { LugarCardComponent } from './components/lugar-card/lugar-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RuteCardComponent,
-    MaaltidCardComponent
+    MaaltidCardComponent,
+    LugarCardComponent
   ],
   imports: [
     BrowserModule,

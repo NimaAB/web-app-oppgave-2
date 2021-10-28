@@ -1,4 +1,5 @@
 ﻿export class Rute{
+  id?:number;
   tur:string;
   bilde:any;
   pris:number;

@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {Maaltid} from "../../../models/maaltid";
+import { Lugar } from 'src/models/lugar';
 
 @Component({
-  selector: 'app-maaltid-card',
-  templateUrl: './maaltid-card.component.html',
-  styleUrls: ['./maaltid-card.component.css']
+  selector: 'app-lugar-card',
+  templateUrl: './lugar-card.component.html',
+  styleUrls: ['./lugar-card.component.css']
 })
-export class MaaltidCardComponent implements OnInit {
-  maaltid:Maaltid;
+export class LugarCardComponent implements OnInit {
+  lugar:Lugar;
   constructor() {
-    this.maaltid = {
-      navn: "Frokost",
+    this.lugar = {
+      type:"Rom",
+      navn:"Fin lugar",
+      bilde:"../../assets/kiel.jpg",
       beskrivelse:"Lorem ipsum dolor sit amet, consectetur adipiscing elit," +
         " sed do eiusmod tempor incididunt ut labore " +
         "et dolore magna aliqua. Ut enim ad minim veniam, " +
@@ -19,9 +21,10 @@ export class MaaltidCardComponent implements OnInit {
         "in reprehenderit in voluptate velit esse cillum dolore eu fugiat" +
         " nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in " +
         "culpa qui officia deserunt mollit anim id est laborum.",
-      bilde: "../../assets/kiel.jpg",
-      pris: 199.90
-    }
+      kapasistet:3,
+      maxReservasjon:100,
+      pris:599.90
+    };
   }
 
   ngOnInit(): void {
