@@ -3,34 +3,35 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Web_app_oppgave_2.Models;
 
-namespace Web_app_oppgave_2.DAL.MealServices
+namespace Web_app_oppgave_2.DAL.MaaltidServices
 {
-    public class MealRepository : IMealRepository
+    public class MaaltidRepository : IMaaltidRepository
     {
         private readonly Db _db;
 
-        public MealRepository(Db db)
+        public MaaltidRepository(Db db)
         {
             _db = db;
         }
 
-        public async Task<List<Meal>> HentAlle()
+        public async Task<List<Maaltid>> HentAlle()
         {
-            return await _db.Meals.ToListAsync();
+            return await _db.Maaltider.ToListAsync();
         }
 
-        public async Task<bool> Oppdater(int id, Meal nyMeal)
+        public async Task<bool> Oppdater(int id, Maaltid nyMaaltid)
         {
             try
             {
-                var meal = await _db.Meals.FindAsync(id);
+                var meal = await _db.Maaltider.FindAsync(id);
                 if (meal == null) return false;
-                meal.Maaltid = nyMeal.Maaltid;
-                meal.Beskrivelse = nyMeal.Beskrivelse;
-                meal.Bilde = nyMeal.Bilde;
-                meal.Pris = nyMeal.Pris;
                 
-                _db.Meals.Update(meal);
+                meal.Navn = nyMaaltid.Navn;
+                meal.Beskrivelse = nyMaaltid.Beskrivelse;
+                meal.Bilde = nyMaaltid.Bilde;
+                meal.Pris = nyMaaltid.Pris;
+
+                _db.Maaltider.Update(meal);
                 await _db.SaveChangesAsync();
                 return true;
             }
@@ -44,9 +45,9 @@ namespace Web_app_oppgave_2.DAL.MealServices
         {
             try
             {
-                var meal = await _db.Meals.FindAsync(id);
+                var meal = await _db.Maaltider.FindAsync(id);
                 if (meal == null) return false;
-                _db.Meals.Remove(meal);
+                _db.Maaltider.Remove(meal);
                 await _db.SaveChangesAsync();
                 return false;
             }
@@ -56,15 +57,15 @@ namespace Web_app_oppgave_2.DAL.MealServices
             }
         }
 
-        public async Task<bool> Lagre(Meal meal)
+        public async Task<bool> Lagre(Maaltid maaltid)
         {
             try
             {
-                if (meal.Maaltid is null 
-                    || meal.Bilde.Length == 0
-                    || meal.Beskrivelse is null 
-                    || meal.Pris <= 0) return false;
-                await _db.Meals.AddAsync(meal);
+                if (maaltid.Navn is null 
+                    || maaltid.Bilde.Length == 0 
+                    || maaltid.Beskrivelse is null 
+                    || maaltid.Pris <= 0) return false;
+                await _db.Maaltider.AddAsync(maaltid);
                 await _db.SaveChangesAsync();
                 return true;
             }

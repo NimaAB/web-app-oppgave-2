@@ -18,7 +18,7 @@ let antallDyr = 0;
 let antallSykler = 0;
 
 // Trinn 3: Lugarer
-let lugarer = []; // array av lugar objekter: har type, antall og totalPris keys
+let lugarer = []; // array av lugar objekter: har id, tittel, antall og pris keys
 let lugarTotalPris = 0;
 
 // Trinn 4: Måltid
@@ -41,11 +41,20 @@ function lagreAntallPassasjerer(){
     validerTrinn2();
     oppdaterReisefolgerTekst();
     oppdaterPassasjerForm();
+    
+    // Viser loading gif når vi henter alle lugarer fra db
+    visLoader('Henter tilgjengelig lugarer...');
+    hentAlleLugarer();
 }
 
 function lagreLugar(){
-    validerTrinn3();
-    oppdaterLugarerTekst();
+    if(validerTrinn3()) {
+        oppdaterLugarerTekst();
+        
+        // Viser loading gif når vi henter alle måltider fra db
+        visLoader('Henter tilgjengelig måltider...');
+        hentAlleMaaltider();
+    }
 }
 
 function lagreMaaltider(){
@@ -63,23 +72,67 @@ function bekreft(){
     $('.bestilling-totalpris-tekst').text(bestillingTotalPris);
 }
 
+function hentAlleRuter(){
+    let url = '/api/rute';
+    $.get(url, response => {
+        genererRuteDetaljer(response);
+    })
+        .done(function () {
+            visTrinn('#trinn-2', '#trinn-2-btns');
+            skjulLoader();
+        })
+        .fail(function () {
+            console.log('Something went wrong.');
+        });
+}
+
+function hentAlleLugarer(){
+    let url = '/api/lugar';
+    $.get(url, response => {
+        genererLugarModalToggles(response); 
+    })
+        .done(function () {
+            visTrinn('#trinn-3', '#trinn-3-btns');
+            skjulLoader();
+        })
+        .fail(function () {
+            console.log('Something went wrong.');        
+        });
+}
+
+function hentEnLugar(id){
+    let url = '/api/lugar/' + id;
+    $.get(url, response => {
+       genererLugarDetaljer(response);
+    });
+}
+
+function hentAlleMaaltider(){
+    let url = '/api/maaltid';
+    $.get(url, response => {
+        genererMaaltidDetaljer(response);
+    })
+        .done(function () {
+            visTrinn('#trinn-4', '#trinn-4-btns');
+            skjulLoader();
+        })
+        .fail(function () {
+            console.log('Something went wrong.');
+        });
+}
+
 function lagreBestilling(){
     validerTrinn7();
     let Billetter = [];
-    let Meals = [];
+    let Maaltider = [];
     let Lugarer = [];
     let Passasjer = [];
 
     // Reformatter slik at de har samme attributtene som i db tabellen.
     
-    passasjerer.forEach(function (item) {
-       let person = {Fornavn: item.fornavn, Etternavn: item.etternavn, Fodselsdato: item.fodselsDato };
-       Passasjer.push(person);
-    });
-
     maaltider.forEach(function (item) {
-        let meal = { Maaltid: item.navn, Pris: item.pris };
-        Meals.push(meal);
+        let maaltid = { Maaltid: item.navn, Pris: item.pris };
+        Maaltider.push(maaltid);
     });
 
     lugarer.forEach(function (item) {
@@ -87,7 +140,8 @@ function lagreBestilling(){
         Lugarer.push(lugar);
     });
 
-    Passasjer.forEach(function (item) {
+    // Oppretter en billett objekt for hver passasjer
+    passasjerer.forEach(function (item) {
         let tur = {
             tur: rute.ruteFra + "-" + rute.ruteTil,
                 pris: rute.pris
@@ -111,7 +165,8 @@ function lagreBestilling(){
         }
         Billetter.push(billett);
     });
-
+    
+    // Oppretter en bestilling objekt
     let bestilling = {
         Kunde: {
             Fornavn: kunde.fornavn,
@@ -125,8 +180,8 @@ function lagreBestilling(){
             }
         },
         Billetter: Billetter,
-        Lugars: Lugarer,
-        Meals: Meals,
+        Lugarer: Lugarer,
+        Maaltider: Maaltider,
         TotalPris: bestillingTotalPris
     };
 

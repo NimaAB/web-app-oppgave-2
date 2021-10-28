@@ -6,7 +6,7 @@ namespace Web_app_oppgave_2.Models
     public class Billett
     {
         [Key]
-        public int BillettID { get; set; }
+        public int BillettId { get; set; }
         public string Type { get; set; }
         public DateTime Utreise { get; set; }
         public DateTime Ankomst{ get; set; }

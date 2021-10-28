@@ -1,8 +1,7 @@
 ﻿using System;
-using Web_app_oppgave_2.Models;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAppOppgave1.Models
+namespace Web_app_oppgave_2.Models
 {
     public class LugarBestilling
     {

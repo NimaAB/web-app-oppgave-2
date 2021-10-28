@@ -31,10 +31,13 @@ namespace Web_app_oppgave_2.DAL.LugarServices
             {
                 var lugar = await _db.Lugarer.FindAsync(id);
                 if (lugar == null) return false;
-
+                
                 lugar.Type = nyLugar.Type;
                 lugar.Bilde = nyLugar.Bilde;
+                lugar.Navn = nyLugar.Navn;
+                lugar.Kapasitet = nyLugar.Kapasitet;
                 lugar.Beskrivelse = nyLugar.Beskrivelse;
+                lugar.MaxReservasjon = nyLugar.MaxReservasjon;
                 lugar.Pris = nyLugar.Pris;
                 
                 _db.Lugarer.Update(lugar);

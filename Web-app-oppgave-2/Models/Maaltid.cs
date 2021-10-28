@@ -2,11 +2,11 @@
 
 namespace Web_app_oppgave_2.Models
 {
-    public class Meal
+    public class Maaltid
     {
         [Key]
-        public int MealsNummer { get; set; }
-        public string Maaltid { get; set; }
+        public int MaaltidId { get; set; }
+        public string Navn { get; set; }
         public string Beskrivelse { get; set; }
         public byte[] Bilde { get; set; }
         public double Pris { get; set; }

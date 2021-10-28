@@ -168,66 +168,41 @@ function minusReisefolger(type, min) {
 
 // Valideringsfunksjoner for trinn 3: Lugarer
 
-function validerLugar(){
-    let lugar = $('#valgt-lugar').val();
-    let romAntallReservasjon = $('#' + lugar + '-antall-reservasjon').text();
+function validerValgtLugar(){
+    let lugarId = $('#valgt-lugar').val();
+    let romAntallReservasjon = $('.rom-antall-reservasjon').text();
     
     if(Number(romAntallReservasjon > 0)) {
         skjulLugarFeilMelding();
-        lageLugarObjekt(lugar);
+        lageLugarObjekt(lugarId);
         visValgteLugarer();
         return true;
     } else {
-        visLugarFeilMelding();
+        visLugarFeilMelding('Velg og reservere minst èn lugar.');
         return false;
     }
 }
 
 // Lager lugar objekt
-function lageLugarObjekt(lugar){
-    let romAntallReservasjon = $('#' + lugar + '-antall-reservasjon').text();
-    let romPris = $('#' + lugar + '-pris').text();
+function lageLugarObjekt(lugarId){
+    let romTittel = $('.rom-tittel').text();
+    let romAntallReservasjon = $('.rom-antall-reservasjon').text();
+    let romPris = $('.rom-pris').text();
     let totalPris = Number(romAntallReservasjon) * Number(romPris);
-    let objekt = {'type': lugar, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
+    let objekt = {'id': lugarId, 'tittel': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
     
     // Hvis lugar er allerede i arrayet, fjern den og legg den ny lugar: unngår duplikater
     lugarer.forEach(function (item, index) {
-        if(item.type === lugar) lugarer.splice(index, 1);
+        if(item.id === lugarId) lugarer.splice(index, 1);
     });
     lugarer.push(objekt);
 }
 
-// Viser valgte lugarer på klient siden
-function visValgteLugarer(){
-    let lugarTemplate = document.getElementById('lugar-template');
-    let parent = $('#valgt-lugar-template-tray');
-    parent.empty();
-
-    for(let i = 0; i < lugarer.length; i++) {
-        let clone = lugarTemplate.content.cloneNode(true);
-        clone.querySelector('.antall').innerText = lugarer[i].antall;
-        clone.querySelector('.tittel').innerText = lugarer[i].type;
-        clone.querySelector('.rom-fjern-btn').name = lugarer[i].type;
-        parent.append(clone);
-    }
-}
-
-// Fjerner lugar fra arrayet og på klient siden
-function fjernLugar(button){
-    let toRemove = button.name;
-    lugarer.forEach(function (item, index) {
-        if(item.type === toRemove) {
-            lugarer.splice(index, 1);
-            visValgteLugarer();
-        }
-    });
-}
-
-function visLugarFeilMelding(){
+function visLugarFeilMelding(melding){
     let lugarFmPlaceholder = $("#lugar-fm-placeholder");
     let lugarFeilMelding = $(".lugar-feil-melding");
     lugarFmPlaceholder.addClass('is-invalid');
-    lugarFeilMelding.text('Velg minst èn lugar.');
+    lugarFeilMelding.text(melding);
     lugarFeilMelding.removeClass('d-none');
 }
 
@@ -240,29 +215,27 @@ function skjulLugarFeilMelding(){
 
 // Valideringsfunksjon for trinn 4: Måltider
 
-function leggTilValgtMaaltid(){
-    $(".maaltid-row").on('click', function () {
-        let inputId = '#' + $('#' + this.id + ' input').attr('id')
-        let maaltidPris = Number($('#' + this.id + ' span.pris').text());
-        let maaltidNavn = $('#' + this.id + ' .tittel').text();
-        let input = $(inputId);
+function leggTilValgtMaaltid(id){
+    let inputId = '#' + $('#' + id + ' input').attr('id')
+    let maaltidPris = Number($('#' + id + ' span.pris').text());
+    let maaltidNavn = $('#' + id + ' .tittel').text();
+    let input = $(inputId);
+    
+    // virker som en checked/unchecked toggle
+    $(input).attr("checked", !$(input).attr("checked"));
 
-        // virker som en checked/unchecked toggle
-        $(input).attr("checked", !$(input).attr("checked"));
-
-        if($(input).is(':checked')) {
-            maaltider.push({'id': inputId, 'navn': maaltidNavn, 'pris': maaltidPris});
-            $(inputId + "-ikon").removeClass('d-none');
-            $(inputId + '-info').addClass('on');
-        } else {
-            // Fjern det fra valgt måltid array hvis unchecked
-            maaltider.forEach(function (item, index) {
-                if(item.id === inputId) maaltider.splice(index, 1);
-            });
-            $(inputId + "-ikon").addClass('d-none');
-            $(inputId + '-info').removeClass('on');
-        }
-    });
+    if($(input).is(':checked')) {
+        maaltider.push({'id': inputId, 'navn': maaltidNavn, 'pris': maaltidPris});
+        $(inputId + "-ikon").removeClass('d-none');
+        $(inputId + '-info').addClass('on');
+    } else {
+        // Fjern det fra valgt måltid array hvis unchecked
+        maaltider.forEach(function (item, index) {
+            if(item.id === inputId) maaltider.splice(index, 1);
+        });
+        $(inputId + "-ikon").addClass('d-none');
+        $(inputId + '-info').removeClass('on');
+    }
 }
 
 // Valideringsfunksjoner for trinn 5: Passasjerer form
@@ -286,15 +259,15 @@ function validerPassajerForm(fornavnListe, etternavnListe, fodselsDatoListe) {
 }
 
 function lagePassasjerObjekt(fornavnListe, etternavnListe, datoListe){
-    // Tæmmer arrayet når bruker går tilbake og endrer antall passasjerer
+    // Tømmer arrayet når bruker går tilbake og endrer antall passasjerer
     passasjerer.length = 0;
     
     for(let i = 0; i < fornavnListe.length; i++) {
         let fornavn = fornavnListe[i].value;
         let etternavn = etternavnListe[i].value;
-        let formattedDate = formatterDato(datoListe[i].id);
+        let formattertDato = formatterDato(datoListe[i].id);
         
-        let objekt = {'fornavn': fornavn, 'etternavn':etternavn, 'fodselsDato': formattedDate };
+        let objekt = {Fornavn: fornavn, Etternavn: etternavn, Fodselsdato: formattertDato };
         passasjerer.push(objekt);
     }
 }
@@ -344,17 +317,19 @@ function validerTrinn2() {
     antallDyr = Number($('.antall-dyr').text());
     antallSykler = Number($('.antall-sykkel').text());
     merkerFerdig('#neste-trinn');
-    skjulOgVisTrinn('#trinn-2','#trinn-3','#trinn-2-btns','#trinn-3-btns');
+    skjulTrinn('#trinn-2','#trinn-2-btns');
 }
 
 // Trinn 3: Lugar
 function validerTrinn3() {
     if(lugarer.length > 0) {
         merkerFerdig('#trinn-3');
-        skjulOgVisTrinn('#trinn-3','#trinn-4','#trinn-3-btns','#trinn-4-btns');
+        skjulTrinn('#trinn-3','#trinn-3-btns');
         skjulLugarFeilMelding();
+        return true;
     } else {
-        visLugarFeilMelding();
+        visLugarFeilMelding('Du må reservere minst èn lugar.');
+        return false;
     }
 }
 

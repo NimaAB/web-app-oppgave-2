@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Web_app_oppgave_2.DAL;
 using Web_app_oppgave_2.DAL.BestillingServices;
 using Web_app_oppgave_2.DAL.LugarServices;
-using Web_app_oppgave_2.DAL.MealServices;
+using Web_app_oppgave_2.DAL.MaaltidServices;
 using Web_app_oppgave_2.DAL.RuteServices;
 
 namespace Web_app_oppgave_2
@@ -32,7 +32,7 @@ namespace Web_app_oppgave_2
             services.AddDbContext<Db>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IBestillingRepository, BestillingRepository>();
             services.AddScoped<ILugarRepository, LugarRepository>();
-            services.AddScoped<IMealRepository, MealRepository>();
+            services.AddScoped<IMaaltidRepository, MaaltidRepository>();
             services.AddScoped<IRuteRepository, RuteRepository>();
         }
 
