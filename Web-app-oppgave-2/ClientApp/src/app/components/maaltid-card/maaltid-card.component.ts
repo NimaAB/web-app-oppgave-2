@@ -10,6 +10,7 @@ export class MaaltidCardComponent implements OnInit {
   maaltid:Maaltid;
   constructor() {
     this.maaltid = {
+      id:1,
       navn: "Frokost",
       beskrivelse:"Lorem ipsum dolor sit amet, consectetur adipiscing elit," +
         " sed do eiusmod tempor incididunt ut labore " +

@@ -10,6 +10,7 @@ export class LugarCardComponent implements OnInit {
   lugar:Lugar;
   constructor() {
     this.lugar = {
+      id:1,
       type:"Rom",
       navn:"Fin lugar",
       bilde:"../../assets/kiel.jpg",
