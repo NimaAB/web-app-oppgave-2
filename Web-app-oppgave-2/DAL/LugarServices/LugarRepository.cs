@@ -33,7 +33,7 @@ namespace Web_app_oppgave_2.DAL.LugarServices
                 if (lugar == null) return false;
                 
                 lugar.Type = nyLugar.Type;
-                lugar.Bilde = nyLugar.Bilde;
+                //lugar.Bilde = nyLugar.Bilde;
                 lugar.Navn = nyLugar.Navn;
                 lugar.Kapasitet = nyLugar.Kapasitet;
                 lugar.Beskrivelse = nyLugar.Beskrivelse;
@@ -71,8 +71,8 @@ namespace Web_app_oppgave_2.DAL.LugarServices
         {
             try
             {
-                if (lugar.Type is null 
-                    || lugar.Bilde.Length == 0
+                //|| lugar.Bilde.Length == 0
+                if (lugar.Type is null
                     || lugar.Beskrivelse is null
                     || lugar.Pris <= 0) return false;
                 await _db.Lugarer.AddAsync(lugar);

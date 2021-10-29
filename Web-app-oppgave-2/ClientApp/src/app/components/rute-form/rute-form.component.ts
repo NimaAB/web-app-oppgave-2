@@ -7,7 +7,6 @@ import { Rute } from 'src/models/rute';
   styleUrls: ['./rute-form.component.css']
 })
 export class RuteFormComponent implements OnInit {
-  display:boolean = false;
   rute:Rute;
   constructor() {
     this.rute = {

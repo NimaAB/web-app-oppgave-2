@@ -28,7 +28,7 @@ namespace Web_app_oppgave_2.DAL.MaaltidServices
                 
                 meal.Navn = nyMaaltid.Navn;
                 meal.Beskrivelse = nyMaaltid.Beskrivelse;
-                meal.Bilde = nyMaaltid.Bilde;
+                //meal.Bilde = nyMaaltid.Bilde;
                 meal.Pris = nyMaaltid.Pris;
 
                 _db.Maaltider.Update(meal);
@@ -61,8 +61,9 @@ namespace Web_app_oppgave_2.DAL.MaaltidServices
         {
             try
             {
+                //|| maaltid.Bilde.Length == 0 
                 if (maaltid.Navn is null 
-                    || maaltid.Bilde.Length == 0 
+                    
                     || maaltid.Beskrivelse is null 
                     || maaltid.Pris <= 0) return false;
                 await _db.Maaltider.AddAsync(maaltid);

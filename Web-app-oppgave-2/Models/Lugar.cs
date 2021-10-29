@@ -12,7 +12,7 @@ namespace Web_app_oppgave_2.Models
         public string Navn { get; set; }
         public int Kapasitet { get; set; }
         public string Beskrivelse { get; set; }
-        public byte[] Bilde { get; set; }
+        //public byte[] Bilde { get; set; }
         public int MaxReservasjon { get; set; }
         public double Pris { get; set; }
     }
