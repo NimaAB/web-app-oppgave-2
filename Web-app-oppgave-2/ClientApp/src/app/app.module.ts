@@ -13,6 +13,8 @@ import { RuteFormComponent } from './components/rute-form/rute-form.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { E404Component } from './components/e404/e404.component';
+import { MaaltidFormComponent } from './components/maaltid-form/maaltid-form.component';
+import { LugarFormComponent } from './components/lugar-form/lugar-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { E404Component } from './components/e404/e404.component';
     LugarCardComponent,
     RuteFormComponent,
     NavbarComponent,
-    E404Component
+    E404Component,
+    MaaltidFormComponent,
+    LugarFormComponent
   ],
   imports: [
     BrowserModule,

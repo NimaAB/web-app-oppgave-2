@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Maaltid} from "../../../models/maaltid";
 
 @Component({
-  selector: 'app-maaltid-card',
-  templateUrl: './maaltid-card.component.html',
-  styleUrls: ['./maaltid-card.component.css']
+  selector: 'app-maaltid-form',
+  templateUrl: './maaltid-form.component.html',
+  styleUrls: ['./maaltid-form.component.css']
 })
-export class MaaltidCardComponent implements OnInit {
+export class MaaltidFormComponent implements OnInit {
   maaltid:Maaltid;
   constructor() {
     this.maaltid = {
