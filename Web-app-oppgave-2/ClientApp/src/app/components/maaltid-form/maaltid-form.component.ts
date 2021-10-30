@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import {Maaltid} from "../../../models/maaltid";
 
 @Component({
@@ -8,7 +9,7 @@ import {Maaltid} from "../../../models/maaltid";
 })
 export class MaaltidFormComponent implements OnInit {
   maaltid:Maaltid;
-  constructor() {
+  constructor(private location:Location) {
     this.maaltid = {
       id:1,
       navn: "Frokost",
@@ -26,6 +27,10 @@ export class MaaltidFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  gaaTilbake() {
+    this.location.back();
   }
 
 }

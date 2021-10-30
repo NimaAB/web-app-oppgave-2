@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Lugar } from 'src/models/lugar';
 
 @Component({
@@ -8,7 +9,7 @@ import { Lugar } from 'src/models/lugar';
 })
 export class LugarFormComponent implements OnInit {
   lugar:Lugar;
-  constructor() {
+  constructor(private location:Location) {
     this.lugar = {
       id: 1,
       type: "Rom",
@@ -28,5 +29,9 @@ export class LugarFormComponent implements OnInit {
     };
   }
   ngOnInit(): void {}
+
+  gaaTilbake() {
+    this.location.back();
+  }
 }
 

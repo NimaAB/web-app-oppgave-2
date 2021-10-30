@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Rute } from 'src/models/rute';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-rute-form',
@@ -8,7 +9,8 @@ import { Rute } from 'src/models/rute';
 })
 export class RuteFormComponent implements OnInit {
   rute:Rute;
-  constructor() {
+  constructor(private location:Location) {
+
     this.rute = {
       tur: "Oslo-Kiel",
       bilde: "../../assets/kiel.jpg",
@@ -19,5 +21,7 @@ export class RuteFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  gaaTilbake() {
+    this.location.back();
+  }
 }
