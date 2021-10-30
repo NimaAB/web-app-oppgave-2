@@ -5,18 +5,18 @@
   kapasistet:number;
   maxReservasjon:number;
   beskrivelse:string;
-  bilde:any;
+  bilde?:any;
   pris:number;
 
   constructor(type:string, navn:string,
     kapasistet:number, maxReservasjon:number,
-    beskrivelse:string, pris:number, bilde:any) {
+    beskrivelse:string, pris:number) {
     this.type = type;
     this.navn = navn;
     this.beskrivelse = beskrivelse;
     this.kapasistet = kapasistet;
     this.maxReservasjon = maxReservasjon;
-    this.pris = pris
-    this.bilde = bilde;
+    this.pris = pris;
+    //this.bilde = bilde;
   }
 }

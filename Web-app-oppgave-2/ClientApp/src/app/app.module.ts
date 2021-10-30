@@ -15,6 +15,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { E404Component } from './components/e404/e404.component';
 import { MaaltidFormComponent } from './components/maaltid-form/maaltid-form.component';
 import { LugarFormComponent } from './components/lugar-form/lugar-form.component';
+import { RuterComponent } from './components/ruter/ruter.component';
+import { MaaltiderComponent } from './components/maaltider/maaltider.component';
+import { LugarerComponent } from './components/lugarer/lugarer.component';
+import { AddItemCardComponent } from './components/add-item-card/add-item-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { LugarFormComponent } from './components/lugar-form/lugar-form.component
     NavbarComponent,
     E404Component,
     MaaltidFormComponent,
-    LugarFormComponent
+    LugarFormComponent,
+    RuterComponent,
+    MaaltiderComponent,
+    LugarerComponent,
+    AddItemCardComponent
   ],
   imports: [
     BrowserModule,
