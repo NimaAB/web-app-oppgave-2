@@ -1,16 +1,9 @@
-<div class="d-flex flex-column align-items-center m-3 shadow" style="background: rgba(0,129,167,0.5); border-radius: 5px; width: 50%;">
-  <div class="d-flex align-items-center justify-content-around w-100 pt-3">
-    <h4 class="fw-normal" style="color: whitesmoke; letter-spacing: 2px;">Legg til ny \{{rute\}</h4>
-  </div>
 
-    <div *ngIf="formType==='rute'" class="d-flex justify-content-between align-items-center m-2" style="width: 150px;">
-      <a class="btn btn-primary" href="/api/rute/opprett">Opprett</a>
-    </div>
-    <div *ngIf="formType==='maaltid'" class="d-flex justify-content-between align-items-center m-2" style="width: 150px;">
-      <a class="btn btn-primary" href="/api/maaltid/opprett">Opprett</a>
-    </div>
-    <div *ngIf="formType==='lugar'" class="d-flex justify-content-between align-items-center m-2" style="width: 150px;">
-      <a class="btn btn-primary" href="/api/lugar/opprett">Opprett</a>
-    </div>
-
+<div class="pb-3 w-100 d-flex justify-content-lg-end justify-content-center">
+  <a *ngIf="formType === 'rute'" routerLink="/api/rute/opprett" class="btn btn-theme">
+    <i class="bi bi-plus-lg me-2"></i>Ny Rute</a>
+  <a *ngIf="formType === 'maaltid'" routerLink="/api/maaltid/opprett" class="btn btn-theme">
+    <i class="bi bi-plus-lg me-2"></i>Ny Måltid</a>
+  <a *ngIf="formType === 'lugar'" routerLink="/api/lugar/opprett" class="btn btn-theme">
+    <i class="bi bi-plus-lg me-2"></i>Ny Lugar</a>
 </div>
