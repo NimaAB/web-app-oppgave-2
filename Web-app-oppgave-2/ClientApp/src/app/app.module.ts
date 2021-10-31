@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -40,8 +40,8 @@ import { AddItemCardComponent } from './components/add-item-card/add-item-card.c
     BrowserModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
