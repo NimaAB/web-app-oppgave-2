@@ -1,5 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
-html, body { height: 100%; }
+html, body { height: 100%; min-width: 350px; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+a.a-link, a.a-link-danger {
+  color: #0081a7;
+  display: block;
+  text-decoration: none;
+  padding: 5px 0;
+  border-bottom: 1px solid transparent;
+  width: fit-content;
+  font-size: 16px;
+}
+
+a.a-link:hover {
+  border-bottom: 1px solid #0081a7;
+}
+
+a.a-link-danger:hover {
+  border-bottom: 1px solid red;
+}
+
+.btn-theme {
+  min-width: 100px !important;
+  background: #0081a7 !important;
+  color: white !important;
+  border: 1px solid transparent !important;
+  transition: ease .3s;
+}
+
+.btn-theme:hover {
+  background: #eef9ff !important;
+  color: #0081a7 !important;
+  border: 1px solid #0081a7 !important;
+}
+
+.text-theme {
+  color: #0081a7;
+}

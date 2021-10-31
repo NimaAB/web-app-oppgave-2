@@ -1,4 +1,12 @@
-<div>
+<div class="container py-5">
+  <h1 class="fw-light text-lg-start text-center">Lugarer</h1>
+  <hr class="w-100">
+
   <app-add-item-card [formType]="formType"></app-add-item-card>
-  <app-lugar-card *ngFor="let lugar of lugarer" [lugar]="lugar"></app-lugar-card>
+
+  <div class="row g-3">
+    <div class="col-12" *ngFor="let lugar of lugarer">
+      <app-lugar-card [lugar]="lugar"></app-lugar-card>
+    </div>
+  </div>
 </div>
