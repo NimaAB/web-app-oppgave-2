@@ -7,8 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AddItemCardComponent implements OnInit {
   @Input() formType:string|undefined;
-  constructor() {
-  }
-  ngOnInit(): void {
-  }
+  constructor() {}
+  ngOnInit(): void {}
 }

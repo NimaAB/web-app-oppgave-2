@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {FormGroup, Validators, FormControl, AbstractControl} from '@angular/forms';
 
 @Component({
@@ -7,9 +7,10 @@ import {FormGroup, Validators, FormControl, AbstractControl} from '@angular/form
   styleUrls: ['./rute-form.component.css']
 })
 export class RuteFormComponent{
-  endringsForm: boolean = false;
-
+  erEndringsForm: boolean = true;
+  currentRuteId:any = undefined;
   isSubmitted: boolean = false;
+
   form = new FormGroup({
     id: new FormControl(),
     fra: new FormControl(
@@ -30,7 +31,10 @@ export class RuteFormComponent{
     )
   });
 
-  constructor() { }
+  constructor() {
+    this.setErEndringsForm()
+    this.setId();
+  }
   get fra(){
     return this.form.controls.fra;
   }
@@ -48,7 +52,7 @@ export class RuteFormComponent{
   }
 
   onSubmit() {
-    if(this.endringsForm){
+    if(this.erEndringsForm){
       this.endreRute();
     } else {
       this.lagreNyRute();
@@ -57,7 +61,16 @@ export class RuteFormComponent{
     this.form.reset();
   }
 
-
+  setErEndringsForm(){
+    const url = window.location.href
+    this.erEndringsForm = url.split("/")[5] === 'oppdater';
+  }
+  setId(){
+    const url = window.location.href
+    if(this.erEndringsForm){
+      this.currentRuteId = url.split("/")[6];
+    }
+  }
   endreRute(){
 
   }
@@ -65,4 +78,6 @@ export class RuteFormComponent{
   lagreNyRute(){
 
   }
+
+
 }
