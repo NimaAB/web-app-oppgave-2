@@ -8,6 +8,5 @@ import { Rute } from 'src/models/rute';
 })
 export class RuteCardComponent{
   @Input() rute!: Rute;
-  constructor() {
-  }
+  constructor() { }
 }

@@ -9,7 +9,9 @@ import {FormGroup, Validators, FormControl } from '@angular/forms';
   styleUrls: ['./rute-form.component.css']
 })
 export class RuteFormComponent implements OnInit {
+  endringsForm: boolean = true;
   form = new FormGroup({
+    id: new FormControl(),
     fra: new FormControl(
       null,
       Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][a-zæøå]{2,25}")])
@@ -24,8 +26,7 @@ export class RuteFormComponent implements OnInit {
     )
   });
 
-  constructor(private location:Location) {
-  }
+  constructor(private location:Location) { }
 
   ngOnInit(): void {
   }
@@ -35,13 +36,18 @@ export class RuteFormComponent implements OnInit {
   }
 
   onSubmit() {
-    /*let rute:string = `rute = {
-    \tfra: ${ this.form.value.fra },
-    \n\ttil: ${this.form.value.til},
-    \n\tpris: ${this.form.value.pris}\n}`;*/
-
-    if(this.form.valid){
-      console.log(this.form.value);
+    if(this.endringsForm){
+      this.endreRute();
+    } else {
+      this.lagreNyRute();
     }
+  }
+
+  endreRute(){
+
+  }
+
+  lagreNyRute(){
+
   }
 }

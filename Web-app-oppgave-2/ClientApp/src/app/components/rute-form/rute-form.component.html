@@ -1,7 +1,7 @@
 <div class="w-50 border-3 border-primary">
   <h1>RUTE</h1>
   <form  [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center align-items-center">
-    <input type="hidden" name="id">
+    <input formControlName="id" type="hidden" name="id">
     <div class="form-group w-75">
       <label class="form-label fw-bolder">Fra: </label>
       <input formControlName="fra" type="text" placeholder="Oslo" class="form-control">
@@ -28,7 +28,8 @@
       <input type="file" placeholder="{{rute.bilde}}" class="form-control" alt="Et bilde" accept=".jpeg, .jpg, .png">
     </div>-->
     <div class="form-group mt-2 w-75 btn-group">
-      <input type="submit" value="Lagre" class="btn btn-sm btn-primary">
+      <input type="submit" value="Lagre" *ngIf="!endringsForm" [disabled]="form.invalid" class="btn btn-sm btn-primary">
+      <input type="submit" value="Endre" *ngIf="endringsForm" [disabled]="form.invalid" class="btn btn-sm btn-success">
       <input type="submit" (click)="gaaTilbake()" value="Avbryt" class="btn btn-sm btn-secondary">
     </div>
   </form>

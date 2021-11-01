@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Rute } from 'src/models/rute';
-
 
 @Component({
   selector: 'app-add-item-card',
@@ -9,9 +7,8 @@ import { Rute } from 'src/models/rute';
 })
 export class AddItemCardComponent implements OnInit {
   @Input() formType:string|undefined;
-  constructor() { }
-
+  constructor() {
+  }
   ngOnInit(): void {
   }
-
 }
