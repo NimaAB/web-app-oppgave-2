@@ -1,37 +1,64 @@
-<div class="w-50 border-3 border-primary">
-  <h1>RUTE</h1>
-  <form  [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center align-items-center">
-    <input formControlName="id" type="hidden" name="id">
-    <div class="form-group w-75">
-      <label class="form-label fw-bolder">Fra: </label>
-      <input formControlName="fra" type="text" placeholder="Oslo" class="form-control">
-      <div class="alert alert-warning" role="alert" *ngIf="form.controls.fra.invalid">
-        <p>Navnet må begynne med stort bokstav.</p>
-      </div>
-    </div>
-    <div class="form-group mt-2 w-75">
-      <label class="form-label fw-bolder">Til: </label>
-      <input formControlName="til" type="text" placeholder="Kiel" class="form-control">
-      <div class="alert alert-warning" role="alert" *ngIf="form.controls.til.invalid">
-        <p>navnet må begynne med stort bokstav.</p>
-      </div>
-    </div>
-    <div class="form-group mt-2 w-75">
-      <label class="form-label fw-bolder">Pris: </label>
-      <input formControlName="pris" type="number" placeholder="990.90" class="form-control">
-      <div class="alert alert-warning" role="alert" *ngIf="form.controls.pris.invalid">
-        <p>pris må være større en null</p>
-      </div>
-    </div>
-    <!--<div class="form-group mt-2 w-75">
-      <label class="form-label fw-bolder">Bilde: </label>
-      <input type="file" placeholder="{{rute.bilde}}" class="form-control" alt="Et bilde" accept=".jpeg, .jpg, .png">
-    </div>-->
-    <div class="form-group mt-2 w-75 btn-group">
-      <input type="submit" value="Lagre" *ngIf="!endringsForm" [disabled]="form.invalid" class="btn btn-sm btn-primary">
-      <input type="submit" value="Endre" *ngIf="endringsForm" [disabled]="form.invalid" class="btn btn-sm btn-success">
-      <input type="submit" (click)="gaaTilbake()" value="Avbryt" class="btn btn-sm btn-secondary">
-    </div>
-  </form>
-</div>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <h1 class="fw-light text-center">Opprett en ny rute</h1>
+      <hr class="w-100">
 
+      <!-- Alert når ruten er lagret. -->
+      <div class="alert alert-success alert-dismissible" *ngIf="isSubmitted">
+        <small class="fs-6">Ruten er lagret!</small>
+        <button type="button" class="btn-close" aria-label="Close" (click)="isSubmitted = !isSubmitted"></button>
+
+      </div>
+
+      <!-- Form -->
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <input type="hidden" name="id">
+        <div class="mb-3">
+          <label for="fra" class="form-label">Fra</label>
+          <input type="text" class="form-control" [class.is-invalid]="fra.touched && fra.invalid"
+                 placeholder="Oslo" id="fra" formControlName="fra">
+          <div *ngIf="fra.touched && fra.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="fra.errors?.required">Feltet kan ikke være tomt.</small>
+            <small class="fs-6" *ngIf="fra.errors?.pattern">Navnet må begynne med en stor bokstav.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="til" class="form-label">Til</label>
+          <input type="text" class="form-control" [class.is-invalid]="til.touched && til.invalid"
+                 placeholder="Kiel" id="til" formControlName="til">
+          <div *ngIf="til.touched && til.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="til.errors?.required">Feltet kan ikke være tomt.</small>
+            <small class="fs-6" *ngIf="til.errors?.pattern">Navnet må begynne med en stor bokstav.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="pris" class="form-label">Pris</label>
+          <input type="number" class="form-control" [class.is-invalid]="pris.touched && pris.invalid"
+                 placeholder="699" id="pris" formControlName="pris">
+          <div *ngIf="pris.touched && pris.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="pris.errors?.required">Prisen må være større enn 0.</small>
+          </div>
+        </div>
+
+        <!--<div class="mb-3">
+          <label for="bilde" class="form-label text-black-50">Gyldig bilde format: .jpeg .jpg .png</label>
+          <input type="file" class="form-control" [class.is-invalid]="bilde.touched && bilde.invalid"
+                 id="bilde" accept=".jpeg, .jpg, .png" formControlName="bilde">
+          <div class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="bilde.touched && bilde.invalid">Ugyldig bildet.</small>
+          </div>
+        </div>-->
+
+        <div class="form-group py-2 d-flex justify-content-lg-end justify-content-center">
+          <button class="btn btn-primary me-2" *ngIf="endringsForm" [disabled]="form.invalid">Endre</button>
+          <button class="btn btn-success me-2" *ngIf="!endringsForm" [disabled]="form.invalid">Lagre</button>
+          <button class="btn btn-secondary" routerLink="/ruter">Avbryt</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
