@@ -1,32 +1,62 @@
 <div class="w-50 border-3 border-primary">
   <h1>Lugar redigering</h1>
-  <form class="d-flex flex-column justify-content-center align-items-center">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center align-items-center">
     <div class="w-75">
+      <label class="form-label fw-bolder">Type: </label>
+      <input formControlName="type" type="text" placeholder="Lugar" class="form-control">
+      <div class="alert alert-warning" role="alert" *ngIf="form.controls.type.invalid">
+        <p>Det skal begynne med stort bokstav og være mellom 3 og 25 bokstaver</p>
+      </div>
+    </div>
+    <div class="mt-2 w-75">
       <label class="form-label fw-bolder">Navn: </label>
-      <input type="text" placeholder="{{lugar.navn}}" class="form-control">
+      <input formControlName="navn" type="text" placeholder="Fin Lugar" class="form-control">
+      <div class="alert alert-warning" role="alert" *ngIf="form.controls.navn.invalid">
+        <p>Det skal begynne med stort bokstav og være mellom 3 og 25 bokstaver og Består av to ord.</p>
+      </div>
     </div>
     <div class="mt-2 w-75">
       <label class="form-label fw-bolder">Beskrivelse: </label>
-      <input type="text" placeholder="{{lugar.beskrivelse}}" class="form-control">
+      <textarea formControlName="beskrivelse" rows="6" cols="6" class="form-control">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        sed do eiusmod tempor incididunt ut labore
+        et dolore magna aliqua. Aliquet enim tortor at auctor.
+        Lectus nulla at volutpat diam ut venenatis.
+        Aliquet bibendum enim facilisis gravida
+        neque convallis a. Nulla facilisi cras fermentum
+        odio eu.
+      </textarea>
+      <div class="alert alert-warning" role="alert" *ngIf="form.controls.beskrivelse.invalid">
+        <p>Beskrivelse må ikke være tom.</p>
+      </div>
     </div>
     <div class="mt-2 w-75">
       <label class="form-label fw-bolder">Kapasitet: </label>
-      <input type="number" placeholder="{{lugar.kapasistet}}" class="form-control">
+      <input formControlName="kapasitet" type="number" placeholder="3" class="form-control">
+      <div class="alert alert-warning" role="alert" *ngIf="form.controls.kapasitet.invalid">
+        <p>Kapasitet må ikke være tom.</p>
+      </div>
     </div>
     <div class="mt-2 w-75">
-      <label class="form-label fw-bolder">Max Reservasjon: </label>
-      <input type="number" placeholder="{{lugar.maxReservasjon}}" class="form-control">
+      <label class="form-label fw-bolder">Maks Reservasjon: </label>
+      <input formControlName="maxReservasjon" type="number" placeholder="100" class="form-control">
+      <div class="alert alert-warning" role="alert" *ngIf="form.controls.maxReservasjon.invalid">
+        <p>Maks reservasjon må ikke være tom.</p>
+      </div>
     </div>
     <div class="mt-2 w-75">
       <label class="form-label fw-bolder">Pris: </label>
-      <input type="number" placeholder="{{lugar.pris}}" class="form-control">
+      <input formControlName="pris" type="number" placeholder="999.90" class="form-control">
+      <div class="alert alert-warning" role="alert" *ngIf="form.controls.pris.invalid">
+        <p>pris må være større en null</p>
+      </div>
     </div>
     <!--<div class="mt-2 w-75">
       <label for="bilde" class="form-label fw-bolder">Bilde: </label>
       <input type="file" placeholder="{{rute.bilde}}" id="bilde" class="form-control" alt="Et bilde" accept=".jpeg, .jpg, .png">
     </div>-->
     <div class="mt-2 w-75 btn-group">
-      <input type="submit" value="Endre" class="btn btn-sm btn-primary">
+      <input type="submit" value="Lagre" class="btn btn-sm btn-primary">
       <input type="submit" (click)="gaaTilbake()" value="Avbryt" class="btn btn-sm btn-secondary">
     </div>
   </form>

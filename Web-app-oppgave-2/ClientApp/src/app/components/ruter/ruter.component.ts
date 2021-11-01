@@ -14,19 +14,22 @@ export class RuterComponent implements OnInit {
     this.ruter = [
       {
         id:1,
-        tur: "Oslo-Kiel",
+        fra: "Oslo",
+        til:"Kiel",
         bilde: "../../assets/kiel.jpg",
         pris: 999.99
       },
       {
         id:2,
-        tur: "Oslo-Kiel",
+        fra: "Oslo",
+        til:"Kiel",
         bilde: "../../assets/kiel.jpg",
         pris:1199.99
       },
       {
         id:3,
-        tur: "Oslo-Kiel",
+        fra: "Oslo",
+        til:"Kiel",
         bilde: "../../assets/kiel.jpg",
         pris: 2199.99
       }

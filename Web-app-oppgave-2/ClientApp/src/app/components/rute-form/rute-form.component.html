@@ -6,21 +6,21 @@
       <label class="form-label fw-bolder">Fra: </label>
       <input formControlName="fra" type="text" placeholder="Oslo" class="form-control">
       <div class="alert alert-warning" role="alert" *ngIf="form.controls.fra.invalid">
-        <p>You should check in on some of those fields below.</p>
+        <p>Navnet må begynne med stort bokstav.</p>
       </div>
     </div>
     <div class="form-group mt-2 w-75">
       <label class="form-label fw-bolder">Til: </label>
       <input formControlName="til" type="text" placeholder="Kiel" class="form-control">
       <div class="alert alert-warning" role="alert" *ngIf="form.controls.til.invalid">
-        <p>You should check in on some of those fields below.</p>
+        <p>navnet må begynne med stort bokstav.</p>
       </div>
     </div>
     <div class="form-group mt-2 w-75">
       <label class="form-label fw-bolder">Pris: </label>
       <input formControlName="pris" type="number" placeholder="990.90" class="form-control">
       <div class="alert alert-warning" role="alert" *ngIf="form.controls.pris.invalid">
-        <p>You should check in on some of those fields below.</p>
+        <p>pris må være større en null</p>
       </div>
     </div>
     <!--<div class="form-group mt-2 w-75">
