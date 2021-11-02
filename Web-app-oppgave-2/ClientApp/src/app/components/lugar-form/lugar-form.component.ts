@@ -39,7 +39,7 @@ export class LugarFormComponent {
 
 
   get typ(){
-    return this.form.controls.type;
+    return this.form.controls.typ;
   }
   get navn(){
     return this.form.controls.navn;
