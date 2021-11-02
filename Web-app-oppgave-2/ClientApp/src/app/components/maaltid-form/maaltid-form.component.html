@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-lg-6">
       <h1 *ngIf="!erEndringsForm" class="fw-light text-center">Opprett en ny måltid</h1>
-      <h1 *ngIf="erEndringsForm" class="fw-light text-center">Endre rute med id: {{currentMaaltidId}}</h1>
+      <h1 *ngIf="erEndringsForm" class="fw-light text-center">Endre måltid med id: {{currentMaaltidId}}</h1>
       <hr class="w-100">
 
       <!-- Alert når ruten er lagret. -->
@@ -17,7 +17,7 @@
         <div class="mb-3">
           <label for="navn" class="form-label">Navn</label>
           <input type="text" class="form-control" [class.is-invalid]="navn.touched && navn.invalid"
-                 placeholder="Frokost" id="navn" formControlName="type">
+                 placeholder="Frokost" id="navn" formControlName="navn">
           <div *ngIf="navn.touched && navn.invalid" class="invalid-feedback alert alert-danger mt-3">
             <small class="fs-6" *ngIf="navn.errors?.required">Feltet kan ikke være tomt.</small>
             <small class="fs-6" *ngIf="navn.errors?.pattern">Type må begynne med en stor bokstav.</small>
