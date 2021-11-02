@@ -7,7 +7,7 @@ import {FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './lugar-form.component.html',
   styleUrls: ['./lugar-form.component.css']
 })
-export class LugarFormComponent{
+export class LugarFormComponent {
   erEndringsForm: boolean = true;
   currentLugarId:any = undefined;
   isSubmitted: boolean = false;
