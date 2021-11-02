@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {Injectable, NgModule} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -18,6 +18,7 @@ import { RuterComponent } from './components/ruter/ruter.component';
 import { MaaltiderComponent } from './components/maaltider/maaltider.component';
 import { LugarerComponent } from './components/lugarer/lugarer.component';
 import { AddItemCardComponent } from './components/add-item-card/add-item-card.component';
+import { RuterService } from "./Services/ruter.service";
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { AddItemCardComponent } from './components/add-item-card/add-item-card.c
     ReactiveFormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    RuterService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

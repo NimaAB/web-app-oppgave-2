@@ -1,17 +1,17 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Input } from '@angular/core';
-import {FormGroup, Validators, FormControl, AbstractControl} from '@angular/forms';
-import {Rute} from "../../../models/rute";
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup, Validators, FormControl} from '@angular/forms';
+import {RuterService} from "../../Services/ruter.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-rute-form',
   templateUrl: './rute-form.component.html',
   styleUrls: ['./rute-form.component.css']
 })
-export class RuteFormComponent{
-  erEndringsForm: boolean = true;
-  currentRuteId:any = undefined;
+export class RuteFormComponent implements OnInit{
   isSubmitted: boolean = false;
+  formAction: string | null = "";
+  currentId: string | null = "";
 
   form = new FormGroup({
     id: new FormControl(),
@@ -33,10 +33,25 @@ export class RuteFormComponent{
     )
   });
 
-  constructor(private http:HttpClient) {
-    this.setErEndringsForm()
-    this.setId();
+  constructor(
+    private service: RuterService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
+
+  ngOnInit(): void {
+    this.activatedRoute.paramMap
+      .subscribe((param) => {
+        this.formAction = param.get('action');
+        this.currentId = param.get('id');
+        },
+      )
+
+    if(this.formAction == 'slett') {
+      this.slettRute();
+      this.redirectTo('/ruter');
+    }
   }
+
   get fra(){
     return this.form.controls.fra;
   }
@@ -54,43 +69,43 @@ export class RuteFormComponent{
   }
 
   onSubmit() {
-    if(this.erEndringsForm){
-      this.endreRute();
-    } else {
-      this.lagreNyRute();
-    }
     this.isSubmitted = true;
     this.form.reset();
   }
 
-  setErEndringsForm(){
-    const url = window.location.href
-    this.erEndringsForm = url.split("/")[5] === 'oppdater';
+  redirectTo(url: string) {
+    this.router.navigateByUrl(url);
   }
-  setId(){
-    const url = window.location.href
-    if(this.erEndringsForm){
-      this.currentRuteId = url.split("/")[6];
-    }
-  }
+
   endreRute(){
-
-  }
-
-  lagreNyRute(){
-    const url = "api/rute/lagre";
     const nyRute = {
-      tur:this.form.value.fra + "-" + this.form.value.til,
+      id: this.currentId,
+      tur: this.form.value.fra + "-" + this.form.value.til,
       pris: this.form.value.pris
     };
 
-    this.http.post(url,nyRute, {responseType: "text"}).subscribe(rute => {
-      console.log(rute)
-      this.erEndringsForm = true;
-      document.location.href = "/ruter";
-    },
-      (error) => console.log(error),
-      () => console.log("Lagring gikk OK")
+    this.service.oppdater(nyRute).subscribe(
+      data => console.log(data),
+      error => console.error(error)
     );
+  }
+
+  lagreNyRute(){
+    const nyRute = {
+      tur: this.form.value.fra + "-" + this.form.value.til,
+      pris: this.form.value.pris
+    };
+
+    this.service.lagre(nyRute).subscribe(
+      data => console.log(data),
+      error => console.error(error)
+    );
+  }
+
+  slettRute(){
+    this.service.slett(this.currentId).subscribe(
+      data => this.service.hentAlle(),
+      error => console.error(error)
+    )
   }
 }

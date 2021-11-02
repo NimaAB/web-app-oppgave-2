@@ -47,7 +47,7 @@ namespace Web_app_oppgave_2.DAL.RuteServices
                 if (rute == null) return false;
                 _db.Ruter.Remove(rute);
                 await _db.SaveChangesAsync();
-                return false;
+                return true;
             }
             catch
             {
