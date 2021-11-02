@@ -27,7 +27,7 @@ namespace Web_app_oppgave_2.DAL.RuteServices
                 var rute = await _db.Ruter.FindAsync(id);
                 if (rute == null) return false;
                 rute.Tur = nyRute.Tur;
-                rute.Bilde = nyRute.Bilde;
+                //rute.Bilde = nyRute.Bilde;
                 rute.Pris = nyRute.Pris;
                 _db.Ruter.Update(rute);
                 await _db.SaveChangesAsync();
@@ -59,8 +59,8 @@ namespace Web_app_oppgave_2.DAL.RuteServices
         {
             try
             {
-                if (rute.Tur is null 
-                    ||rute.Bilde.Length == 0 
+                //||rute.Bilde.Length == 0 
+                if (rute.Tur is null
                     || rute.Pris <= 0) return false;
                 await _db.Ruter.AddAsync(rute);
                 await _db.SaveChangesAsync();

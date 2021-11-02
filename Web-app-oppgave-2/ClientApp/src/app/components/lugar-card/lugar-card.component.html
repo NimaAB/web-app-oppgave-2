@@ -1,0 +1,30 @@
+
+<div class="row bg-light">
+  <div class="col-lg-3 p-3 d-flex align-items-center">
+    <img src="{{ lugar.bilde }}" class="shadow-sm d-block img-fluid" alt="bilde av {{ lugar.navn }}">
+  </div>
+
+  <div class="col-lg-9 p-0">
+    <div class="py-lg-5 p-3">
+      <p class="text-theme fs-3">{{ lugar.navn }}</p>
+      <hr class="w-100">
+      <p class="m-0">{{ lugar.beskrivelse }} Kr</p>
+    </div>
+
+    <div class="px-3 d-flex justify-content-lg-start justify-content-center">
+      <p class="m-0 me-3">Pris:
+        <span class="text-theme">{{ lugar.pris }}</span></p>
+      <p class="m-0 me-3">Antall:
+        <span class="text-theme">{{ lugar.maxReservasjon }}</span></p>
+      <p class="m-0 me-3">Kapasitet:
+        <span class="text-theme">{{ lugar.kapasistet }}</span></p>
+    </div>
+
+    <div class="d-flex justify-content-lg-end justify-content-center p-3">
+      <a class="btn btn-success" routerLink="/api/lugar/oppdater/{{ lugar.id }}">
+        <i class="bi bi-pencil me-2"></i>Rediger</a>
+      <a class="btn btn-danger ms-2" routerLink="/api/lugar/slett/{{ lugar.id }}">
+        <i class="bi bi-trash me-2"></i>Slett</a>
+    </div>
+  </div>
+</div>

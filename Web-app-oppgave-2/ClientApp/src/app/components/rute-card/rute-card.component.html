@@ -1,0 +1,16 @@
+
+<div class="shadow">
+  <img src="{{ rute.bilde }}" class="shadow-sm img-fluid" alt="bilde av {{ rute.tur }}">
+
+  <div class="text-center py-3">
+    <p class="text-theme fs-5">{{ rute.tur }} </p>
+    <p class="m-0">{{ rute.pris }} Kr</p>
+  </div>
+
+  <div class="p-3 d-flex justify-content-center align-items-center">
+    <a class="btn btn-success" routerLink="/api/rute/oppdater/{{ rute.id }}">
+      <i class="bi bi-pencil me-2"></i>Rediger</a>
+    <a class="btn btn-danger ms-2" routerLink="/api/rute/slett/{{ rute.id }}">
+      <i class="bi bi-trash me-2"></i>Slett</a>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Web_app_oppgave_2.DAL.MealServices;
 using Web_app_oppgave_2.DAL.RuteServices;
 using Web_app_oppgave_2.Models;
 
@@ -17,7 +16,7 @@ namespace Web_app_oppgave_2.Controllers
             _repo = repo;
         }
 
-        [HttpGet]
+        [HttpGet("hentAlle")]
         public async Task<IActionResult> HentAlleRuter()
         {
             var value = await _repo.HentAlle();

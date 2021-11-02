@@ -11,8 +11,10 @@ $(document).ready(function () {
     $.datepicker.setDefaults($.datepicker.regional['no']); // endrer dato språk
     enableRuteDatePicker();
     deaktiverInputs(reiseTypeInput ,fraDatoInput, tilDatoInput);
-    merkerValgtRute();
-    leggTilValgtMaaltid();
+    
+    // Viser loading gif når vi henter alle ruter fra db
+    visLoader('Henter tilgjengelig ruter...');
+    hentAlleRuter();
 });
 
 // Noen input felter må først velges før de andre
@@ -80,6 +82,27 @@ function skjulOgVisTrinn(toHide, toShow, toHideBtns, toShowBtns){
     location.href = "#bestill";
 }
 
+function skjulTrinn(toHide, toHideBtns){
+    $(toHide).addClass('d-none');
+    $(toHideBtns).addClass('d-none');
+    location.href = "#bestill";
+}
+
+function visTrinn(toShow,  toShowBtns){
+    $(toShow).removeClass('d-none');
+    $(toShowBtns).removeClass('d-none');
+    location.href = "#bestill";
+}
+
+function skjulLoader(){
+    $('.loader').addClass('d-none');
+}
+
+function visLoader(message){
+    $('.loader-message').text(message);
+    $('.loader').removeClass('d-none');
+}
+
 function merkerFerdig(ikon_id){
     $(ikon_id + '-ikon').removeClass('bi-dash-circle');
     $(ikon_id + '-ikon').addClass('bi-check-circle');
@@ -111,14 +134,11 @@ function merkerValgtRute() {
 }
 
 function plussLugar() {
-    let lugar = $("#valgt-lugar").val();
-    let btnWrapper = $('#' + lugar + '-btns');
-    let plussBtn = $("#" + btnWrapper.id + " .pluss");
-    let minusBtn = $("#" + btnWrapper.id + " .minus");
-
-    let label = $("#" + lugar + "-antall-reservasjon");
+    let plussBtn = $('.pluss');
+    let minusBtn = $('.minus');
+    let label = $('.rom-antall-reservasjon');
     let value = Number(label.text());
-    let maxValue = Number($('#' + lugar + '-max-reservasjon').text());
+    let maxValue = Number($('.rom-max-reservasjon').text());
     
     if(value < maxValue) {
         value++;
@@ -131,12 +151,9 @@ function plussLugar() {
 }
 
 function minusLugar() {
-    let lugar = $("#valgt-lugar").val();
-    let btnWrapper = $('#' + lugar + '-btns');
-    let plussBtn = $("#" + btnWrapper.id + " .pluss");
-    let minusBtn = $("#" + btnWrapper.id + " .minus");
-    
-    let label = $("#" + lugar + "-antall-reservasjon");
+    let plussBtn = $('.pluss');
+    let minusBtn = $('.minus');
+    let label = $('.rom-antall-reservasjon');
     let value = Number(label.text());
 
     if(value > 0) {
@@ -149,101 +166,146 @@ function minusLugar() {
     }
 }
 
-// Setter id på valgt rom for separat tildeling av verdier
-function tildeleRomId(id){
-    // assign ids
-    $("#valgt-lugar").val(id);
-    $(".rom-btns").attr('id', id + '-btns');
-    $(".rom-tittel").attr('id', id + '-tittel');
-    $(".rom-beskrivelse").attr('id', id + '-beskrivelse');
-    $(".rom-pris").attr('id', id + '-pris');
-    $(".rom-kapasitet").attr('id', id + '-kapasitet');
-    $(".rom-max-reservasjon").attr('id', id + '-max-reservasjon');
-    $(".rom-antall-reservasjon").attr('id', id + '-antall-reservasjon');
-    $(".rom-bilde").attr('id', id + '-bilde');
-    $(".rom-vindu").attr('id', id + '-vindu');
-    $(".rom-span").attr('id', id + '-span');
-    generereRomDetaljer(id);
+// Generer lugar modal toggles (alle lugarer deler samme modal)
+function genererLugarModalToggles(lugarer){
+    let template = document.getElementById('lugar-toggle-template');
+    let parent = $("#lugar-toggle-template-container");
+    parent.empty();
+    
+    for(let i = 0; i < lugarer.length; i++) {
+        let child = template.content.cloneNode(true);
+        let lugar = lugarer[i];
+
+        let el = child.querySelector('a');
+        let navn = child.querySelector('.lugar-navn');
+        let kapasitet = child.querySelector('.lugar-kapasitet');
+        
+        // TODO: Set background-image from db.
+        el.setAttribute('id', lugar.lugarNummer);
+        navn.innerText = lugarer[i].navn;
+        kapasitet.innerText = lugar.kapasitet > 1 ? '1-' + lugar.kapasitet + ' Personer' : lugar.kapasitet + ' Person';
+        
+        parent.append(child);
+    }
 }
 
-// Genererer rom info fordi alle romene deler kun en modal
-function generereRomDetaljer(id) {
-    let romTittel = $('#'+ id + '-tittel');
-    let romBeskrivelse = $('#'+ id + '-beskrivelse');
-    let romPris = $('#'+ id + '-pris');
-    let romKapasitet = $('#'+ id + '-kapasitet');
-    let romMaxReservasjon = $('#'+ id + '-max-reservasjon');
-    let romAntallReservasjon = $('#'+ id + '-antall-reservasjon');
-    let romBilde = $('#'+ id + '-bilde');
-    let romVindu = $('#'+ id + '-vindu');
-    let romSpan = $('#'+ id + '-span');
+// Genererer lugar info fordi fra db
+function genererLugarDetaljer(lugar) {
+    let tittel = $('.rom-tittel');
+    let beskrivelse = $('.rom-beskrivelse');
+    let pris = $('.rom-pris');
+    let kapasitet = $('.rom-kapasitet');
+    let maxReservasjon = $('.rom-max-reservasjon');
+    let antallReservasjon = $('.rom-antall-reservasjon');
+    let bilde = $('.rom-bilde');
+    let vindu = $('.rom-vindu');
+    let span = $('.rom-span');
+
+    $("#valgt-lugar").val(lugar.lugarNummer);
+    tittel.text(lugar.navn);
+    pris.text(lugar.pris);
+    kapasitet.text(lugar.kapasitet > 1 ? '1-' + lugar.kapasitet : lugar.kapasitet);
+    maxReservasjon.text(lugar.maxReservasjon);
+    antallReservasjon.text('0');
+    bilde.attr('src', 'assets/lugar/air-seat.jpg');
+    vindu.text('Ja');
+    span.text(lugar.type);
+    beskrivelse.text(lugar.beskrivelse);
+}
+
+// Viser valgte lugarer på klient siden
+function visValgteLugarer(){
+    let template = document.getElementById('valgt-lugar-template');
+    let parent = $('#valgt-lugar-template-container');
+    parent.empty();
+
+    for(let i = 0; i < lugarer.length; i++) {
+        let clone = template.content.cloneNode(true);
+        let lugar = lugarer[i];
+        clone.querySelector('.antall').innerText = lugar.antall;
+        clone.querySelector('.tittel').innerText = lugar.tittel;
+        clone.querySelector('.rom-fjern-btn').name = lugar.id;
+        parent.append(clone);
+    }
+}
+
+// Fjerner lugar fra arrayet og på klient siden
+function fjernLugar(button){
+    let toRemove = button.name;
+    lugarer.forEach(function (item, index) {
+        if(item.id === toRemove) {
+            lugarer.splice(index, 1);
+            visValgteLugarer();
+        }
+    });
+}
+
+// Genererer måltid detaljer fra db
+function genererMaaltidDetaljer(maaltider){
+    let template = document.getElementById('malltid-liste-template');
+    let parent = $('#maaltid-template-container');
+    parent.empty();
     
-    switch (id) {
-        case 'air-seat':
-            romTittel.text('Air Seat');
-            romPris.text('299');
-            romKapasitet.text('1');
-            romMaxReservasjon.text('10');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/air-seat.jpg');
-            romVindu.text('Ja');
-            romSpan.text('seter');
-            romBeskrivelse.text("De komfortable liggestolene er vårt billigste alternativ, og du finner " +
-                "de på dekk 10.");
-            break;
-        case 'standard-rom':
-            romTittel.text('Standard Rom');
-            romPris.text('1200');
-            romKapasitet.text('1-4 med kjæledyr');
-            romMaxReservasjon.text('5');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/standard.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Komfortabel lugar for 1 person. Lugarene er 8,5 m² og er utstyrt med seng og " +
-                "sovesofa, TV, bad med dusj og WC. Lugarene ligger på dekk 8 og 9");
-            break;
-        case 'familie-rom':
-            romTittel.text('Familie Rom');
-            romPris.text('1500');
-            romKapasitet.text('3-5');
-            romMaxReservasjon.text('2');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/family.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Familie rom er familievennlige lugarer som rommer en familie på inntil 5 " +
-                "personer. Lugarene har dobbeltseng (120 cm bred), sovesofa og 2 køyesenger i taket, plass til 1 " +
-                "babyseng. Videre er det TV, samt eget bad med dusj og WC. Størrelsen på lugarene er mellom " +
-                "10,5 og 11,5 m² og de ligger midtskips på dekk 10.");
-            break;
-        case 'deluxe-rom':
-            romTittel.text("Captain's Deluxe");
-            romPris.text('2499');
-            romKapasitet.text('1-4');
-            romMaxReservasjon.text('1');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/deluxe.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Våre største deluxe-lugarer med plass til 1–3 personer. De har dobbeltseng og " +
-                "sovesofa, plass til 2 babysenger, TV, samt eget bad med dusj og WC. Størrelsen på lugarene" +
-                " er på rundt 20 m² og de ligger akter på dekk 8.");
-            break;
-        case 'suite-rom':
-            romTittel.text("Captain's Suite");
-            romPris.text('1999');
-            romKapasitet.text('1-4');
-            romMaxReservasjon.text('1');
-            romAntallReservasjon.text('0');
-            romBilde.attr('src', 'assets/lugar/suite.jpg');
-            romVindu.text('Ja');
-            romSpan.text('rom');
-            romBeskrivelse.text("Flotte lugarer med plass til 1–4 personer. Her får du flott utsikt med vinduer " +
-                "som går fra gulv til tak. Lugarene har dobbeltseng og sovesofa (dobbel), plass til 2 babysenger, TV, " +
-                "minibar, bad med dusj og WC. Størrelsen på denne typen lugar er ca. 24 m² og de ligger " +
-                "midtskips/akter på dekk 9. ");
-            break;
+    for(let i = 0; i < maaltider.length; i++) {
+        let child = template.content.cloneNode(true);
+        let m = maaltider[i];
+        
+        // Elementene vi trenger for å vise en måltid
+        let row = child.querySelector('.maaltid-row');
+        let info = child.querySelector('.maaltid-info');
+        let checkbox = row.querySelector('input[type="checkbox"]');
+        let img = row.querySelector('img'); // TODO: hente måltid bilde fra db
+        let icon = row.querySelector('.cb-icon');
+        let tittel = info.querySelector('.tittel');
+        let beskrivelse = info.querySelector('.beskrivelse');
+        let pris = info.querySelector('.pris');
+        
+        // Setter verdier fra db til elementene
+        row.setAttribute('id', 'maaltid-' + m.maaltidId + '-row');
+        info.setAttribute('id', 'maaltid-' + m.maaltidId + '-info');
+        checkbox.setAttribute('id', 'maaltid-' + m.maaltidId);
+        icon.setAttribute('id', 'maaltid-' + m.maaltidId + '-ikon');
+        tittel.innerText = m.maaltid;
+        beskrivelse.innerText = m.beskrivelse;
+        pris.innerText = m.pris;
+        
+        parent.append(child);
+    }
+}
+
+// Genererer rute detaljer fra db
+function genererRuteDetaljer(ruter){
+    let template = document.getElementById('rute-liste-template');
+    let parent = $('#rute-liste-container');
+    parent.empty();
+    
+    for(let i = 0; i < ruter.length; i++) {
+        let child = template.content.cloneNode(true);
+        let r = ruter[i];
+        let rArr = r.tur.split(';');
+
+        // Elementene vi trenger for å vise en måltid
+        let col = child.querySelector('.rute-col');
+        let ruteFra = col.querySelector('.rute-fra');
+        let ruteTil = col.querySelector('.rute-til');
+        let pris = col.querySelector('.pris');
+        let input = col.querySelector('input');
+        let label = col.querySelector('label');
+        let ikon = col.querySelector('.ikon');
+        
+        // Setter verdier fra db til elementene
+        col.setAttribute('id', 'rute-' + r.ruteID + '-col');
+        input.setAttribute('id', 'rute-' + r.ruteID);
+        input.setAttribute('value', 'rute-' + r.ruteID);
+        label.setAttribute('for', 'rute-' + r.ruteID);
+        ikon.setAttribute('id', 'rute-' + r.ruteID + '-ikon');
+        pris.setAttribute('id', 'rute-' + r.ruteID + '-pris');
+        ruteFra.innerText = rArr[0];
+        ruteTil.innerText = rArr[1];
+        label.innerText = 'Velg'
+        pris.innerText = r.pris;
+        
+        parent.append(child);
     }
 }
 
@@ -276,15 +338,15 @@ function oppdaterReisefolgerTekst(){
 }
 
 function oppdaterLugarerTekst(){
-    let lugarTekstTemplate = document.getElementById('valgt-lugar-tekst-template');
+    let template = document.getElementById('valgt-lugar-tekst-template');
     let parent = $("#lugar-tekst-template-tray");
     lugarTotalPris = 0;
     parent.empty();
     
     for(let i = 0; i < lugarer.length; i++) {
-        let clone = lugarTekstTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         let textElement = clone.querySelector('small');
-        textElement.textContent = lugarer[i].antall + ' x ' + lugarer[i].type + ',';
+        textElement.textContent = lugarer[i].antall + ' x ' + lugarer[i].tittel + ',';
         lugarTotalPris += lugarer[i].pris;
         parent.append(clone);
     }
@@ -292,21 +354,21 @@ function oppdaterLugarerTekst(){
 }
 
 function oppdaterMaaltidTekst(){
-    let maaltidTekstTemplate = document.getElementById('valgt-maaltid-tekst-template');
+    let template = document.getElementById('valgt-maaltid-tekst-template');
     let parent = $('#maaltid-tekst-template-tray');
     maaltidTotalPris = 0;
     
     if(maaltider.length > 0) {
         parent.empty();
         for(let i = 0; i < maaltider.length; i++) {
-            let clone = maaltidTekstTemplate.content.cloneNode(true);
+            let clone = template.content.cloneNode(true);
             let textElement = clone.querySelector('small');
             textElement.textContent = maaltider[i].navn + ', ';
             maaltidTotalPris += maaltider[i].pris;
             parent.append(clone);
         }
     } else {
-        let clone = maaltidTekstTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         let textElement = clone.querySelector('small');
         textElement.textContent = 'Ingen';
         parent.append(clone);
@@ -317,20 +379,20 @@ function oppdaterMaaltidTekst(){
 }
 
 function oppdaterPassasjererTekst(){
-    let passasjerTekstTemplate = document.getElementById('passasjer-tekst-template');
+    let template = document.getElementById('passasjer-tekst-template');
     let parent = $("#passasjer-tekst-template-tray");
     parent.empty();
     for(let i = 0; i < passasjerer.length; i++) {
-        let clone = passasjerTekstTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         let textElement = clone.querySelector('small');
-        textElement.textContent = passasjerer[i].fornavn + ' ' + passasjerer[i].etternavn + ',';
+        textElement.textContent = passasjerer[i].Fornavn + ' ' + passasjerer[i].Etternavn + ',';
         parent.append(clone);
     }
 }
 
 // form hvor alle passasjerer må gi navnet og fødselsdato
 function oppdaterPassasjerForm(){
-    let passasjerFormTemplate = document.getElementById('template-passasjer-form');
+    let template = document.getElementById('template-passasjer-form');
     let parent = $('#passasjerer-form-template-tray');
     parent.empty();
     
@@ -339,7 +401,7 @@ function oppdaterPassasjerForm(){
     let antallPassasjerer = antallVoksen + antallBarn;
     
     for(let i = 0; i < antallPassasjerer; i++) {
-        let clone = passasjerFormTemplate.content.cloneNode(true);
+        let clone = template.content.cloneNode(true);
         
         // Inputs
         let passasjerTittel = clone.querySelector('.passasjer-tittel');

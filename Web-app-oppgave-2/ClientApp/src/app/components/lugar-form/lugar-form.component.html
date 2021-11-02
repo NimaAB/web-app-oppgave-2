@@ -1,0 +1,92 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <h1 *ngIf="!erEndringsForm" class="fw-light text-center">Opprett en ny lugar</h1>
+      <h1 *ngIf="erEndringsForm" class="fw-light text-center">Endre lugar med id: {{currentLugarId}}</h1>
+      <hr class="w-100">
+
+      <!-- Alert når ruten er lagret. -->
+      <div class="alert alert-success alert-dismissible" *ngIf="isSubmitted">
+        <small class="fs-6">Ruten er lagret!</small>
+        <button type="button" class="btn-close" aria-label="Close" (click)="isSubmitted = !isSubmitted"></button>
+      </div>
+
+      <!-- Form -->
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center align-items-center">
+        <input type="hidden" formControlName="id">
+        <div class="mb-3">
+          <label for="typ" class="form-label">Type</label>
+          <input type="text" class="form-control" [class.is-invalid]="typ.touched && typ.invalid"
+                 placeholder="Lugar" id="typ" formControlName="typ">
+          <div *ngIf="typ.touched && typ.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="typ.errors?.required">Feltet kan ikke være tomt.</small>
+            <small class="fs-6" *ngIf="typ.errors?.pattern">Type må begynne med en stor bokstav.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="navn" class="form-label">Navn</label>
+          <input type="text" class="form-control" [class.is-invalid]="navn.touched && navn.invalid"
+                 placeholder="Luxus Lugar" id="navn" formControlName="navn">
+          <div *ngIf="navn.touched && navn.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="navn.errors?.required">Feltet kan ikke være tomt.</small>
+            <small class="fs-6" *ngIf="navn.errors?.pattern">Navnet må begynne med en stor bokstav.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="beskrivelse" class="form-label">Beskrivelse</label>
+          <textarea formControlName="beskrivelse" id="beskrivelse" cols="30" rows="10" class="form-control" [class.is-invalid]="beskrivelse.touched && beskrivelse.invalid">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore
+            et dolore magna aliqua. Aliquet enim tortor at auctor.
+          </textarea>
+          <div *ngIf="beskrivelse.touched && beskrivelse.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="beskrivelse.errors?.required">Feltet kan ikke være tomt.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="kapasitet" class="form-label">Kapasitet</label>
+          <input type="number" class="form-control" [class.is-invalid]="kapasitet.touched && kapasitet.invalid"
+                 placeholder="3" id="kapasitet" formControlName="kapasitet">
+          <div *ngIf="kapasitet.touched && kapasitet.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="kapasitet.errors?.required">Kapasitet må ikke være tom.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="maxReservasjon" class="form-label">Maks Reservasjon</label>
+          <input type="number" class="form-control" [class.is-invalid]="maxReservasjon.touched && maxReservasjon.invalid"
+                 placeholder="100" id="maxReservasjon" formControlName="maxReservasjon">
+          <div *ngIf="maxReservasjon.touched && maxReservasjon.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="maxReservasjon.errors?.required">Maks reservasjon må ikke være tom.</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="pris" class="form-label">Pris</label>
+          <input type="number" class="form-control" [class.is-invalid]="pris.touched && pris.invalid"
+                 placeholder="699" id="pris" formControlName="pris">
+          <div *ngIf="pris.touched && pris.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="pris.errors?.required">Prisen må være større enn 0.</small>
+          </div>
+        </div>
+
+        <!--<div class="mb-3">
+              <label for="bilde" class="form-label text-black-50">Gyldig bilde format: .jpeg .jpg .png</label>
+              <input type="file" class="form-control" [class.is-invalid]="bilde.touched && bilde.invalid"
+                     id="bilde" accept=".jpeg, .jpg, .png" formControlName="bilde">
+              <div class="invalid-feedback alert alert-danger mt-3">
+                <small class="fs-6" *ngIf="bilde.touched && bilde.invalid">Ugyldig bildet.</small>
+              </div>
+            </div>-->
+
+        <div class="form-group py-2 d-flex justify-content-lg-end justify-content-center">
+          <button class="btn btn-primary me-2" *ngIf="erEndringsForm" [disabled]="form.invalid">Endre</button>
+          <button class="btn btn-success me-2" *ngIf="!erEndringsForm" [disabled]="form.invalid">Lagre</button>
+          <button class="btn btn-secondary" routerLink="/ruter">Avbryt</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

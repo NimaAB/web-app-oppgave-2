@@ -1,0 +1,8 @@
+<div class="pb-3 w-100 d-flex justify-content-lg-end justify-content-center">
+  <a *ngIf="formType === 'rute'" routerLink="/api/rute/opprett" class="btn btn-theme">
+    <i class="bi bi-plus-lg me-2"></i>Ny Rute</a>
+  <a *ngIf="formType === 'maaltid'" routerLink="/api/maaltid/opprett" class="btn btn-theme">
+    <i class="bi bi-plus-lg me-2"></i>Ny Måltid</a>
+  <a *ngIf="formType === 'lugar'" routerLink="/api/lugar/opprett" class="btn btn-theme">
+    <i class="bi bi-plus-lg me-2"></i>Ny Lugar</a>
+</div>
