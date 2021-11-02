@@ -9,11 +9,11 @@ import { Rute } from 'src/models/rute';
   styleUrls: ['./ruter.component.css']
 })
 export class RuterComponent implements OnInit {
-  ruter: Array<Rute>;
+  ruter: Array<Rute> = new Array<Rute>();
   formType:string = "rute"
 
   constructor(private http:HttpClient) {
-    this.ruter = [
+    /*this.ruter = [
       {
         id:1,
         tur: "Oslo-Kiel",
@@ -32,15 +32,15 @@ export class RuterComponent implements OnInit {
         bilde: "../../assets/kiel.jpg",
         pris: 2199.99
       }
-    ];
+    ];*/
   }
 
   ngOnInit(): void {
-    //this.hentAlle();
+    this.hentAlle();
   }
 
   hentAlle(){
-    this.http.get<Rute[]>("api/rute")
+    this.http.get<Rute[]>("api/rute/hentAlle")
       .subscribe(ruter => {
         this.ruter = ruter;
       },

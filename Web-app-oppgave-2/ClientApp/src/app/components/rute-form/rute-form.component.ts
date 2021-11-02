@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 import {FormGroup, Validators, FormControl, AbstractControl} from '@angular/forms';
+import {Rute} from "../../../models/rute";
 
 @Component({
   selector: 'app-rute-form',
@@ -31,7 +33,7 @@ export class RuteFormComponent{
     )
   });
 
-  constructor() {
+  constructor(private http:HttpClient) {
     this.setErEndringsForm()
     this.setId();
   }
@@ -76,8 +78,20 @@ export class RuteFormComponent{
   }
 
   lagreNyRute(){
+    const url = "api/rute/lagre";
+    const nyRute:Rute = new Rute(
+      this.form.value.fra + "-" + this.form.value.til,
+        this.form.value.pris
+      );
 
+    this.http.post(url,nyRute).subscribe(rute => {
+      console.log(rute)
+      this.erEndringsForm = true;
+      window.location.href = "";
+
+    },
+      error => console.log(error),
+      () => console.log("Lagring gikk OK")
+    );
   }
-
-
 }

@@ -46,7 +46,7 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Lagre(rute);
             return !value
-                ? BadRequest("Noe gikk galt! Ny rute ble ikke lagret.")
+                ? BadRequest()
                 : StatusCode(200, "Ny rute er lagret.");
         }
     }
