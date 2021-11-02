@@ -79,18 +79,17 @@ export class RuteFormComponent{
 
   lagreNyRute(){
     const url = "api/rute/lagre";
-    const nyRute:Rute = new Rute(
-      this.form.value.fra + "-" + this.form.value.til,
-        this.form.value.pris
-      );
+    const nyRute = {
+      tur:this.form.value.fra + "-" + this.form.value.til,
+      pris: this.form.value.pris
+    };
 
-    this.http.post(url,nyRute).subscribe(rute => {
+    this.http.post(url,nyRute, {responseType: "text"}).subscribe(rute => {
       console.log(rute)
       this.erEndringsForm = true;
-      window.location.href = "";
-
+      document.location.href = "/ruter";
     },
-      error => console.log(error),
+      (error) => console.log(error),
       () => console.log("Lagring gikk OK")
     );
   }
