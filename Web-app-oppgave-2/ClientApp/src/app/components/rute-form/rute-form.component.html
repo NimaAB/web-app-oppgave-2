@@ -14,7 +14,7 @@
 
       <!-- Form -->
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <input type="hidden" name="id">
+        <input type="hidden" formControlName="id">
         <div class="mb-3">
           <label for="fra" class="form-label">Fra</label>
           <input type="text" class="form-control" [class.is-invalid]="fra.touched && fra.invalid"

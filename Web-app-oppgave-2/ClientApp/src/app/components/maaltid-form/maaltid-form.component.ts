@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component } from '@angular/core';
 import {Maaltid} from "../../../models/maaltid";
 import {FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -8,8 +7,13 @@ import {FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './maaltid-form.component.html',
   styleUrls: ['./maaltid-form.component.css']
 })
-export class MaaltidFormComponent implements OnInit {
+export class MaaltidFormComponent{
+  erEndringsForm: boolean = true;
+  currentMaaltidId:any = undefined;
+  isSubmitted: boolean = false;
+
   form = new FormGroup({
+    id: new FormControl(),
     navn: new FormControl(
       null,
       Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][a-zæøå]{2,25}")])
@@ -25,22 +29,51 @@ export class MaaltidFormComponent implements OnInit {
     //bilde: new FormControl()
   });
 
-  constructor(private location:Location) {
-
+  constructor() {
+    this.setErEndringsForm()
+    this.setId();
   }
 
+  get navn(){
+    return this.form.controls.navn;
+  }
 
-  ngOnInit(): void {
+  get beskrivelse(){
+    return this.form.controls.beskrivelse;
+  }
+
+  get pris(){
+    return this.form.controls.pris;
   }
 
   onSubmit(){
-    if(this.form.valid){
-      console.log(this.form.value)
+    if(this.erEndringsForm){
+      this.endreMaaltid();
+    } else {
+      this.lagreNyMaaltid();
+    }
+    this.isSubmitted = true;
+    this.form.reset();
+  }
+
+  setErEndringsForm(){
+    const url = window.location.href
+    console.log(url.split("/"));
+    this.erEndringsForm = url.split("/")[5] === 'oppdater';
+  }
+
+  setId(){
+    const url = window.location.href
+    if(this.erEndringsForm){
+      this.currentMaaltidId = url.split("/")[6];
     }
   }
 
-  gaaTilbake() {
-    this.location.back();
+  private endreMaaltid() {
+
   }
 
+  private lagreNyMaaltid() {
+
+  }
 }
