@@ -7,12 +7,12 @@
 
       <!-- Alert når ruten er lagret. -->
       <div class="alert alert-success alert-dismissible" *ngIf="isSubmitted">
-        <small class="fs-6">Ruten er lagret!</small>
+        <small class="fs-6">Lugar er lagret!</small>
         <button type="button" class="btn-close" aria-label="Close" (click)="isSubmitted = !isSubmitted"></button>
       </div>
 
       <!-- Form -->
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex flex-column justify-content-center align-items-center">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <input type="hidden" formControlName="id">
         <div class="mb-3">
           <label for="typ" class="form-label">Type</label>
