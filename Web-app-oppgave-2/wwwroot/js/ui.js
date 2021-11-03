@@ -282,7 +282,7 @@ function genererRuteDetaljer(ruter){
     for(let i = 0; i < ruter.length; i++) {
         let child = template.content.cloneNode(true);
         let r = ruter[i];
-        let rArr = r.tur.split(';');
+        let rArr = r.tur.split('-');
 
         // Elementene vi trenger for å vise en måltid
         let col = child.querySelector('.rute-col');
