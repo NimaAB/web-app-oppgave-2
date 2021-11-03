@@ -1,7 +1,7 @@
 ﻿import { HttpClient } from "@angular/common/http";
 import {Inject, Injectable} from "@angular/core";
 import { map, catchError } from "rxjs/operators";
-import { throwError } from 'rxjs';
+import {BehaviorSubject, throwError} from 'rxjs';
 
 export class DataService{
 
@@ -46,5 +46,17 @@ export class DataService{
       .pipe(
         catchError((err, caught) => { return throwError(err) })
       );
+  }
+
+  private messageSource = new BehaviorSubject<string | undefined>(undefined);
+  currentMessage = this.messageSource.asObservable();
+  setMessage(message: string) {
+    this.messageSource.next(message);
+  }
+
+  private errorSource = new BehaviorSubject<string | undefined>(undefined);
+  currentError = this.errorSource.asObservable();
+  setError(error: string) {
+    this.errorSource.next(error);
   }
 }

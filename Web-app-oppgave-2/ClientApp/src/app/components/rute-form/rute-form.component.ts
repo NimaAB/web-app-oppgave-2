@@ -48,7 +48,6 @@ export class RuteFormComponent implements OnInit{
 
     if(this.formAction == 'slett') {
       this.slettRute();
-      this.redirectTo('/ruter');
     }
   }
 
@@ -85,9 +84,10 @@ export class RuteFormComponent implements OnInit{
     };
 
     this.service.oppdater(nyRute).subscribe(
-      data => console.log(data),
-      error => console.error(error)
+      (data:any) => {this.service.setMessage(data.message)},
+      (error) => this.service.setError(error.error)
     );
+    this.redirectTo('/ruter');
   }
 
   lagreNyRute(){
@@ -97,15 +97,17 @@ export class RuteFormComponent implements OnInit{
     };
 
     this.service.lagre(nyRute).subscribe(
-      data => console.log(data),
-      error => console.error(error)
+      (data:any) => {this.service.setMessage(data.message)},
+      (error) => this.service.setError(error.error)
     );
+    this.redirectTo('/ruter');
   }
 
   slettRute(){
     this.service.slett(this.currentId).subscribe(
-      data => console.log(data),
-      error => console.error(error)
-    )
+      (data:any) => this.service.setMessage(data.message),
+      (error) => this.service.setError(error.error)
+    );
+    this.redirectTo('/ruter');
   }
 }
