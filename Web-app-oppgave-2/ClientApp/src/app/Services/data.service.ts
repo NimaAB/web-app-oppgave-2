@@ -13,12 +13,12 @@ export class DataService{
   hentAlle(){
     return this.http.get(this.url + '/hentAlle')
       .pipe(
-        map((data : any) => {return data }),
+        map((data : any) => { return data }),
         catchError((err, caught) => { return throwError(err) })
       );
   }
 
-  hentEn(id: number){
+  hentEn(id: string | null){
     return this.http.get(this.url + '/' + id)
       .pipe(
         map((data: any) => { return data }),
