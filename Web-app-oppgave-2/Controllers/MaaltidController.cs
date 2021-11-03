@@ -28,8 +28,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Oppdater(id, nyMaaltid);
             return !value 
-                ? NotFound("Måltiden du prøver å oppdatere finnes ikke.")
-                : StatusCode(200, "Måltid er oppdatert");
+                ? NotFound(new { error = "Måltiden du prøver å oppdatere finnes ikke." })
+                : StatusCode(200, new { message = "Måltid er oppdatert" });
         }
 
         [HttpDelete("slett/{id}")]
@@ -37,8 +37,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Slett(id);
             return !value
-                ? NotFound("Måltiden du prøver å oppdatere finnes ikke.")
-                : StatusCode(200, "Måltid er slettet");
+                ? NotFound(new { error = "Måltiden du prøver å oppdatere finnes ikke." })
+                : StatusCode(200, new { message =  "Måltid er slettet" });
         }
 
         [HttpPost("lagre")]
@@ -46,8 +46,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Lagre(maaltid);
             return !value
-                ? BadRequest("Noe gikk galt. Måltid ble ikke lagret")
-                : StatusCode(200, "Ny måltid er lagret.");
+                ? BadRequest(new { error = "Noe gikk galt. Måltid ble ikke lagret" })
+                : StatusCode(200, new { message = "Ny måltid er lagret." });
         }
         
     }
