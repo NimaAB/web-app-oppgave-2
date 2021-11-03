@@ -13,10 +13,11 @@ export class DataService{
   hentAlle(){
     return this.http.get(this.url + '/hentAlle')
       .pipe(
-        map((data : any) => {return data }),
+        map((data : any) => { return data }),
         catchError((err, caught) => { return throwError(err) })
       );
   }
+
 
   hentEn(id: number | undefined){
     return this.http.get(this.url + '/' + id)
@@ -41,7 +42,7 @@ export class DataService{
       );
   }
 
-  slett(id: number | null) {
+  slett(id: number | undefined) {
     return this.http.delete(this.url + '/slett/' + id)
       .pipe(
         catchError((err, caught) => { return throwError(err) })

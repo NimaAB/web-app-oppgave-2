@@ -16,12 +16,12 @@ export class RuterComponent implements OnInit {
   showMessage: boolean = false;
   showError: boolean = false;
 
-  constructor(private service: RuterService) { }
-
-  ngOnInit(): void {
+  constructor(private service: RuterService) {
     this.showMessageAlert();
     this.showErrorAlert();
+  }
 
+  ngOnInit(): void {
     this.service.hentAlle().subscribe(
       data => {this.ruter = data},
       error => console.error(error)
