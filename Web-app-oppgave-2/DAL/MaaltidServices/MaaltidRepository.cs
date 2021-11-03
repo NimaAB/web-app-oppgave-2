@@ -14,6 +14,11 @@ namespace Web_app_oppgave_2.DAL.MaaltidServices
             _db = db;
         }
 
+        public async Task<Maaltid> HentEn(int id)
+        {
+            return await _db.Maaltider.FindAsync(id);
+        }
+
         public async Task<List<Maaltid>> HentAlle()
         {
             return await _db.Maaltider.ToListAsync();
@@ -49,7 +54,7 @@ namespace Web_app_oppgave_2.DAL.MaaltidServices
                 if (meal == null) return false;
                 _db.Maaltider.Remove(meal);
                 await _db.SaveChangesAsync();
-                return false;
+                return true;
             }
             catch
             {

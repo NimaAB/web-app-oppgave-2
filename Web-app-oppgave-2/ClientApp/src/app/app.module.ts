@@ -19,6 +19,10 @@ import { MaaltiderComponent } from './components/maaltider/maaltider.component';
 import { LugarerComponent } from './components/lugarer/lugarer.component';
 import { AddItemCardComponent } from './components/add-item-card/add-item-card.component';
 import { RuterService } from "./Services/ruter.service";
+import {DataService} from "./Services/data.service";
+import {Maaltid} from "../models/maaltid";
+import {MaaltidService} from "./Services/maaltid.service";
+import {LugarService} from "./Services/lugar.service";
 
 @NgModule({
   declarations: [
@@ -46,6 +50,8 @@ import { RuterService } from "./Services/ruter.service";
   ],
   providers: [
     RuterService,
+    MaaltidService,
+    LugarService
   ],
   bootstrap: [AppComponent]
 })

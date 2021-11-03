@@ -16,6 +16,13 @@ namespace Web_app_oppgave_2.Controllers
             _repo = repo;
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> HentEnRute(int id)
+        {
+            var value = await _repo.HentEn(id);
+            return Ok(value);
+        }
+
         [HttpGet("hentAlle")]
         public async Task<IActionResult> HentAlleRuter()
         {

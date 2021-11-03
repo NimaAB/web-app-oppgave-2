@@ -12,7 +12,7 @@ import { MaaltidService } from 'src/app/Services/maaltid.service';
 export class MaaltidFormComponent implements OnInit{
   isSubmitted: boolean = false;
   formAction: string | null = "";
-  currentId: string | null = "";
+  currentId !: number;
 
   form = new FormGroup({
     id: new FormControl(),
@@ -40,7 +40,7 @@ export class MaaltidFormComponent implements OnInit{
     this.activatedRoute.paramMap
       .subscribe((param) => {
           this.formAction = param.get('action');
-          this.currentId = param.get('id');
+          this.currentId = Number(param.get('id'));
         },
         error => console.log(error)
       );
