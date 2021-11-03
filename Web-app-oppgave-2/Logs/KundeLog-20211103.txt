@@ -3,3 +3,12 @@
 2021-11-03T18:22:43.6249455+01:00  [INF] Content root path: "C:\Users\nimab\Desktop\Desktop\OsloMet\5.semester\ITPE3200\Web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
 2021-11-03T18:22:55.6663520+01:00  [ERR] - Generating browser application bundles (phase: setup)...
  (b590080a)
+2021-11-03T22:21:30.2922308+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-03T22:21:30.3007662+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-03T22:21:30.3008778+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-03T22:21:30.3008946+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-03T22:21:32.0194645+01:00 0HMCV1VK409GO:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-03T22:21:35.4406694+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-03T22:21:49.4742622+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)

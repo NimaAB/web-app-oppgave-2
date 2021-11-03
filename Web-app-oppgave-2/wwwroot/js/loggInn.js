@@ -1,6 +1,6 @@
 ﻿function loggInn() {
     const okBrukernavn = validerBrukernavn($("#brukernavn").val());
-    const okPassord = validerPassord($("$passord").val());
+    const okPassord = validerPassord($("#passord").val());
 
     if (okBrukernavn && okPassord) {
         const bruker = {
@@ -15,7 +15,7 @@
             else {
                 $("#feil").html("Feil brukernavn eller passord");
             }
-        });
+        })
         .fail(function (feil) {
             $("#feil").html("Feil på server - prøv igjen senere: ");
         });
