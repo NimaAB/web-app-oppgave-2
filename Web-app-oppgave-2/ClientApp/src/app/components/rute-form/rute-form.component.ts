@@ -104,7 +104,7 @@ export class RuteFormComponent implements OnInit{
 
   slettRute(){
     this.service.slett(this.currentId).subscribe(
-      data => this.service.hentAlle(),
+      data => console.log(data),
       error => console.error(error)
     )
   }
