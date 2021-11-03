@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Web_app_oppgave_2.Models;
@@ -11,21 +12,6 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
         public BestillingRepository(Db db)
         {
             _db = db;
-        }
-
-        public async Task<List<Bestilling>> HentAlle()
-        {
-            return await _db.Bestillinger.ToListAsync();
-        }
-
-        public async Task<bool> Oppdater(int id,Bestilling nyBestilling)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<bool> Slett(int id)
-        {
-            throw new System.NotImplementedException();
         }
         
         public async Task<bool> Lagre(Bestilling bestilling)
@@ -52,21 +38,8 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                 {
                     nyKunde.Postnummer = sjekketPostnr;
                 }
-
-                //var lugarbestillinger = new LugarBestilling();
-                
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        /*public async Task<bool> LagreBestilling(Bestilling innBestilling)
-        {
                 var nyeBilletter = new List<Billett>();
-                innBestilling.Billetter.ForEach(billett =>
+                bestilling.Billetter.ForEach(billett =>
                 {
                     nyeBilletter.Add(new Billett()
                     {
@@ -75,31 +48,50 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                         Retur = billett.Retur,
                         Utreise = billett.Utreise,
                         Ankomst = billett.Ankomst,
-                        Passasjer = billett.Passasjer
+                        Passasjer = billett.Passasjer,
+                        AntallSykler = billett.AntallSykler,
+                        Kjæledyr = billett.Kjæledyr
                     });
                 });
-                
-                var lugarer = innBestilling.Lugars;
-                var meals = innBestilling.Meals;
 
-                var bestilling = new Bestilling()
+                var lugarbestillinger = new List<LugarBestilling>();
+                bestilling.Lugarer.ForEach(lugar =>
+                {
+                    lugarbestillinger.Add(new LugarBestilling()
+                    {
+                        Lugar = lugar.Lugar,
+                        Bestilling = bestilling,
+                        Tid = bestilling.Billetter.ElementAt(0).Utreise
+                    });
+                });
+
+                var maaltiBestillinger = new List<MaaltidBestilling>();
+                bestilling.Maaltider.ForEach( maaltid =>
+                {
+                    maaltiBestillinger.Add(new MaaltidBestilling()
+                    {
+                        Maaltid = maaltid.Maaltid,
+                        Bestilling = bestilling,
+                        Tid = bestilling.Billetter.ElementAt(0).Utreise
+                    });
+                });
+
+                var nyBestilling = new Bestilling()
                 {
                     Kunde = nyKunde,
                     Billetter = nyeBilletter,
-                    Lugars = lugarer,
-                    Meals = meals,
-                    TotalPris = innBestilling.TotalPris
+                    Lugarer = lugarbestillinger,
+                    Maaltider = maaltiBestillinger
                 };
-                
-                _db.Bestillinger.Add(bestilling);
+
+                _db.Bestillinger.Add(nyBestilling);
                 await _db.SaveChangesAsync();
-                
                 return true;
             }
             catch
             {
                 return false;
             }
-        }*/
+        }
     }
 }
