@@ -16,7 +16,14 @@ namespace Web_app_oppgave_2.Controllers
             _repo = repo;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
+        public async Task<IActionResult> HentEnMaaltid(int id)
+        {
+            var value = await _repo.HentEn(id);
+            return Ok(value);
+        }
+
+        [HttpGet("hentAlle")]
         public async Task<IActionResult> HentAlleMaaltider()
         {
             var value = await _repo.HentAlle();

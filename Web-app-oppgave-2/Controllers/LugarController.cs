@@ -16,8 +16,8 @@ namespace Web_app_oppgave_2.Controllers
             _repo = repo;
         }
 
-        // GET: api/lugar
-        [HttpGet]
+        // GET: api/lugar/hentAlle
+        [HttpGet("hentAlle")]
         public async Task<IActionResult> HentAlleLugarer()
         {
             var value = await _repo.HentAlle();

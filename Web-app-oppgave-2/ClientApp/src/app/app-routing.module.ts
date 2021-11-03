@@ -9,17 +9,17 @@ import {MaaltiderComponent} from "./components/maaltider/maaltider.component";
 import { LugarerComponent } from './components/lugarer/lugarer.component';
 
 const routes: Routes = [
-  {path: '', component: RuterComponent},
-  {path: 'ruter', component: RuterComponent},
-  {path: 'maaltider', component: MaaltiderComponent},
-  {path: 'lugarer', component: LugarerComponent},
-  {path: 'api/rute/:action/:id', component: RuteFormComponent},
-  {path: 'api/rute/:action', component: RuteFormComponent},
-  {path:'api/maaltid/oppdater/:id', component: MaaltidFormComponent},
-  {path:'api/maaltid/opprett', component: MaaltidFormComponent},
-  {path:'api/lugar/oppdater/:id', component: LugarFormComponent},
-  {path:'api/lugar/opprett', component: LugarFormComponent},
-  {path: '**', component: E404Component}
+  {path:'', component: RuterComponent},
+  {path:'ruter', component: RuterComponent},
+  {path:'maaltider', component: MaaltiderComponent},
+  {path:'lugarer', component: LugarerComponent},
+  {path:'api/rute/:action/:id', component: RuteFormComponent},
+  {path:'api/rute/:action', component: RuteFormComponent},
+  {path:'api/maaltid/:action/:id', component: MaaltidFormComponent},
+  {path:'api/maaltid/:action', component: MaaltidFormComponent},
+  {path:'api/lugar/:action/:id', component: LugarFormComponent},
+  {path:'api/lugar/:action', component: LugarFormComponent},
+  {path:'**', component: E404Component}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {RuterService} from "../../Services/ruter.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {DataService} from "../../Services/data.service";
 
 @Component({
   selector: 'app-rute-form',
@@ -11,7 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class RuteFormComponent implements OnInit{
   isSubmitted: boolean = false;
   formAction: string | null = "";
-  currentId: string | null = "";
+  currentId !: number;
 
   form = new FormGroup({
     id: new FormControl(),
@@ -42,13 +43,17 @@ export class RuteFormComponent implements OnInit{
     this.activatedRoute.paramMap
       .subscribe((param) => {
         this.formAction = param.get('action');
-        this.currentId = param.get('id');
+        this.currentId = Number(param.get('id'));
         },
+        error => console.log(error)
       )
 
     if(this.formAction == 'slett') {
       this.slettRute();
-      this.redirectTo('/ruter');
+    }
+
+    if(this.formAction=='oppdater'){
+      this.hentEn();
     }
   }
 
@@ -77,17 +82,34 @@ export class RuteFormComponent implements OnInit{
     this.router.navigateByUrl(url);
   }
 
+  hentEn(){
+    this.service.hentEn(this.currentId)
+      .subscribe(rute => {
+          const tur = rute.tur.split("-");
+          this.form.patchValue({id: rute.ruteId});
+          this.form.patchValue({fra: tur[0] });
+          this.form.patchValue({til: tur[1] });
+          this.form.patchValue({pris: rute.pris});
+        },
+        error => console.log(error)
+      )
+  }
+
   endreRute(){
     const nyRute = {
-      id: this.currentId,
+      id: this.form.value.id,
       tur: this.form.value.fra + "-" + this.form.value.til,
       pris: this.form.value.pris
     };
 
-    this.service.oppdater(nyRute).subscribe(
-      data => console.log(data),
-      error => console.error(error)
+    this.service.oppdater(nyRute)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
+      (error) => this.service.setError(error.error)
     );
+
   }
 
   lagreNyRute(){
@@ -96,16 +118,24 @@ export class RuteFormComponent implements OnInit{
       pris: this.form.value.pris
     };
 
-    this.service.lagre(nyRute).subscribe(
-      data => console.log(data),
-      error => console.error(error)
+    this.service.lagre(nyRute)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
+      (error) => this.service.setError(error.error)
     );
+
   }
 
   slettRute(){
-    this.service.slett(this.currentId).subscribe(
-      data => console.log(data),
-      error => console.error(error)
-    )
+    this.service.slett(this.currentId)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
+        (error) => this.service.setError(error.error)
+    );
+
   }
 }

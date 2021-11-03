@@ -1,12 +1,20 @@
 <div class="container py-5">
-  <h1 class="fw-light text-lg-start text-center">Måltider</h1>
+  <h1 class="fw-light text-lg-start text-center">Ruter</h1>
   <hr class="w-100">
+
+
+  <div class="alert alert-success" *ngIf="showMessage">
+    <small class="fs-6">{{ message }}</small>
+  </div>
+  <div class="alert alert-danger" *ngIf="showError">
+    <small class="fs-6">{{ error }}</small>
+  </div>
 
   <app-add-item-card [formType]="formType"></app-add-item-card>
 
   <div class="row g-3">
-    <div class="col-12" *ngFor="let maaltid of maaltider">
-      <app-maaltid-card [maaltid]="maaltid" ></app-maaltid-card>
+    <div class="col-lg-12" *ngFor="let maaltid of maaltider">
+      <app-maaltid-card [maaltid]="maaltid"></app-maaltid-card>
     </div>
   </div>
 </div>

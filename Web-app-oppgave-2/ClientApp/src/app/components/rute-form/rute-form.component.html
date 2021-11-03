@@ -5,13 +5,6 @@
       <h1 *ngIf="formAction == 'oppdater'" class="fw-light text-center">Endre rute med id: {{currentId}}</h1>
       <hr class="w-100">
 
-      <!-- Alert når ruten er lagret. -->
-      <div class="alert alert-success alert-dismissible" *ngIf="isSubmitted">
-        <small class="fs-6">Ruten er lagret!</small>
-        <button type="button" class="btn-close" aria-label="Close" (click)="isSubmitted = !isSubmitted"></button>
-
-      </div>
-
       <!-- Form -->
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <input type="hidden" formControlName="id">
