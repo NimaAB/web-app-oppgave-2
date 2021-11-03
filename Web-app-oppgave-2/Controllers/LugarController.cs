@@ -38,8 +38,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Oppdater(id, lugar);
             return !value 
-                ? NotFound("Lugar du prøver å oppdater finnes ikke.")
-                : StatusCode(200, "Lugar er oppdatert.");
+                ? NotFound(new {error = "Lugar du prøver å oppdater finnes ikke."})
+                : StatusCode(200,new {message =  "Lugar er oppdatert."});
         }
 
         // DELETE: api/lugar/slett/3
@@ -48,8 +48,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Slett(id);
             return !value 
-                ? NotFound("Lugar du prøver å slette finnes ikke.")
-                : StatusCode(200, "Lugar er slettet.");
+                ? NotFound(new {error = "Lugar du prøver å slette finnes ikke."})
+                : StatusCode(200,new {message =  "Lugar er slettet."});
         }
         
         // POST: api/lugar/lagre
@@ -58,8 +58,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Lagre(lugar);
             return !value 
-                ? BadRequest("Noe gikk galt. Lugar ble ikke lagret.")
-                : StatusCode(200, "Ny lugar er lagret.");
+                ? BadRequest(new {error = "Noe gikk galt. Lugar ble ikke lagret."})
+                : StatusCode(200, new {message = "Ny lugar er lagret."});
         }
     }
 }
