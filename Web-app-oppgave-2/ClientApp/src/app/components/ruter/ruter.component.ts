@@ -34,7 +34,9 @@ export class RuterComponent implements OnInit {
         this.message = message;
         if(message != undefined) this.showMessage = true;
         this.hideAlert();
-      });
+      },
+        error=>console.log(error)
+      );
   }
 
   showErrorAlert(){
@@ -43,7 +45,9 @@ export class RuterComponent implements OnInit {
         this.error = error;
         if(error != undefined) this.showError = true;
         this.hideAlert();
-      });
+      },
+        error => console.log(error)
+      );
   }
 
   hideAlert(){

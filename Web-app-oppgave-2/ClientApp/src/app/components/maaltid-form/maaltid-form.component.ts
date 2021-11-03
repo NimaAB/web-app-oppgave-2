@@ -47,7 +47,9 @@ export class MaaltidFormComponent implements OnInit{
 
     if(this.formAction == 'slett') {
       this.slettMaaltid();
-      this.redirectTo('/ruter');
+    }
+    if(this.formAction == 'oppdater'){
+      this.hentEn();
     }
   }
 
@@ -72,26 +74,54 @@ export class MaaltidFormComponent implements OnInit{
     this.router.navigateByUrl(url);
   }
 
-
-  private endreMaaltid() {
-    //trenger patch gjøres senere.
+  hentEn(){
+    this.service.hentEn(this.currentId)
+      .subscribe(maaltid => {
+          this.form.patchValue({id: maaltid.maaltidId});
+          this.form.patchValue({navn: maaltid.navn});
+          this.form.patchValue({beskrivelse: maaltid.beskrivelse});
+          this.form.patchValue({pris: maaltid.pris});
+        },
+        error => console.log(error)
+      )
   }
 
-  private lagreNyMaaltid() {
+  endreMaaltid() {
+    const nyMaaltid = {
+      navn: this.form.value.navn,
+      beskrivelse: this.form.value.beskrivelse,
+      pris: this.form.value.pris
+    }
+    this.service.oppdater(nyMaaltid)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo("/maaltider");
+        },
+        (error) => this.service.setError(error.error)
+      );
+  }
+
+  lagreNyMaaltid() {
     const nyMaaltid = {
       navn: this.form.value.navn,
       beskrivelse: this.form.value.beskrivelse,
       pris: this.form.value.pris,
     }
-    this.service.lagre(nyMaaltid).subscribe(
-      (data) => this.service.hentAlle(),
-      error => console.log(error)
-    );
+    this.service.lagre(nyMaaltid)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo("/maaltider");
+        },
+        (error) => this.service.setError(error.error)
+      );
   }
 
   slettMaaltid(){
-    this.service.slett(this.currentId).subscribe(
-      data => this.service.hentAlle(),
+    this.service.slett(this.currentId)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo("/maaltider");
+        },
       error => console.error(error)
     )
   }

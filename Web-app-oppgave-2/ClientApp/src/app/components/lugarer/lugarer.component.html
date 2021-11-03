@@ -2,10 +2,18 @@
   <h1 class="fw-light text-lg-start text-center">Lugarer</h1>
   <hr class="w-100">
 
+
+  <div class="alert alert-success" *ngIf="showMessage">
+    <small class="fs-6">{{ message }}</small>
+  </div>
+  <div class="alert alert-danger" *ngIf="showError">
+    <small class="fs-6">{{ error }}</small>
+  </div>
+
   <app-add-item-card [formType]="formType"></app-add-item-card>
 
   <div class="row g-3">
-    <div class="col-12" *ngFor="let lugar of lugarer">
+    <div class="col-lg-4 col-md-6" *ngFor="let lugar of lugarer">
       <app-lugar-card [lugar]="lugar"></app-lugar-card>
     </div>
   </div>

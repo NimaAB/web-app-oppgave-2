@@ -23,7 +23,7 @@ namespace Web_app_oppgave_2.Controllers
             return Ok(value);
         }
 
-        [HttpGet]
+        [HttpGet("hentAlle")]
         public async Task<IActionResult> HentAlleMaaltider()
         {
             var value = await _repo.HentAlle();

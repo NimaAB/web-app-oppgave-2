@@ -84,8 +84,7 @@ export class RuteFormComponent implements OnInit{
 
   hentEn(){
     this.service.hentEn(this.currentId)
-      .subscribe(rute=>{
-          console.log("fra henten():  " + rute);
+      .subscribe(rute => {
           const tur = rute.tur.split("-");
           this.form.patchValue({id: rute.ruteId});
           this.form.patchValue({fra: tur[0] });
@@ -103,11 +102,14 @@ export class RuteFormComponent implements OnInit{
       pris: this.form.value.pris
     };
 
-    this.service.oppdater(nyRute).subscribe(
-      (data:any) => {this.service.setMessage(data.message)},
+    this.service.oppdater(nyRute)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
       (error) => this.service.setError(error.error)
     );
-    this.redirectTo('/ruter');
+
   }
 
   lagreNyRute(){
@@ -116,18 +118,24 @@ export class RuteFormComponent implements OnInit{
       pris: this.form.value.pris
     };
 
-    this.service.lagre(nyRute).subscribe(
-      (data:any) => {this.service.setMessage(data.message)},
+    this.service.lagre(nyRute)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
       (error) => this.service.setError(error.error)
     );
-    this.redirectTo('/ruter');
+
   }
 
   slettRute(){
-    this.service.slett(this.currentId).subscribe(
-      (data:any) => this.service.setMessage(data.message),
-      (error) => this.service.setError(error.error)
+    this.service.slett(this.currentId)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
+        (error) => this.service.setError(error.error)
     );
-    this.redirectTo('/ruter');
+
   }
 }

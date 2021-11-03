@@ -55,9 +55,9 @@
             </div>-->
 
         <div class="form-group py-2 d-flex justify-content-lg-end justify-content-center">
-          <button class="btn btn-primary me-2" *ngIf="formAction=='oppdater'" [disabled]="form.invalid">Endre</button>
-          <button class="btn btn-success me-2" *ngIf="formAction=='opprett'" [disabled]="form.invalid">Lagre</button>
-          <button class="btn btn-secondary" routerLink="/ruter">Avbryt</button>
+          <button class="btn btn-primary me-2" *ngIf="formAction=='oppdater'" (click)="endreMaaltid()" [disabled]="form.invalid">Endre</button>
+          <button class="btn btn-success me-2" *ngIf="formAction=='opprett'" (click)="lagreNyMaaltid()" [disabled]="form.invalid">Lagre</button>
+          <button class="btn btn-secondary" routerLink="/maaltider">Avbryt</button>
         </div>
       </form>
     </div>
