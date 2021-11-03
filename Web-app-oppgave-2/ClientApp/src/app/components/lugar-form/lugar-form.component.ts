@@ -141,7 +141,7 @@ export class LugarFormComponent implements OnInit{
   slettLugar() {
     this.service.slett(this.currentId)
       .subscribe((data:any) => {
-          this.service.setMessage(data.message);
+        this.service.setMessage(data.message);
         this.redirectTo('/lugarer');
         },
       error => console.error(error)
