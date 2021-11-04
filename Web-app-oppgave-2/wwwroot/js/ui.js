@@ -181,7 +181,7 @@ function genererLugarModalToggles(lugarer){
         let kapasitet = child.querySelector('.lugar-kapasitet');
         
         // TODO: Set background-image from db.
-        el.setAttribute('id', lugar.lugarNummer);
+        el.setAttribute('id', lugar.lugarId);
         navn.innerText = lugarer[i].navn;
         kapasitet.innerText = lugar.kapasitet > 1 ? '1-' + lugar.kapasitet + ' Personer' : lugar.kapasitet + ' Person';
         
@@ -201,7 +201,7 @@ function genererLugarDetaljer(lugar) {
     let vindu = $('.rom-vindu');
     let span = $('.rom-span');
 
-    $("#valgt-lugar").val(lugar.lugarNummer);
+    $("#valgt-lugar").val(lugar.lugarId);
     tittel.text(lugar.navn);
     pris.text(lugar.pris);
     kapasitet.text(lugar.kapasitet > 1 ? '1-' + lugar.kapasitet : lugar.kapasitet);
@@ -284,7 +284,7 @@ function genererRuteDetaljer(ruter){
         let r = ruter[i];
         let rArr = r.tur.split('-');
 
-        // Elementene vi trenger for å vise en måltid
+        // Elementene vi trenger for å vise en rute
         let col = child.querySelector('.rute-col');
         let ruteFra = col.querySelector('.rute-fra');
         let ruteTil = col.querySelector('.rute-til');
