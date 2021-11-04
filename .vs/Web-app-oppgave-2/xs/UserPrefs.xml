@@ -1,0 +1,39 @@
+﻿<Properties GitUserInfo="UsingMD" StartupConfiguration="{FA51419F-468D-4575-877C-D89B5F779569}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Web-app-oppgave-2/Logs/KundeLog-20211103.txt">
+    <Files>
+      <File FileName="Web-app-oppgave-2/Program.cs" Line="16" Column="1" />
+      <File FileName="Web-app-oppgave-2/ClientApp/README.md" Line="19" Column="53" />
+      <File FileName="Web-app-oppgave-2/wwwroot/loggInn.html" />
+      <File FileName="Web-app-oppgave-2/wwwroot/kunde.html" />
+      <File FileName="Web-app-oppgave-2/wwwroot/js/loggInn.js" Line="21" Column="12" />
+      <File FileName="Web-app-oppgave-2/Startup.cs" Line="46" Column="60" />
+      <File FileName="Web-app-oppgave-2/Controllers/BestillingController.cs" Line="12" Column="52" />
+      <File FileName="Web-app-oppgave-2/Controllers/LugarController.cs" Line="17" Column="1" />
+      <File FileName="Web-app-oppgave-2/Logs/KundeLog-20211103.txt" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Web-app-oppgave-2" expanded="True">
+            <Node name="Web-app-oppgave-2" expanded="True">
+              <Node name="DAL" expanded="True" />
+              <Node name="Logs" expanded="True">
+                <Node name="KundeLog-20211103.txt" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Web-app-oppgave-2 PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
