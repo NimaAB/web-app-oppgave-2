@@ -985,3 +985,93 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updatin
    at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
    at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
    at Web_app_oppgave_2.DAL.RuteServices.RuteRepository.Slett(Int32 id) in C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2\DAL\RuteServices\RuteRepository.cs:line 54
+2021-11-04T21:05:07.2359264+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:05:07.2424759+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:05:07.2425746+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:05:07.2426003+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:05:07.7037542+01:00 0HMCVPPJ0FHE6:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:05:12.4558167+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:05:25.8667979+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:09:04.0224616+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:09:04.0286801+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:09:04.0287841+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:09:04.0288158+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:09:04.4717769+01:00 0HMCVPRPIC0LN:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:09:08.6208758+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:09:21.2002557+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:11:33.9053686+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:11:33.9117659+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:11:33.9118881+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:11:33.9119168+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:11:34.4542699+01:00 0HMCVPT68CLCG:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:11:38.5191152+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:11:50.4300666+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:14:26.4959709+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:14:26.5024691+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:14:26.5025916+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:14:26.5026075+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:14:27.0192216+01:00 0HMCVPUPMDQOT:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:14:31.2176056+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:14:43.5390401+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:19:19.5238908+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:19:19.5310206+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:19:19.5311143+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:19:19.5311356+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:19:20.1064039+01:00 0HMCVQ1H1EN19:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:19:23.9267328+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:19:35.9000684+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:21:39.2410321+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:21:39.2472373+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:21:39.2474548+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:21:39.2474880+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:21:39.8428779+01:00 0HMCVQ2QLKTGS:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:21:43.7195262+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:21:56.7679770+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:26:36.0256844+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:26:36.0321670+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:26:36.0322751+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:26:36.0322918+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:26:36.3637870+01:00 0HMCVQ5J3FB22:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:26:40.8565056+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:26:53.0814758+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:27:29.2956035+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:27:29.3024625+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:27:29.3025828+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:27:29.3025986+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:27:29.9756782+01:00 0HMCVQ632RMJO:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:27:34.0711573+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:27:46.3215565+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:30:15.0538631+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:30:15.0603845+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:30:15.0605151+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:30:15.0605303+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:30:15.3235695+01:00 0HMCVQ7KBJ5BJ:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:30:19.4475526+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:30:31.6848607+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T21:32:26.7657482+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T21:32:26.7725464+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T21:32:26.7726625+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T21:32:26.7727032+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T21:32:27.1770228+01:00 0HMCVQ8RKNCOL:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T21:32:31.1447256+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T21:32:43.0874859+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)

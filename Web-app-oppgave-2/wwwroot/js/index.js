@@ -82,7 +82,7 @@ function hentAlleRuter(){
             skjulLoader();
         })
         .fail(function () {
-            console.log('Something went wrong.');
+            console.log('Noe gikk galt.');
         });
 }
 
@@ -96,12 +96,12 @@ function hentAlleLugarer(){
             skjulLoader();
         })
         .fail(function () {
-            console.log('Something went wrong.');        
+            console.log('Noe gikk galt.');        
         });
 }
 
 function hentEnLugar(id){
-    let url = '/api/lugar/hentAlle' + id;
+    let url = '/api/lugar/' + id;
     $.get(url, response => {
        genererLugarDetaljer(response);
     });
@@ -117,7 +117,7 @@ function hentAlleMaaltider(){
             skjulLoader();
         })
         .fail(function () {
-            console.log('Something went wrong.');
+            console.log('Noe gikk galt.');
         });
 }
 
