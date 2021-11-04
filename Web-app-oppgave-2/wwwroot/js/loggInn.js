@@ -7,17 +7,20 @@
             brukernavn: $("#brukernavn").val(),
             passord: $("#passord").val()
         };
-        $.post("billett/LoggInn", bruker, function (OK) {
+        
+        console.log(bruker);
+        
+        $.post("api/login", bruker, function (OK) {
             if (OK) {
                 window.location.href = '#';
-
             }
             else {
                 $("#feil").html("Feil brukernavn eller passord");
             }
         })
         .fail(function (feil) {
-            $("#feil").html("Feil på server - prøv igjen senere: ");
+            let errorMessage = jQuery.parseJSON(feil.responseText);
+            $("#feil").html(errorMessage.error);
         });
     }
 }
