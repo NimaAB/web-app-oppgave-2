@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Lugar } from 'src/models/lugar';
 import {FormControl, FormGroup, Validators } from '@angular/forms';
+import {MaaltidService} from "../../Services/maaltid.service";
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-lugar-form',
   templateUrl: './lugar-form.component.html',
   styleUrls: ['./lugar-form.component.css']
 })
-export class LugarFormComponent {
-  erEndringsForm: boolean = true;
-  currentLugarId:any = undefined;
+export class LugarFormComponent implements OnInit{
   isSubmitted: boolean = false;
+  formAction: string | null = "";
+  currentId !: number;
 
   form:FormGroup = new FormGroup({
     id: new FormControl(),
@@ -32,11 +34,27 @@ export class LugarFormComponent {
     //bilde: new FormControl()
   });
 
-  constructor() {
-    this.setErEndringsForm()
-    this.setId();
-  }
+  constructor(private service: MaaltidService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {}
 
+  ngOnInit(): void {
+    this.activatedRoute.paramMap
+      .subscribe((param) => {
+          this.formAction = param.get('action');
+          this.currentId = Number(param.get('id'));
+        },
+        error => console.log(error)
+      );
+
+    if(this.formAction == 'slett') {
+      this.slettLugar();
+    }
+
+    if(this.formAction=='oppdater'){
+      this.hentEn();
+    }
+  }
 
   get typ(){
     return this.form.controls.typ;
@@ -57,34 +75,79 @@ export class LugarFormComponent {
     return this.form.controls.pris;
   }
 
-  setErEndringsForm(){
-    const url = window.location.href
-    console.log(url.split("/"));
-    this.erEndringsForm = url.split("/")[5] === 'oppdater';
-  }
-  setId(){
-    const url = window.location.href
-    if(this.erEndringsForm){
-      this.currentLugarId = url.split("/")[6];
-    }
-  }
-
   onSubmit(){
-    if(this.erEndringsForm){
-      this.endreLugar();
-    } else {
-      this.lagreNyLugar();
-    }
     this.isSubmitted = true;
     this.form.reset();
   }
 
-  private endreLugar() {
+  redirectTo(url: string) {
+    this.router.navigateByUrl(url);
+  }
+
+  hentEn(){
+    this.service.hentEn(this.currentId)
+      .subscribe(lugar=>{
+          this.form.patchValue({id: lugar.lugarId});
+          this.form.patchValue({typ: lugar.typ});
+          this.form.patchValue({navn: lugar.navn});
+          this.form.patchValue({beskrivelse: lugar.beskrivelse});
+          this.form.patchValue({kapasitet: lugar.kapasitet});
+          this.form.patchValue({maxReservasjon: lugar.maxReservasjon});
+          this.form.patchValue({pris: lugar.pris});
+        },
+        error => console.log(error)
+      );
+  }
+
+  endreLugar() {
+    const nyLugar = {
+      id: this.form.value.id,
+      typ: this.form.value.typ,
+      navn: this.form.value.navn,
+      beskrivelse: this.form.value.beskrivelse,
+      maxReservasjon: this.form.value.maxReservasjon,
+      kapasitet: this.form.value.kapasitet,
+      pris: this.form.value.pris
+    }
+    this.service.oppdater(nyLugar)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/lugarer');
+        },
+      (error) => this.service.setError(error.error)
+    );
 
   }
 
-  private lagreNyLugar() {
+  lagreNyLugar() {
+    const nyLugar = {
+      id: this.form.value.id,
+      typ: this.form.value.typ,
+      navn: this.form.value.navn,
+      beskrivelse: this.form.value.beskrivelse,
+      maxReservasjon: this.form.value.maxReservasjon,
+      kapasitet: this.form.value.kapasitet,
+      pris: this.form.value.pris
+    };
+    this.service.lagre(nyLugar)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/lugarer');
+        },
+      (error) => this.service.setError(error.error)
+    );
+  }
+
+  slettLugar() {
+    this.service.slett(this.currentId)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+        this.redirectTo('/lugarer');
+        },
+      error => console.error(error)
+    );
 
   }
+
 }
 

@@ -16,6 +16,13 @@ namespace Web_app_oppgave_2.Controllers
             _repo = repo;
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> HentEnRute(int id)
+        {
+            var value = await _repo.HentEn(id);
+            return Ok(value);
+        }
+
         [HttpGet("hentAlle")]
         public async Task<IActionResult> HentAlleRuter()
         {
@@ -28,8 +35,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Oppdater(id, nyRute);
             return !value 
-                ? NotFound("Ruten du prøver å oppdatere finnes ikke.") 
-                : StatusCode(200, "Ruten er oppdatert.");
+                ? NotFound(new { error = "Ruten du prøver å oppdatere finnes ikke."}) 
+                : StatusCode(200, new { message = "Ruten er oppdatert." });
         }
 
         [HttpDelete("slett/{id}")]
@@ -37,8 +44,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Slett(id);
             return !value
-                ? NotFound("Ruten du prøver å slette finnes ikke.")
-                : StatusCode(200,"Ruten er slettet");
+                ? NotFound(new { error = "Ruten du prøver å slette finnes ikke."})
+                : StatusCode(200,new { message = "Ruten er slettet." });
         }
 
         [HttpPost("lagre")]
@@ -46,8 +53,8 @@ namespace Web_app_oppgave_2.Controllers
         {
             var value = await _repo.Lagre(rute);
             return !value
-                ? BadRequest("Noe gikk galt! Ny rute ble ikke lagret.")
-                : StatusCode(200, "Ny rute er lagret.");
+                ? BadRequest()
+                : StatusCode(200, new { message = "Ruten er lagret" });
         }
     }
 }

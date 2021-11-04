@@ -14,6 +14,11 @@ namespace Web_app_oppgave_2.DAL.RuteServices
         {
             _db = db;
         }
+
+        public async Task<Rute> HentEn(int id)
+        {
+            return await _db.Ruter.FindAsync(id);
+        }
         
         public async Task<List<Rute>> HentAlle()
         {
@@ -47,7 +52,7 @@ namespace Web_app_oppgave_2.DAL.RuteServices
                 if (rute == null) return false;
                 _db.Ruter.Remove(rute);
                 await _db.SaveChangesAsync();
-                return false;
+                return true;
             }
             catch
             {

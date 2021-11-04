@@ -1,15 +1,18 @@
-import { Component, Input } from '@angular/core';
-import {FormGroup, Validators, FormControl, AbstractControl} from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup, Validators, FormControl} from '@angular/forms';
+import {RuterService} from "../../Services/ruter.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {DataService} from "../../Services/data.service";
 
 @Component({
   selector: 'app-rute-form',
   templateUrl: './rute-form.component.html',
   styleUrls: ['./rute-form.component.css']
 })
-export class RuteFormComponent{
-  erEndringsForm: boolean = true;
-  currentRuteId:any = undefined;
+export class RuteFormComponent implements OnInit{
   isSubmitted: boolean = false;
+  formAction: string | null = "";
+  currentId !: number;
 
   form = new FormGroup({
     id: new FormControl(),
@@ -31,10 +34,29 @@ export class RuteFormComponent{
     )
   });
 
-  constructor() {
-    this.setErEndringsForm()
-    this.setId();
+  constructor(
+    private service: RuterService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router) { }
+
+  ngOnInit(): void {
+    this.activatedRoute.paramMap
+      .subscribe((param) => {
+        this.formAction = param.get('action');
+        this.currentId = Number(param.get('id'));
+        },
+        error => console.log(error)
+      )
+
+    if(this.formAction == 'slett') {
+      this.slettRute();
+    }
+
+    if(this.formAction=='oppdater'){
+      this.hentEn();
+    }
   }
+
   get fra(){
     return this.form.controls.fra;
   }
@@ -52,32 +74,68 @@ export class RuteFormComponent{
   }
 
   onSubmit() {
-    if(this.erEndringsForm){
-      this.endreRute();
-    } else {
-      this.lagreNyRute();
-    }
     this.isSubmitted = true;
     this.form.reset();
   }
 
-  setErEndringsForm(){
-    const url = window.location.href
-    this.erEndringsForm = url.split("/")[5] === 'oppdater';
+  redirectTo(url: string) {
+    this.router.navigateByUrl(url);
   }
-  setId(){
-    const url = window.location.href
-    if(this.erEndringsForm){
-      this.currentRuteId = url.split("/")[6];
-    }
+
+  hentEn(){
+    this.service.hentEn(this.currentId)
+      .subscribe(rute => {
+          const tur = rute.tur.split("-");
+          this.form.patchValue({id: rute.ruteId});
+          this.form.patchValue({fra: tur[0] });
+          this.form.patchValue({til: tur[1] });
+          this.form.patchValue({pris: rute.pris});
+        },
+        error => console.log(error)
+      )
   }
+
   endreRute(){
+    const nyRute = {
+      id: this.form.value.id,
+      tur: this.form.value.fra + "-" + this.form.value.til,
+      pris: this.form.value.pris
+    };
+
+    this.service.oppdater(nyRute)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
+      (error) => this.service.setError(error.error)
+    );
 
   }
 
   lagreNyRute(){
+    const nyRute = {
+      tur: this.form.value.fra + "-" + this.form.value.til,
+      pris: this.form.value.pris
+    };
+
+    this.service.lagre(nyRute)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
+      (error) => this.service.setError(error.error)
+    );
 
   }
 
+  slettRute(){
+    this.service.slett(this.currentId)
+      .subscribe((data:any) => {
+          this.service.setMessage(data.message);
+          this.redirectTo('/ruter');
+        },
+        (error) => this.service.setError(error.error)
+    );
 
+  }
 }
