@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {RuterService} from "../../Services/ruter.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DataService} from "../../Services/data.service";
 
 @Component({
   selector: 'app-rute-form',

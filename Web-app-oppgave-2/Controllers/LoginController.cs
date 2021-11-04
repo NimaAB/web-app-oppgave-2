@@ -32,7 +32,7 @@ namespace Web_app_oppgave_2.Controllers
             return StatusCode(200, new {message = "Logg inn vellykket."});
         }
 
-        [Route("loggut")]
+        [HttpGet("loggut")]
         public void Logout()
         {
             HttpContext.Session.SetString(_loggetInnString, "");

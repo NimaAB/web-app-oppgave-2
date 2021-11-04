@@ -2164,3 +2164,187 @@ Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 5: 'database is
 2021-11-04T21:32:43.0874859+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
  (8c113e45)
 >>>>>>> e2bf6de76b89b9186833058d67069ec8b5c9b29e
+2021-11-04T22:53:04.5887478+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T22:53:04.6144816+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T22:53:04.6148135+01:00  [INF] Content root path: "C:\Users\nimab\Desktop\Desktop\OsloMet\5.semester\ITPE3200\Web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T22:53:24.0891629+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T22:54:35.2941436+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T22:54:35.3038318+01:00  [ERR] Error: src/app/app.module.ts:34:5 - error NG6001: The class 'NavbarComponent' is listed in the declarations of the NgModule 'AppModule', but is not a directive, a component, or a pipe. Either remove it from the NgModule's declarations, or add an appropriate Angular decorator.
+ (ad08f89b)
+2021-11-04T22:54:35.3041373+01:00  [ERR] 34     NavbarComponent,
+ (04aa282d)
+2021-11-04T22:54:35.3044314+01:00  [ERR]        ~~~~~~~~~~~~~~~
+ (0fb2fec5)
+2021-11-04T22:54:35.3046635+01:00  [ERR]   src/app/components/navbar/navbar.component.ts:10:14
+ (22b381cd)
+2021-11-04T22:54:35.3057596+01:00  [ERR]     10 export class NavbarComponent {
+ (84c00eda)
+2021-11-04T22:54:35.3076337+01:00  [ERR]                     ~~~~~~~~~~~~~~~
+ (5fd0dee1)
+2021-11-04T22:54:35.3088282+01:00  [ERR]     'NavbarComponent' is declared here.
+ (6efbb831)
+2021-11-04T22:54:35.3101676+01:00  [ERR] Error: src/app/components/navbar/navbar.component.ts:12:48 - error NG2003: No suitable injection token for parameter 'router' of class 'NavbarComponent'.
+ (743ba875)
+2021-11-04T22:54:35.3110524+01:00  [ERR]   Consider using the @Inject decorator to specify an injection token.
+ (6d18fcf5)
+2021-11-04T22:54:35.3114327+01:00  [ERR] 12   constructor(private _http:HttpClient,private router:Route) {
+ (bf940539)
+2021-11-04T22:54:35.3116822+01:00  [ERR]                                                   ~~~~~~
+ (bc1f2aef)
+2021-11-04T22:54:35.3147642+01:00  [ERR]   src/app/components/navbar/navbar.component.ts:12:55
+ (c2492238)
+2021-11-04T22:54:35.3159766+01:00  [ERR]     12   constructor(private _http:HttpClient,private router:Route) {
+ (a09aeded)
+2021-11-04T22:54:35.3165695+01:00  [ERR]                                                              ~~~~~
+ (ad6d00e1)
+2021-11-04T22:54:35.3170242+01:00  [ERR]     This type does not have a value, so it cannot be used as injection token.
+ (8853c74a)
+2021-11-04T22:54:35.3178544+01:00  [ERR]   node_modules/@angular/router/router.d.ts:1876:1
+ (3670f421)
+2021-11-04T22:54:35.3211925+01:00  [ERR]     1876 export declare interface Route {
+ (c1cdabbf)
+2021-11-04T22:54:35.3223308+01:00  [ERR]          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ (28c16626)
+2021-11-04T22:54:35.3240932+01:00  [ERR]     1877     /**
+ (4f447775)
+2021-11-04T22:54:35.3256273+01:00  [ERR]          ~~~~~~~
+ (48170c2e)
+2021-11-04T22:54:35.3268143+01:00  [ERR]      ... 
+ (9dabd981)
+2021-11-04T22:54:35.3280039+01:00  [ERR]     1978     runGuardsAndResolvers?: RunGuardsAndResolvers;
+ (13f77f26)
+2021-11-04T22:54:35.3350288+01:00  [ERR]          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ (41e758b6)
+2021-11-04T22:54:35.3414823+01:00  [ERR]     1979 }
+ (1db0ee70)
+2021-11-04T22:54:35.3439569+01:00  [ERR]          ~
+ (ae636ec4)
+2021-11-04T22:54:35.3468775+01:00  [ERR]     The type is declared here.
+ (17f341d1)
+2021-11-04T22:54:38.8521714+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T22:54:38.8561400+01:00  [ERR] Error: src/app/app.module.ts:34:5 - error NG6001: The class 'NavbarComponent' is listed in the declarations of the NgModule 'AppModule', but is not a directive, a component, or a pipe. Either remove it from the NgModule's declarations, or add an appropriate Angular decorator.
+ (ad08f89b)
+2021-11-04T22:54:38.8563795+01:00  [ERR] 34     NavbarComponent,
+ (04aa282d)
+2021-11-04T22:54:38.8565484+01:00  [ERR]        ~~~~~~~~~~~~~~~
+ (0fb2fec5)
+2021-11-04T22:54:38.8567215+01:00  [ERR]   src/app/components/navbar/navbar.component.ts:10:14
+ (22b381cd)
+2021-11-04T22:54:38.8569280+01:00  [ERR]     10 export class NavbarComponent {
+ (84c00eda)
+2021-11-04T22:54:38.8570970+01:00  [ERR]                     ~~~~~~~~~~~~~~~
+ (5fd0dee1)
+2021-11-04T22:54:38.8572595+01:00  [ERR]     'NavbarComponent' is declared here.
+ (6efbb831)
+2021-11-04T22:54:38.8574308+01:00  [ERR] Error: src/app/components/navbar/navbar.component.ts:12:48 - error NG2003: No suitable injection token for parameter 'router' of class 'NavbarComponent'.
+ (743ba875)
+2021-11-04T22:54:38.8576011+01:00  [ERR]   Consider using the @Inject decorator to specify an injection token.
+ (6d18fcf5)
+2021-11-04T22:54:38.8577650+01:00  [ERR] 12   constructor(private _http:HttpClient,private router:Route) {
+ (bf940539)
+2021-11-04T22:54:38.8579390+01:00  [ERR]                                                   ~~~~~~
+ (bc1f2aef)
+2021-11-04T22:54:38.8581581+01:00  [ERR]   src/app/components/navbar/navbar.component.ts:12:55
+ (c2492238)
+2021-11-04T22:54:38.8583386+01:00  [ERR]     12   constructor(private _http:HttpClient,private router:Route) {
+ (a09aeded)
+2021-11-04T22:54:38.8588797+01:00  [ERR]                                                              ~~~~~
+ (ad6d00e1)
+2021-11-04T22:54:38.8593869+01:00  [ERR]     This type does not have a value, so it cannot be used as injection token.
+ (8853c74a)
+2021-11-04T22:54:38.8596071+01:00  [ERR]   node_modules/@angular/router/router.d.ts:1876:1
+ (3670f421)
+2021-11-04T22:54:38.8597765+01:00  [ERR]     1876 export declare interface Route {
+ (c1cdabbf)
+2021-11-04T22:54:38.8599512+01:00  [ERR]          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ (28c16626)
+2021-11-04T22:54:38.8601169+01:00  [ERR]     1877     /**
+ (4f447775)
+2021-11-04T22:54:38.8602756+01:00  [ERR]          ~~~~~~~
+ (48170c2e)
+2021-11-04T22:54:38.8604563+01:00  [ERR]      ... 
+ (9dabd981)
+2021-11-04T22:54:38.8606225+01:00  [ERR]     1978     runGuardsAndResolvers?: RunGuardsAndResolvers;
+ (13f77f26)
+2021-11-04T22:54:38.8608566+01:00  [ERR]          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ (41e758b6)
+2021-11-04T22:54:38.8610259+01:00  [ERR]     1979 }
+ (1db0ee70)
+2021-11-04T22:54:38.8620897+01:00  [ERR]          ~
+ (ae636ec4)
+2021-11-04T22:54:38.8623993+01:00  [ERR]     The type is declared here.
+ (17f341d1)
+2021-11-04T23:00:24.0410860+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T23:00:24.0682337+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T23:00:24.0686437+01:00  [INF] Content root path: "C:\Users\nimab\Desktop\Desktop\OsloMet\5.semester\ITPE3200\Web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T23:00:49.1313893+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T23:01:24.4070500+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T23:01:24.4123383+01:00  [ERR] Error: src/app/app.module.ts:34:5 - error NG6001: The class 'NavbarComponent' is listed in the declarations of the NgModule 'AppModule', but is not a directive, a component, or a pipe. Either remove it from the NgModule's declarations, or add an appropriate Angular decorator.
+ (ad08f89b)
+2021-11-04T23:01:24.4127717+01:00  [ERR] 34     NavbarComponent,
+ (04aa282d)
+2021-11-04T23:01:24.4130872+01:00  [ERR]        ~~~~~~~~~~~~~~~
+ (0fb2fec5)
+2021-11-04T23:01:24.4135428+01:00  [ERR]   src/app/components/navbar/navbar.component.ts:10:14
+ (22b381cd)
+2021-11-04T23:01:24.4137824+01:00  [ERR]     10 export class NavbarComponent {
+ (84c00eda)
+2021-11-04T23:01:24.4140003+01:00  [ERR]                     ~~~~~~~~~~~~~~~
+ (5fd0dee1)
+2021-11-04T23:01:24.4142133+01:00  [ERR]     'NavbarComponent' is declared here.
+ (6efbb831)
+2021-11-04T23:01:24.4144280+01:00  [ERR] Error: src/app/components/navbar/navbar.component.ts:12:48 - error NG2003: No suitable injection token for parameter 'router' of class 'NavbarComponent'.
+ (743ba875)
+2021-11-04T23:01:24.4146220+01:00  [ERR]   Consider using the @Inject decorator to specify an injection token.
+ (6d18fcf5)
+2021-11-04T23:01:24.4148736+01:00  [ERR] 12   constructor(private _http:HttpClient,private router:Route) {
+ (bf940539)
+2021-11-04T23:01:24.4150650+01:00  [ERR]                                                   ~~~~~~
+ (bc1f2aef)
+2021-11-04T23:01:24.4152464+01:00  [ERR]   src/app/components/navbar/navbar.component.ts:12:55
+ (c2492238)
+2021-11-04T23:01:24.4154372+01:00  [ERR]     12   constructor(private _http:HttpClient,private router:Route) {
+ (a09aeded)
+2021-11-04T23:01:24.4156355+01:00  [ERR]                                                              ~~~~~
+ (ad6d00e1)
+2021-11-04T23:01:24.4158222+01:00  [ERR]     This type does not have a value, so it cannot be used as injection token.
+ (8853c74a)
+2021-11-04T23:01:24.4160006+01:00  [ERR]   node_modules/@angular/router/router.d.ts:1876:1
+ (3670f421)
+2021-11-04T23:01:24.4161851+01:00  [ERR]     1876 export declare interface Route {
+ (c1cdabbf)
+2021-11-04T23:01:24.4163549+01:00  [ERR]          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ (28c16626)
+2021-11-04T23:01:24.4179158+01:00  [ERR]     1877     /**
+ (4f447775)
+2021-11-04T23:01:24.4186445+01:00  [ERR]          ~~~~~~~
+ (48170c2e)
+2021-11-04T23:01:24.4190762+01:00  [ERR]      ... 
+ (9dabd981)
+2021-11-04T23:01:24.4193400+01:00  [ERR]     1978     runGuardsAndResolvers?: RunGuardsAndResolvers;
+ (13f77f26)
+2021-11-04T23:01:24.4196198+01:00  [ERR]          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ (41e758b6)
+2021-11-04T23:01:24.4198409+01:00  [ERR]     1979 }
+ (1db0ee70)
+2021-11-04T23:01:24.4200266+01:00  [ERR]          ~
+ (ae636ec4)
+2021-11-04T23:01:24.4202001+01:00  [ERR]     The type is declared here.
+ (17f341d1)
+2021-11-04T23:02:42.4175124+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T23:04:45.3946099+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T23:05:58.2152543+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T23:07:01.5505110+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T23:07:57.0234644+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
+2021-11-04T23:09:24.3353815+01:00  [ERR] ÔêÜ Browser application bundle generation complete.
+ (381a6f40)
