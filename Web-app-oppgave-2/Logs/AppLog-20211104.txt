@@ -1,0 +1,363 @@
+2021-11-04T11:23:59.1313699+01:00  [ERR] Failed executing DbCommand ("5"ms) [Parameters=["@p0='?' (Size = 5), @p1='?' (Size = 32), @p2='?' (Size = 24)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Brukere\" (\"Brukernavn\", \"PassordHash\", \"PassordSalt\")
+VALUES (@p0, @p1, @p2);
+SELECT \"Id\"
+FROM \"Brukere\"
+WHERE changes() = 1 AND \"rowid\" = last_insert_rowid();" (627a98df)
+2021-11-04T11:23:59.1873047+01:00  [ERR] An exception occurred in the database while saving changes for context type '"Web_app_oppgave_2.DAL.Db"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Brukere'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)" (170f029e)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Brukere'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2021-11-04T11:23:59.3640831+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:23:59.3642509+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:23:59.3642950+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:23:59.3643478+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:24:05.4182419+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:24:20.7349281+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:25:21.5839053+01:00  [ERR] Failed executing DbCommand ("3"ms) [Parameters=["@p0='?' (Size = 5), @p1='?' (Size = 32), @p2='?' (Size = 24)"], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO \"Brukere\" (\"Brukernavn\", \"PassordHash\", \"PassordSalt\")
+VALUES (@p0, @p1, @p2);
+SELECT \"Id\"
+FROM \"Brukere\"
+WHERE changes() = 1 AND \"rowid\" = last_insert_rowid();" (627a98df)
+2021-11-04T11:25:21.6278527+01:00  [ERR] An exception occurred in the database while saving changes for context type '"Web_app_oppgave_2.DAL.Db"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Brukere'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)" (170f029e)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Brukere'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2021-11-04T11:25:21.7419904+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:25:21.7421921+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:25:21.7422370+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:25:21.7423155+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:25:27.0133679+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:25:42.7460426+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:26:19.8065301+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:26:19.8137590+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:26:19.8138498+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:26:19.8138754+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:26:24.2456165+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:26:27.4969752+01:00 0HMCVFM7L1HHH:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:26:42.3609776+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:33:23.7526778+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:33:23.7608683+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:33:23.7609601+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:33:23.7609832+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:33:26.8949440+01:00 0HMCVFQ4L7GNJ:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:33:29.5476154+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:33:47.4033037+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:33:48.8302333+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:38:18.9769793+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:38:18.9843610+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:38:18.9844991+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:38:18.9845266+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:38:23.6061203+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:38:28.2664984+01:00 0HMCVFSUFFQFN:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:38:37.2534784+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:38:38.5907965+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:39:25.1838539+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:39:25.1909743+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:39:25.1910774+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:39:25.1911519+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:39:26.0242959+01:00 0HMCVFTFM575D:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:39:29.6400695+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:39:42.2942584+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:39:58.0779822+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:39:58.0842483+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:39:58.0843649+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:39:58.0843931+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:40:02.1637154+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:40:03.2724852+01:00 0HMCVFTQPFPBD:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:40:15.2609444+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:44:45.5835979+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:44:45.5901957+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:44:45.5903018+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:44:45.5903431+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:44:49.9112297+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:44:53.5441064+01:00 0HMCVG0H9GO0G:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:45:03.3001030+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:46:38.3019965+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:46:38.3082932+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:46:38.3083956+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:46:38.3084219+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:46:41.4811111+01:00 0HMCVG1HF3T77:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:46:43.1609679+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:46:56.1981563+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:47:48.0368782+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:47:48.0430894+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:47:48.0431863+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:47:48.0432027+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:47:49.6960967+01:00 0HMCVG25PMQQ3:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:47:52.3289970+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:48:04.5137368+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:51:04.3354340+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:51:04.3418133+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:51:04.3419163+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:51:04.3419434+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:51:08.3569540+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:51:20.4723697+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T11:52:30.9608579+01:00 0HMCVG4PK31IK:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:55:08.7133071+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T11:55:08.7197289+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T11:55:08.7198447+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T11:55:08.7198757+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T11:55:10.8003671+01:00 0HMCVG698D2EQ:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T11:55:13.6339366+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T11:55:26.7602054+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:00:05.3179795+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:00:05.3249542+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:00:05.3250473+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:00:05.3250966+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:00:07.5412900+01:00 0HMCVG91M765V:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:00:09.9307446+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:00:23.7819942+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:03:23.8404304+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:03:23.8476701+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:03:23.8477902+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:03:23.8478238+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:03:28.5668603+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:03:29.3594527+01:00 0HMCVGATQSI37:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:03:41.8295379+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:05:38.1843456+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:05:38.1909804+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:05:38.1910985+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:05:38.1911167+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:05:40.5555682+01:00 0HMCVGC4U5DM3:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:05:42.5527812+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:05:54.9471153+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:11:40.3212558+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:11:40.3275555+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:11:40.3276529+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:11:40.3277097+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:11:43.8770665+01:00 0HMCVGFH7281O:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:11:44.6586988+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:11:57.7927129+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:14:24.2148625+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:14:24.2210510+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:14:24.2211480+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:14:24.2211642+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:14:27.5735285+01:00 0HMCVGH204J0P:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:14:28.6165942+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:14:40.4748165+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:15:07.3957596+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:15:07.4024106+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:15:07.4025080+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:15:07.4025252+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:15:11.5827571+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:15:17.5293571+01:00 0HMCVGHGSIRDS:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:15:23.5588418+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:18:46.0356058+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:18:46.0421225+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:18:46.0422652+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:18:46.0422952+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:18:48.9125485+01:00 0HMCVGJFSH5PT:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:18:50.4421727+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:19:02.6757621+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:23:45.6137540+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:23:45.6205498+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:23:45.6206870+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:23:45.6207208+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:23:49.7242060+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:23:50.2921438+01:00 0HMCVGM9MNJ6T:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:24:02.7940943+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:24:31.3618196+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:24:31.3686167+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:24:31.3688851+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:24:31.3689208+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:24:33.5042558+01:00 0HMCVGMMIPNUP:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:24:36.2041040+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:24:49.2441985+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:25:37.2834013+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:25:37.2918321+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:25:37.2919228+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:25:37.2919538+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:25:39.0100539+01:00 0HMCVGNA3ILDC:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:25:41.5674070+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:25:54.2153050+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:26:03.3345038+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:26:03.3442807+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:26:03.3443774+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:26:03.3443967+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:26:05.8476697+01:00 0HMCVGNI3HNV8:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:26:07.8257217+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:26:19.8518938+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:26:57.1685517+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:26:57.1747646+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:26:57.1748599+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:26:57.1748770+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:27:00.4795902+01:00 0HMCVGO2CA0QI:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:27:01.7577855+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:27:14.9929085+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:32:10.4021068+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:32:10.4093542+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:32:10.4096114+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:32:10.4096323+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:32:14.4781193+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:32:16.0655007+01:00 0HMCVGR0E6AFU:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:32:26.5827346+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:35:14.6369981+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:35:14.6434974+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:35:14.6436471+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:35:14.6436854+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:35:14.7140897+01:00 0HMCVGSLLUSBC:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:35:18.7359851+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:35:31.0892500+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:35:32.3639627+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:36:53.0831502+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:36:53.0893471+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:36:53.0894525+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:36:53.0894735+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:36:56.2166671+01:00 0HMCVGTJTTVVK:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:36:57.3269299+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:37:10.0755466+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:38:49.6644528+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:38:49.6710766+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:38:49.6711651+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:38:49.6711839+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:38:49.7468294+01:00 0HMCVGULOKPRC:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:38:53.7201036+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:39:05.7798573+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:39:07.0328181+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T12:40:00.6450169+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:40:00.6516081+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:40:00.6517694+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:40:00.6517965+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:40:03.9331885+01:00 0HMCVGVBS4S5A:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:40:04.9667350+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:40:16.7349855+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)

@@ -73,7 +73,7 @@ function bekreft(){
 }
 
 function hentAlleRuter(){
-    let url = '/api/rute';
+    let url = '/api/rute/hentAlle';
     $.get(url, response => {
         genererRuteDetaljer(response);
     })
@@ -87,7 +87,7 @@ function hentAlleRuter(){
 }
 
 function hentAlleLugarer(){
-    let url = '/api/lugar';
+    let url = '/api/lugar/hentAlle';
     $.get(url, response => {
         genererLugarModalToggles(response); 
     })
@@ -108,7 +108,7 @@ function hentEnLugar(id){
 }
 
 function hentAlleMaaltider(){
-    let url = '/api/maaltid';
+    let url = '/api/maaltid/hentAlle';
     $.get(url, response => {
         genererMaaltidDetaljer(response);
     })

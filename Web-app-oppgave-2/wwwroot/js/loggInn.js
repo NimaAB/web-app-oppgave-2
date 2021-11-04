@@ -1,23 +1,23 @@
 ﻿function loggInn() {
     const okBrukernavn = validerBrukernavn($("#brukernavn").val());
-    const okPassord = validerPassord($("$passord").val());
+    const okPassord = validerPassord($("#passord").val());
 
     if (okBrukernavn && okPassord) {
+        visLoader('Please wait...');
+        
         const bruker = {
             brukernavn: $("#brukernavn").val(),
             passord: $("#passord").val()
         };
-        $.post("billett/LoggInn", bruker, function (OK) {
-            if (OK) {
-                window.location.href = '#';
-
-            }
-            else {
-                $("#feil").html("Feil brukernavn eller passord");
-            }
-        });
+        
+        $.post({url: "api/login", data: JSON.stringify(bruker), contentType: 'application/json; charset=utf-8'})
+        .done(function (ok) {
+            window.location.href = "/ruter";
+        })
         .fail(function (feil) {
-            $("#feil").html("Feil på server - prøv igjen senere: ");
+            let errorMessage = jQuery.parseJSON(feil.responseText);
+            $("#feil").html(errorMessage.error);
+            skjulLoader();
         });
     }
 }
@@ -48,4 +48,11 @@ function validerPassord(passord) {
     }
 }
 
-    
+function skjulLoader(){
+    $('.loader').addClass('d-none');
+}
+
+function visLoader(message){
+    $('.loader-message').text(message);
+    $('.loader').removeClass('d-none');
+}

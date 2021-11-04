@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Web_app_oppgave_2.DAL;
 using Web_app_oppgave_2.DAL.BestillingServices;
+using Web_app_oppgave_2.DAL.LoggInnServices;
 using Web_app_oppgave_2.DAL.LugarServices;
 using Web_app_oppgave_2.DAL.MaaltidServices;
 using Web_app_oppgave_2.DAL.RuteServices;
@@ -35,6 +36,7 @@ namespace Web_app_oppgave_2
             services.AddScoped<ILugarRepository, LugarRepository>();
             services.AddScoped<IMaaltidRepository, MaaltidRepository>();
             services.AddScoped<IRuteRepository, RuteRepository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +45,8 @@ namespace Web_app_oppgave_2
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                loggerFactory.AddFile("Logs/KundeLog.txt");
+                loggerFactory.AddFile("Logs/AppLog.txt");
+                Db.Initialize(app);
             }
             else
             {

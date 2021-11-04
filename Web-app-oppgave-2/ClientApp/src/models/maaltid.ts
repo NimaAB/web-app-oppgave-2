@@ -1,5 +1,5 @@
 ﻿export class Maaltid{
-  id?:number;
+  maaltidId?:number;
   navn:string;
   beskrivelse:string;
   bilde?:any;

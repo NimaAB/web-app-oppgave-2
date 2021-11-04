@@ -1,5 +1,5 @@
 ﻿export class Lugar{
-  id?:number;
+  lugarId?:number;
   type:string;
   navn:string;
   kapasistet:number;

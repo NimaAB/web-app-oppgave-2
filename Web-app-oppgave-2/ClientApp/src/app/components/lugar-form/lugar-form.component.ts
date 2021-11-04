@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Lugar } from 'src/models/lugar';
 import {FormControl, FormGroup, Validators } from '@angular/forms';
-import {MaaltidService} from "../../Services/maaltid.service";
 import { ActivatedRoute, Router } from '@angular/router';
+import {LugarService} from "../../Services/lugar.service";
 
 @Component({
   selector: 'app-lugar-form',
@@ -34,7 +34,7 @@ export class LugarFormComponent implements OnInit{
     //bilde: new FormControl()
   });
 
-  constructor(private service: MaaltidService,
+  constructor(private service: LugarService,
               private activatedRoute: ActivatedRoute,
               private router: Router) {}
 
@@ -121,7 +121,6 @@ export class LugarFormComponent implements OnInit{
 
   lagreNyLugar() {
     const nyLugar = {
-      id: this.form.value.id,
       typ: this.form.value.typ,
       navn: this.form.value.navn,
       beskrivelse: this.form.value.beskrivelse,
@@ -141,7 +140,7 @@ export class LugarFormComponent implements OnInit{
   slettLugar() {
     this.service.slett(this.currentId)
       .subscribe((data:any) => {
-          this.service.setMessage(data.message);
+        this.service.setMessage(data.message);
         this.redirectTo('/lugarer');
         },
       error => console.error(error)
