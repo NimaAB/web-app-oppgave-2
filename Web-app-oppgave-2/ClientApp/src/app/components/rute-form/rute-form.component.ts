@@ -107,9 +107,11 @@ export class RuteFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo('/ruter');
         },
-      (error) => this.service.setError(error.error)
+      (error) => {
+        if(error.status == 401) window.location.href = "/loggInn.html";
+        this.service.setError(error.error);
+      }
     );
-
   }
 
   lagreNyRute(){
@@ -123,9 +125,11 @@ export class RuteFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo('/ruter');
         },
-      (error) => this.service.setError(error.error)
+      (error) => {
+        if(error.status == 401) window.location.href = "/loggInn.html";
+        this.service.setError(error.error);
+      }
     );
-
   }
 
   slettRute(){
@@ -134,8 +138,10 @@ export class RuteFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo('/ruter');
         },
-        (error) => this.service.setError(error.error)
+        (error) => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+      }
     );
-
   }
 }

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,15 @@ namespace Web_app_oppgave_2
             services.AddScoped<IMaaltidRepository, MaaltidRepository>();
             services.AddScoped<IRuteRepository, RuteRepository>();
             services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddRazorPages(); 
+            
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".AdventureWorks.Session"; 
+                options.IdleTimeout = TimeSpan.FromSeconds(1800); // 30 minutter
+                options.Cookie.IsEssential = true;
+            });
+            services.AddDistributedMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +72,8 @@ namespace Web_app_oppgave_2
                 app.UseSpaStaticFiles();
             }
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
@@ -69,6 +81,7 @@ namespace Web_app_oppgave_2
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
 
             app.UseSpa(spa =>

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Web_app_oppgave_2.DAL.RuteServices;
 using Web_app_oppgave_2.Models;
@@ -10,10 +11,16 @@ namespace Web_app_oppgave_2.Controllers
     public class RuteController : ControllerBase
     {
         private readonly IRuteRepository _repo;
+        private const string _loggetInnString = "LoggetInn";
 
         public RuteController(IRuteRepository repo)
         {
             _repo = repo;
+        }
+
+        private bool ValidSession()
+        {
+            return !string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInnString));
         }
 
         [HttpGet("{id}")]
@@ -33,6 +40,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpPut("oppdater/{id}")]
         public async Task<IActionResult> OppdaterRute(int id, Rute nyRute)
         {
+            if (!ValidSession()) return Unauthorized();
             var value = await _repo.Oppdater(id, nyRute);
             return !value 
                 ? NotFound(new { error = "Ruten du prøver å oppdatere finnes ikke."}) 
@@ -42,6 +50,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpDelete("slett/{id}")]
         public async Task<IActionResult> SlettRute(int id)
         {
+            if (!ValidSession()) return Unauthorized();
             var value = await _repo.Slett(id);
             return !value
                 ? NotFound(new { error = "Ruten du prøver å slette finnes ikke."})
@@ -51,6 +60,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpPost("lagre")]
         public async Task<IActionResult> LagreRute(Rute rute)
         {
+            if (!ValidSession()) return Unauthorized();
             var value = await _repo.Lagre(rute);
             return !value
                 ? BadRequest()

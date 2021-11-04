@@ -361,3 +361,354 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updatin
  (b590080a)
 2021-11-04T12:40:16.7349855+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
  (8c113e45)
+2021-11-04T12:55:46.0649342+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T12:55:46.0713949+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T12:55:46.0714881+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T12:55:46.0715097+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T12:55:50.2835709+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T12:55:50.7730849+01:00 0HMCVH861L3FN:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T12:56:02.8078610+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T13:59:17.1925683+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T13:59:17.1996216+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T13:59:17.1997253+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T13:59:17.1997433+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T13:59:18.5986154+01:00 0HMCVIBKRM2BG:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T13:59:23.0968446+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T13:59:39.5925331+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T14:01:45.7783480+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T14:02:25.0167347+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T14:04:16.2600930+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T14:54:37.9642436+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T14:54:37.9706122+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T14:54:37.9707026+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T14:54:37.9707241+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T14:54:44.1290695+01:00 0HMCVJAJTD7R8:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T14:54:45.9374836+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T14:55:06.9714936+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T14:57:25.4192680+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T14:57:25.4213773+01:00  [ERR] ./src/app/components/rute-form/rute-form.component.ts:173:36 - Error: Module parse failed: Unexpected token (173:36)
+ (7b86e6e1)
+2021-11-04T14:57:25.4215331+01:00  [ERR] File was processed with these loaders:
+ (3619ec78)
+2021-11-04T14:57:25.4216723+01:00  [ERR]  * ./node_modules/@angular-devkit/build-angular/src/babel/webpack-loader.js
+ (830af868)
+2021-11-04T14:57:25.4218193+01:00  [ERR]  * ./node_modules/@ngtools/webpack/src/ivy/index.js
+ (57076512)
+2021-11-04T14:57:25.4219714+01:00  [ERR] You may need an additional loader to handle the result of these loaders.
+ (ba77677f)
+2021-11-04T14:57:25.4221104+01:00  [ERR] |             this.redirectTo('/ruter');
+ (d3811374)
+2021-11-04T14:57:25.4223165+01:00  [ERR] |         }, (error) => {
+ (5eea647b)
+2021-11-04T14:57:25.4224708+01:00  [ERR] >             if (error.statusCode == )
+ (b6a060a8)
+2021-11-04T14:57:25.4226014+01:00  [ERR] |                 window.location.href = '/loggInn.html';
+ (b71bb430)
+2021-11-04T14:57:25.4227320+01:00  [ERR] |             this.service.setError(error.error);
+ (427d3543)
+2021-11-04T14:57:25.4228784+01:00  [ERR] Error: src/app/components/rute-form/rute-form.component.ts:111:32 - error TS1109: Expression expected.
+ (724e095d)
+2021-11-04T14:57:25.4229947+01:00  [ERR] 111         if(error.statusCode == )
+ (b98c90e3)
+2021-11-04T14:57:25.4231050+01:00  [ERR]                                    ~
+ (3971a7f0)
+2021-11-04T14:59:03.7158950+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T14:59:49.9772376+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T14:59:49.9839111+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T14:59:49.9840351+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T14:59:49.9840660+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T14:59:50.1613261+01:00 0HMCVJDF5GCOK:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T14:59:55.5652888+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:00:11.9693926+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:01:02.7749449+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:02:06.9882952+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:03:01.8142672+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:03:41.9848396+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:05:00.7710622+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:05:55.6275221+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:05:58.0010394+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:07:02.0984824+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:07:46.8371254+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:09:41.2002434+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:12:25.6716488+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:12:25.6789800+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:12:25.6790820+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:12:25.6791253+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:12:25.7810786+01:00 0HMCVJKGBJ99P:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:12:30.1389543+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:12:43.1076088+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:12:49.6707618+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:12:49.6770645+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:12:49.6771590+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:12:49.6771762+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:12:50.2072072+01:00 0HMCVJKNGT00M:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:12:54.2480296+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:13:06.4438725+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:18:58.8901738+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:21:02.1194435+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:26:07.7548949+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:34:28.6958778+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:34:28.7025376+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:34:28.7026367+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:34:28.7026543+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:34:29.2350354+01:00 0HMCVK0QL0IB9:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:34:34.9568949+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:34:49.5208135+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:36:21.2402726+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:36:21.2481992+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:36:21.2483417+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:36:21.2483606+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:36:21.5972068+01:00 0HMCVK1S5PIGQ:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:36:26.7725627+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:36:40.1501900+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:41:32.9564517+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:42:37.5659125+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:42:37.5733347+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:42:37.5734538+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:42:37.5734772+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:42:38.1834569+01:00 0HMCVK5CC9J32:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:42:42.9950392+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:42:56.1289354+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:44:56.7126090+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:44:56.7195123+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:44:56.7196882+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:44:56.7197146+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:44:57.1065842+01:00 0HMCVK6LPLI78:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:45:01.7132505+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:45:13.5219621+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:51:16.8604915+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:51:16.8695979+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:51:16.8697336+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:51:16.8697523+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:51:17.5215310+01:00 0HMCVKA754JI8:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:51:21.6179798+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:51:34.7581225+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:51:36.2785949+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:55:32.9430874+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:55:32.9496315+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:55:32.9497358+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:55:32.9497500+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:55:33.4152349+01:00 0HMCVKCJDJ5IE:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:55:38.6947012+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:55:52.5404324+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T15:56:33.5685980+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T15:56:33.5756633+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T15:56:33.5757999+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T15:56:33.5758223+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T15:56:34.0108372+01:00 0HMCVKD5FM51Q:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T15:56:38.3465774+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T15:56:51.1106957+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:11:08.1210402+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:11:08.1274720+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:11:08.1276066+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:11:08.1276296+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:11:08.6264316+01:00 0HMCVKLA4HST9:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:11:14.0496518+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:11:27.9079603+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:12:19.4545397+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:12:19.4615903+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:12:19.4617080+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:12:19.4617257+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:12:20.2200366+01:00 0HMCVKLVFARHL:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:12:24.4590131+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:12:37.1472223+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:13:53.9863144+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:13:59.8985959+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:13:59.9050663+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:13:59.9052097+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:13:59.9052278+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:14:00.7846194+01:00 0HMCVKMTE6GV1:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:14:04.8360916+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:14:17.6835208+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:15:52.0923359+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:16:14.3784678+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:16:14.3859379+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:16:14.3860505+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:16:14.3860777+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:16:14.9590076+01:00 0HMCVKO5ECP50:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:16:19.8665728+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:16:32.8508444+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:16:42.7565233+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:17:23.9435926+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:17:23.9519072+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:17:23.9520261+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:17:23.9520498+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:17:24.3495340+01:00 0HMCVKOQ3QDUH:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:17:28.6489851+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:17:31.6607109+01:00 0HMCVKOQ3QDUH:00000004 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: The relative page path 'api/rute/hentAlle' can only be used while executing a Razor Page. Specify a root relative path with a leading '/' to generate a URL outside of a Razor Page. If you are using LinkGenerator then you must provide the current HttpContext to use relative pages.
+   at Microsoft.AspNetCore.Mvc.Routing.UrlHelperBase.CalculatePageName(ActionContext context, RouteValueDictionary ambientValues, String pageName)
+   at Microsoft.AspNetCore.Mvc.Routing.UrlHelperBase.NormalizeRouteValuesForPage(ActionContext context, String page, String handler, RouteValueDictionary values, RouteValueDictionary ambientValues)
+   at Microsoft.AspNetCore.Mvc.UrlHelperExtensions.Page(IUrlHelper urlHelper, String pageName, String pageHandler, Object values, String protocol, String host, String fragment)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.RedirectToPageResultExecutor.ExecuteAsync(ActionContext context, RedirectToPageResult result)
+   at Microsoft.AspNetCore.Mvc.RedirectToPageResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-11-04T16:17:41.2006486+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:19:03.9662790+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:19:03.9733299+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:19:03.9734604+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:19:03.9734794+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:19:04.4547676+01:00 0HMCVKPNUINIE:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:19:08.8135322+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:19:13.3672244+01:00 0HMCVKPNUINIE:00000004 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: The relative page path 'ruter' can only be used while executing a Razor Page. Specify a root relative path with a leading '/' to generate a URL outside of a Razor Page. If you are using LinkGenerator then you must provide the current HttpContext to use relative pages.
+   at Microsoft.AspNetCore.Mvc.Routing.UrlHelperBase.CalculatePageName(ActionContext context, RouteValueDictionary ambientValues, String pageName)
+   at Microsoft.AspNetCore.Mvc.Routing.UrlHelperBase.NormalizeRouteValuesForPage(ActionContext context, String page, String handler, RouteValueDictionary values, RouteValueDictionary ambientValues)
+   at Microsoft.AspNetCore.Mvc.UrlHelperExtensions.Page(IUrlHelper urlHelper, String pageName, String pageHandler, Object values, String protocol, String host, String fragment)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.RedirectToPageResultExecutor.ExecuteAsync(ActionContext context, RedirectToPageResult result)
+   at Microsoft.AspNetCore.Mvc.RedirectToPageResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-11-04T16:19:20.7696539+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:24:02.2543568+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:24:02.2630853+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:24:02.2632060+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:24:02.2632426+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:24:02.9774201+01:00 0HMCVKSGTSUM9:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:24:07.5361372+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:24:19.7220913+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:25:01.8697148+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:25:01.8763411+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:25:01.8764914+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:25:01.8765221+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:25:02.7733737+01:00 0HMCVKT2NHNU3:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:25:07.2200595+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:25:19.2642307+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:30:12.1518353+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:30:12.1587133+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:30:12.1588152+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:30:12.1588378+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:30:12.8908539+01:00 0HMCVKVV573G0:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:30:16.9060290+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:30:29.4964280+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-04T16:32:03.2139878+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T16:32:03.2204044+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T16:32:03.2204985+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T16:32:03.2205139+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T16:32:03.6707132+01:00 0HMCVL105BN67:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T16:32:08.0444055+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T16:32:20.7361807+01:00 0HMCVL105BN67:00000006 [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+System.InvalidOperationException: No route matches the supplied values.
+   at Microsoft.AspNetCore.Mvc.Infrastructure.RedirectToRouteResultExecutor.ExecuteAsync(ActionContext context, RedirectToRouteResult result)
+   at Microsoft.AspNetCore.Mvc.RedirectToRouteResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-11-04T16:32:20.8775601+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
