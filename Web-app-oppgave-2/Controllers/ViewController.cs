@@ -22,12 +22,12 @@ namespace Web_app_oppgave_2.Controllers
             Response.Redirect("/kunde.html");
         }
         
-        [Route("/ruter")]
+        [Route("index.html")]
+        [Route("maaltider")]
+        [Route("lugarer")]
         public ActionResult RuteRedirection()
         {
-            if (ValidSession())
-                return RedirectToPage("/ruter");
-            return Redirect("/kunde.html");
+            return Redirect(ValidSession() ? "/ruter" : "/kunde.html");
         }
     }
 }
