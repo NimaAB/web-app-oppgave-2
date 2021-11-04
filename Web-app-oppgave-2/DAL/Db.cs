@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Web_app_oppgave_2.DAL.LoggInnServices;
 using Web_app_oppgave_2.Models;
 
 namespace Web_app_oppgave_2.DAL
@@ -26,6 +29,25 @@ namespace Web_app_oppgave_2.DAL
         {
             //importert pakken Microsoft.EntityFrameworkCore.Proxies
             optionsBuilder.UseLazyLoadingProxies();
+        }
+
+        public static void Initialize(IApplicationBuilder app)
+        {
+            var serviceScope = app.ApplicationServices.CreateScope();
+            var db = serviceScope.ServiceProvider.GetService<Db>();
+            
+            var brukernavn = "admin";
+            var passord = "Admin1";
+            var passordSalt = LoginRepository.LagSalt();
+            var passordHash = LoginRepository.LagHash(passord, passordSalt);
+            
+            var admin = new Bruker();
+            admin.Brukernavn = brukernavn;
+            admin.PassordHash = passordHash;
+            admin.PassordSalt = passordSalt;
+
+            db.Brukere.AddAsync(admin);
+            db.SaveChangesAsync();
         }
     }
 }

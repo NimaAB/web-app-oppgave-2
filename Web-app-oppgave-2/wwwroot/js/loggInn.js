@@ -3,24 +3,21 @@
     const okPassord = validerPassord($("#passord").val());
 
     if (okBrukernavn && okPassord) {
+        visLoader('Please wait...');
+        
         const bruker = {
             brukernavn: $("#brukernavn").val(),
             passord: $("#passord").val()
         };
         
-        console.log(bruker);
-        
-        $.post("api/login", bruker, function (OK) {
-            if (OK) {
-                window.location.href = '#';
-            }
-            else {
-                $("#feil").html("Feil brukernavn eller passord");
-            }
+        $.post({url: "api/login", data: JSON.stringify(bruker), contentType: 'application/json; charset=utf-8'})
+        .done(function (ok) {
+            window.location.href = "/ruter";
         })
         .fail(function (feil) {
             let errorMessage = jQuery.parseJSON(feil.responseText);
             $("#feil").html(errorMessage.error);
+            skjulLoader();
         });
     }
 }
@@ -51,4 +48,11 @@ function validerPassord(passord) {
     }
 }
 
-    
+function skjulLoader(){
+    $('.loader').addClass('d-none');
+}
+
+function visLoader(message){
+    $('.loader-message').text(message);
+    $('.loader').removeClass('d-none');
+}

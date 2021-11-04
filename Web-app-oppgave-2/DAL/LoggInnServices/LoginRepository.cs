@@ -1,17 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using Web_app_oppgave_2.Models;
 
 namespace Web_app_oppgave_2.DAL.LoggInnServices
 {
     public class LoginRepository : ILoginRepository
     {
-        private ILogger<LoginRepository> _log;
         private readonly Db _db;
 
         public LoginRepository(Db db)
@@ -28,9 +25,8 @@ namespace Web_app_oppgave_2.DAL.LoggInnServices
                 var passordOk = passordHash.SequenceEqual(funnet.PassordHash);
                 return passordOk;
             }
-            catch (Exception e)
+            catch
             {
-                _log.LogInformation(e.Message);
                 return false;
             }
         }
