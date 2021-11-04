@@ -131,12 +131,12 @@ function lagreBestilling(){
     // Reformatter slik at de har samme attributtene som i db tabellen.
     
     maaltider.forEach(function (item) {
-        let maaltid = { Maaltid: item.navn, Pris: item.pris };
+        let maaltid = { Maaltid: item.navn, Beskrivelse: item.beskrivelse, Pris: item.pris };
         Maaltider.push(maaltid);
     });
 
     lugarer.forEach(function (item) {
-        let lugar = { Type: item.type, Pris: item.pris };
+        let lugar = { Type: item.tittel, Pris: item.pris };
         Lugarer.push(lugar);
     });
 
@@ -190,7 +190,7 @@ function lagreBestilling(){
         console.log(bestilling);
         console.log(saved);
         if(saved){
-            location.href = '../kvittering.html';
+            //location.href = '../kvittering.html';
         }
     });
 }

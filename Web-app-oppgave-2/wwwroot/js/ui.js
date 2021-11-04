@@ -294,12 +294,12 @@ function genererRuteDetaljer(ruter){
         let ikon = col.querySelector('.ikon');
         
         // Setter verdier fra db til elementene
-        col.setAttribute('id', 'rute-' + r.ruteID + '-col');
-        input.setAttribute('id', 'rute-' + r.ruteID);
-        input.setAttribute('value', 'rute-' + r.ruteID);
-        label.setAttribute('for', 'rute-' + r.ruteID);
-        ikon.setAttribute('id', 'rute-' + r.ruteID + '-ikon');
-        pris.setAttribute('id', 'rute-' + r.ruteID + '-pris');
+        col.setAttribute('id', 'rute-' + r.ruteId + '-col');
+        input.setAttribute('id', 'rute-' + r.ruteId);
+        input.setAttribute('value', 'rute-' + r.ruteId);
+        label.setAttribute('for', 'rute-' + r.ruteId);
+        ikon.setAttribute('id', 'rute-' + r.ruteId + '-ikon');
+        pris.setAttribute('id', 'rute-' + r.ruteId + '-pris');
         ruteFra.innerText = rArr[0];
         ruteTil.innerText = rArr[1];
         label.innerText = 'Velg'

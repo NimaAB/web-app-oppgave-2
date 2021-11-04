@@ -219,13 +219,14 @@ function leggTilValgtMaaltid(id){
     let inputId = '#' + $('#' + id + ' input').attr('id')
     let maaltidPris = Number($('#' + id + ' span.pris').text());
     let maaltidNavn = $('#' + id + ' .tittel').text();
+    let maaltidBeskrivelse = $('#' + id + ' .maaltid-info .beskrivelse').text();
     let input = $(inputId);
     
     // virker som en checked/unchecked toggle
     $(input).attr("checked", !$(input).attr("checked"));
 
     if($(input).is(':checked')) {
-        maaltider.push({'id': inputId, 'navn': maaltidNavn, 'pris': maaltidPris});
+        maaltider.push({'id': inputId, 'navn': maaltidNavn, 'beskrivelse': maaltidBeskrivelse, 'pris': maaltidPris});
         $(inputId + "-ikon").removeClass('d-none');
         $(inputId + '-info').addClass('on');
     } else {
