@@ -7,7 +7,7 @@ using Web_app_oppgave_2.Models;
 namespace Web_app_oppgave_2.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly ILoginRepository _repo;
@@ -32,10 +32,11 @@ namespace Web_app_oppgave_2.Controllers
             return StatusCode(200, new {message = "Logg inn vellykket."});
         }
 
-        [HttpPost("false")]
+        [Route("loggut")]
         public void Logout()
         {
             HttpContext.Session.SetString(_loggetInnString, "");
+            Redirect("/kunde.html");
         }
     }
 }

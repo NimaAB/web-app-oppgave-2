@@ -16,7 +16,7 @@ export class LugarFormComponent implements OnInit{
 
   form:FormGroup = new FormGroup({
     id: new FormControl(),
-    typ: new FormControl(
+    type: new FormControl(
       null,
       Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][a-zæøå ]{2,25}")])
     ),
@@ -56,8 +56,8 @@ export class LugarFormComponent implements OnInit{
     }
   }
 
-  get typ(){
-    return this.form.controls.typ;
+  get type(){
+    return this.form.controls.type;
   }
   get navn(){
     return this.form.controls.navn;
@@ -88,7 +88,7 @@ export class LugarFormComponent implements OnInit{
     this.service.hentEn(this.currentId)
       .subscribe(lugar=>{
           this.form.patchValue({id: lugar.lugarId});
-          this.form.patchValue({typ: lugar.typ});
+          this.form.patchValue({type: lugar.type});
           this.form.patchValue({navn: lugar.navn});
           this.form.patchValue({beskrivelse: lugar.beskrivelse});
           this.form.patchValue({kapasitet: lugar.kapasitet});
@@ -102,7 +102,7 @@ export class LugarFormComponent implements OnInit{
   endreLugar() {
     const nyLugar = {
       id: this.form.value.id,
-      typ: this.form.value.typ,
+      type: this.form.value.type,
       navn: this.form.value.navn,
       beskrivelse: this.form.value.beskrivelse,
       maxReservasjon: this.form.value.maxReservasjon,
@@ -121,13 +121,14 @@ export class LugarFormComponent implements OnInit{
 
   lagreNyLugar() {
     const nyLugar = {
-      typ: this.form.value.typ,
+      type: this.form.value.type,
       navn: this.form.value.navn,
       beskrivelse: this.form.value.beskrivelse,
       maxReservasjon: this.form.value.maxReservasjon,
       kapasitet: this.form.value.kapasitet,
       pris: this.form.value.pris
     };
+    console.log(nyLugar);
     this.service.lagre(nyLugar)
       .subscribe((data:any) => {
           this.service.setMessage(data.message);

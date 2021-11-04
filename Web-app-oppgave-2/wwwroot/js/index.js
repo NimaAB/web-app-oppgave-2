@@ -101,7 +101,7 @@ function hentAlleLugarer(){
 }
 
 function hentEnLugar(id){
-    let url = '/api/lugar/' + id;
+    let url = '/api/lugar/hentAlle' + id;
     $.get(url, response => {
        genererLugarDetaljer(response);
     });

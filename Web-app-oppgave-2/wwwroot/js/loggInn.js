@@ -10,7 +10,7 @@
             passord: $("#passord").val()
         };
         
-        $.post({url: "api/login", data: JSON.stringify(bruker), contentType: 'application/json; charset=utf-8'})
+        $.post({url: "/login", data: JSON.stringify(bruker), contentType: 'application/json; charset=utf-8'})
         .done(function (ok) {
             window.location.href = "/ruter";
         })

@@ -16,11 +16,11 @@
         <input type="hidden" formControlName="id">
         <div class="mb-3">
           <label for="typ" class="form-label">Type</label>
-          <input type="text" class="form-control" [class.is-invalid]="typ.touched && typ.invalid"
-                 placeholder="Lugar" id="typ" formControlName="typ">
-          <div *ngIf="typ.touched && typ.invalid" class="invalid-feedback alert alert-danger mt-3">
-            <small class="fs-6" *ngIf="typ.errors?.required">Feltet kan ikke være tomt.</small>
-            <small class="fs-6" *ngIf="typ.errors?.pattern">Type må begynne med en stor bokstav.</small>
+          <input type="text" class="form-control" [class.is-invalid]="type.touched && type.invalid"
+                 placeholder="Lugar" id="typ" formControlName="type">
+          <div *ngIf="type.touched && type.invalid" class="invalid-feedback alert alert-danger mt-3">
+            <small class="fs-6" *ngIf="type.errors?.required">Feltet kan ikke være tomt.</small>
+            <small class="fs-6" *ngIf="type.errors?.pattern">Type må begynne med en stor bokstav.</small>
           </div>
         </div>
 
