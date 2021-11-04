@@ -187,9 +187,11 @@ function validerValgtLugar(){
 function lageLugarObjekt(lugarId){
     let romTittel = $('.rom-tittel').text();
     let romAntallReservasjon = $('.rom-antall-reservasjon').text();
+    let romType = $('.rom-span').text();
     let romPris = $('.rom-pris').text();
     let totalPris = Number(romAntallReservasjon) * Number(romPris);
-    let objekt = {'id': lugarId, 'type': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
+
+    let objekt = {'id': lugarId, 'type': romType, 'tittel': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
     
     // Hvis lugar er allerede i arrayet, fjern den og legg den ny lugar: unngår duplikater
     lugarer.forEach(function (item, index) {
@@ -219,13 +221,14 @@ function leggTilValgtMaaltid(id){
     let inputId = '#' + $('#' + id + ' input').attr('id')
     let maaltidPris = Number($('#' + id + ' span.pris').text());
     let maaltidNavn = $('#' + id + ' .tittel').text();
+    let maaltidBeskrivelse = $('#' + id + ' .maaltid-info .beskrivelse').text();
     let input = $(inputId);
     
     // virker som en checked/unchecked toggle
     $(input).attr("checked", !$(input).attr("checked"));
 
     if($(input).is(':checked')) {
-        maaltider.push({'id': inputId, 'navn': maaltidNavn, 'pris': maaltidPris});
+        maaltider.push({'id': inputId, 'navn': maaltidNavn, 'beskrivelse': maaltidBeskrivelse, 'pris': maaltidPris});
         $(inputId + "-ikon").removeClass('d-none');
         $(inputId + '-info').addClass('on');
     } else {
