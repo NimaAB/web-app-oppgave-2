@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Web_app_oppgave_2.DAL.LugarServices;
 using Web_app_oppgave_2.Models;
@@ -10,10 +11,16 @@ namespace Web_app_oppgave_2.Controllers
     public class LugarController : ControllerBase
     {
         private readonly ILugarRepository _repo;
+        private const string _loggetInnString = "LoggetInn";
 
         public LugarController(ILugarRepository repo)
         {
             _repo = repo;
+        }
+        
+        private bool ValidSession()
+        {
+            return !string.IsNullOrEmpty(HttpContext.Session.GetString(_loggetInnString));
         }
 
         // GET: api/lugar/hentAlle
@@ -36,6 +43,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpPut("oppdater/{id}")]
         public async Task<IActionResult> OppdaterLugar(int id, Lugar lugar)
         {
+            if (!ValidSession()) return Unauthorized();
             var value = await _repo.Oppdater(id, lugar);
             return !value 
                 ? NotFound(new {error = "Lugar du prøver å oppdater finnes ikke."})
@@ -46,6 +54,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpDelete("slett/{id}")]
         public async Task<IActionResult> SlettLugar(int id)
         {
+            if (!ValidSession()) return Unauthorized();
             var value = await _repo.Slett(id);
             return !value 
                 ? NotFound(new {error = "Lugar du prøver å slette finnes ikke."})
@@ -56,6 +65,7 @@ namespace Web_app_oppgave_2.Controllers
         [HttpPost("lagre")]
         public async Task<IActionResult> LagreLugar(Lugar lugar)
         {
+            if (!ValidSession()) return Unauthorized();
             var value = await _repo.Lagre(lugar);
             return !value 
                 ? BadRequest(new {error = "Noe gikk galt. Lugar ble ikke lagret."})
