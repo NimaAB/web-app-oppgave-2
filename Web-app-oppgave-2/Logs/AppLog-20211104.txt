@@ -1131,3 +1131,12 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updatin
  (b590080a)
 2021-11-04T23:08:39.6431812+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
  (8c113e45)
+2021-11-04T23:59:19.3461416+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-04T23:59:19.3521401+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-04T23:59:19.3522364+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-04T23:59:19.3522594+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-04T23:59:19.8042223+01:00 0HMCVSQU1664M:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-04T23:59:26.4074489+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-04T23:59:41.5585223+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)

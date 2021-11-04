@@ -187,9 +187,10 @@ function validerValgtLugar(){
 function lageLugarObjekt(lugarId){
     let romTittel = $('.rom-tittel').text();
     let romAntallReservasjon = $('.rom-antall-reservasjon').text();
+    let romType = $('.rom-span').text();
     let romPris = $('.rom-pris').text();
     let totalPris = Number(romAntallReservasjon) * Number(romPris);
-    let objekt = {'id': lugarId, 'tittel': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
+    let objekt = {'id': lugarId, 'type': romType, 'tittel': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
     
     // Hvis lugar er allerede i arrayet, fjern den og legg den ny lugar: unngår duplikater
     lugarer.forEach(function (item, index) {

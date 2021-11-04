@@ -136,7 +136,7 @@ function lagreBestilling(){
     });
 
     lugarer.forEach(function (item) {
-        let lugar = { Type: item.tittel, Pris: item.pris };
+        let lugar = { Type: item.type, Navn: item.tittel, Pris: item.pris };
         Lugarer.push(lugar);
     });
 
