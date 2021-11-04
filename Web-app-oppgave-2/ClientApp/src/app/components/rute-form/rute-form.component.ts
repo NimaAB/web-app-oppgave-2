@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {RuterService} from "../../Services/ruter.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {DataService} from "../../Services/data.service";
+import {ImageProcessing} from "../../../models/imgProcessing";
 
 @Component({
   selector: 'app-rute-form',
@@ -29,9 +29,7 @@ export class RuteFormComponent implements OnInit{
     pris: new FormControl(
       null, Validators.required
     ),
-    bilde: new FormControl(
-      null
-    )
+    bilde: new FormControl()
   });
 
   constructor(
@@ -112,9 +110,36 @@ export class RuteFormComponent implements OnInit{
 
   }
 
+  file:any;
+  fileChanged(input:any) {
+    this.file = input.target.files[0];
+    if(input.file){
+      let reader = new FileReader();
+      reader.onload = (noe)=>{
+        //this.file = this.file.target
+        console.log(this.file.target);
+      }
+    }
+    //console.log(this.file);
+  }
+
+  ImgToBytes(file:any):string{
+    //let imgProc = new ImageProcessing();
+    if (file) {
+      //console.log(input.files);
+      //let file = input.files[0];
+
+    }
+    return ""
+  }
+
   lagreNyRute(){
+
+    //console.log(this.ImgToBytes(this.form.value.bilde));
+    /*
     const nyRute = {
       tur: this.form.value.fra + "-" + this.form.value.til,
+      bilde: this.imgBytes(),
       pris: this.form.value.pris
     };
 
@@ -124,7 +149,7 @@ export class RuteFormComponent implements OnInit{
           this.redirectTo('/ruter');
         },
       (error) => this.service.setError(error.error)
-    );
+    );*/
 
   }
 
