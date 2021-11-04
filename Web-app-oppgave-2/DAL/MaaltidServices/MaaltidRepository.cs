@@ -50,7 +50,7 @@ namespace Web_app_oppgave_2.DAL.MaaltidServices
         {
             try
             {
-                var meal = await _db.Maaltider.FindAsync(id);
+                Maaltid meal = await _db.Maaltider.FindAsync(id);
                 if (meal == null) return false;
                 _db.Maaltider.Remove(meal);
                 await _db.SaveChangesAsync();

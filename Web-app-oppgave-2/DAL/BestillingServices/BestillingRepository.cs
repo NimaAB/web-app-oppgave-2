@@ -65,10 +65,10 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                     });
                 });
 
-                var maaltiBestillinger = new List<MaaltidBestilling>();
+                var maaltidBestillinger = new List<MaaltidBestilling>();
                 bestilling.Maaltider.ForEach( maaltid =>
                 {
-                    maaltiBestillinger.Add(new MaaltidBestilling()
+                    maaltidBestillinger.Add(new MaaltidBestilling()
                     {
                         Maaltid = maaltid.Maaltid,
                         Bestilling = bestilling,
@@ -81,7 +81,8 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                     Kunde = nyKunde,
                     Billetter = nyeBilletter,
                     Lugarer = lugarbestillinger,
-                    Maaltider = maaltiBestillinger
+                    Maaltider = maaltidBestillinger,
+                    TotalPris = bestilling.TotalPris
                 };
 
                 _db.Bestillinger.Add(nyBestilling);

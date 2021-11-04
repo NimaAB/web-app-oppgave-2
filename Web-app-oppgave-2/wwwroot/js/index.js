@@ -144,7 +144,7 @@ function lagreBestilling(){
     passasjerer.forEach(function (item) {
         let tur = {
             tur: rute.ruteFra + "-" + rute.ruteTil,
-                pris: rute.pris
+            pris: rute.pris
         };
 
         let billett = {
@@ -184,7 +184,7 @@ function lagreBestilling(){
         Maaltider: Maaltider,
         TotalPris: bestillingTotalPris
     };
-
+    console.log(bestilling);
     const url = "Bestilling/Lagre";
     $.post(url, bestilling, (saved) => {
         console.log(bestilling);

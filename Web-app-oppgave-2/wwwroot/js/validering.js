@@ -189,7 +189,7 @@ function lageLugarObjekt(lugarId){
     let romAntallReservasjon = $('.rom-antall-reservasjon').text();
     let romPris = $('.rom-pris').text();
     let totalPris = Number(romAntallReservasjon) * Number(romPris);
-    let objekt = {'id': lugarId, 'tittel': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
+    let objekt = {'id': lugarId, 'type': romTittel, 'antall': Number(romAntallReservasjon), 'pris': totalPris};
     
     // Hvis lugar er allerede i arrayet, fjern den og legg den ny lugar: unngår duplikater
     lugarer.forEach(function (item, index) {

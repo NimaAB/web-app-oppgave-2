@@ -265,7 +265,7 @@ function genererMaaltidDetaljer(maaltider){
         info.setAttribute('id', 'maaltid-' + m.maaltidId + '-info');
         checkbox.setAttribute('id', 'maaltid-' + m.maaltidId);
         icon.setAttribute('id', 'maaltid-' + m.maaltidId + '-ikon');
-        tittel.innerText = m.maaltid;
+        tittel.innerText = m.navn;
         beskrivelse.innerText = m.beskrivelse;
         pris.innerText = m.pris;
         

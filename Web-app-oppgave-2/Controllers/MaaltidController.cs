@@ -53,7 +53,7 @@ namespace Web_app_oppgave_2.Controllers
             if (!ValidSession()) return Unauthorized();
             var value = await _repo.Slett(id);
             return !value
-                ? NotFound(new { error = "Måltiden du prøver å oppdatere finnes ikke." })
+                ? NotFound(new { error = "Måltiden du prøver å slette finnes ikke." })
                 : StatusCode(200, new { message =  "Måltid er slettet" });
         }
 
