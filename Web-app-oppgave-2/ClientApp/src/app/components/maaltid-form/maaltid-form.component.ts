@@ -18,7 +18,7 @@ export class MaaltidFormComponent implements OnInit{
     id: new FormControl(),
     navn: new FormControl(
       null,
-      Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][a-zæøå]{2,25}")])
+      Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][A-ZÆØÅa-zæøå -]{2,25}")])
     ),
     beskrivelse: new FormControl(
       null,
@@ -82,7 +82,11 @@ export class MaaltidFormComponent implements OnInit{
           this.form.patchValue({beskrivelse: maaltid.beskrivelse});
           this.form.patchValue({pris: maaltid.pris});
         },
-        error => console.log(error)
+        (error) =>
+        {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        }
       )
   }
 
@@ -97,8 +101,10 @@ export class MaaltidFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo("/maaltider");
         },
-        (error) => this.service.setError(error.error)
-      );
+        (error) => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        });
   }
 
   lagreNyMaaltid() {
@@ -112,8 +118,10 @@ export class MaaltidFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo("/maaltider");
         },
-        (error) => this.service.setError(error.error)
-      );
+        (error) => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        });
   }
 
   slettMaaltid(){
@@ -122,7 +130,9 @@ export class MaaltidFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo("/maaltider");
         },
-      error => console.error(error)
-    )
+      (error) => {
+        if(error.status == 401) window.location.href = "/loggInn.html";
+        this.service.setError(error.error);
+      });
   }
 }

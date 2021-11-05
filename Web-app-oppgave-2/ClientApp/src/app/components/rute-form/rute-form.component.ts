@@ -18,12 +18,12 @@ export class RuteFormComponent implements OnInit{
     fra: new FormControl(
       null, [
         Validators.required,
-        Validators.pattern("[A-ZÆØÅ][a-zæøå]{2,25}")]
+        Validators.pattern("[A-ZÆØÅ][A-ZÆØÅa-zæøå -]{2,25}")]
     ),
     til: new FormControl(
       null, [
         Validators.required,
-        Validators.pattern("[A-ZÆØÅ][a-zæøå]{2,25}")]
+        Validators.pattern("[A-ZÆØÅ][A-ZÆØÅa-zæøå -]{2,25}")]
     ),
     pris: new FormControl(
       null, Validators.required
@@ -90,8 +90,10 @@ export class RuteFormComponent implements OnInit{
           this.form.patchValue({til: tur[1] });
           this.form.patchValue({pris: rute.pris});
         },
-        error => console.log(error)
-      )
+        error => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        });
   }
 
   endreRute(){
@@ -109,8 +111,7 @@ export class RuteFormComponent implements OnInit{
       (error) => {
         if(error.status == 401) window.location.href = "/loggInn.html";
         this.service.setError(error.error);
-      }
-    );
+      });
   }
 
   lagreNyRute(){
@@ -127,8 +128,7 @@ export class RuteFormComponent implements OnInit{
       (error) => {
         if(error.status == 401) window.location.href = "/loggInn.html";
         this.service.setError(error.error);
-      }
-    );
+      });
   }
 
   slettRute(){
@@ -140,7 +140,6 @@ export class RuteFormComponent implements OnInit{
         (error) => {
           if(error.status == 401) window.location.href = "/loggInn.html";
           this.service.setError(error.error);
-      }
-    );
+      });
   }
 }

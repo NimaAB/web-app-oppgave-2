@@ -18,11 +18,11 @@ export class LugarFormComponent implements OnInit{
     id: new FormControl(),
     type: new FormControl(
       null,
-      Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][a-zæøå ]{2,25}")])
+      Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][A-ZÆØÅa-zæøå -]{2,25}")])
     ),
     navn: new FormControl(
       null,
-      Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][a-zæøå]{2,25} [A-ZÆØÅ][a-zæøå]{2,25}")])
+      Validators.compose([Validators.required,Validators.pattern("[A-ZÆØÅ][A-ZÆØÅa-zæøå -]{2,25}")])
     ),
     beskrivelse: new FormControl(
       null,
@@ -95,8 +95,10 @@ export class LugarFormComponent implements OnInit{
           this.form.patchValue({maxReservasjon: lugar.maxReservasjon});
           this.form.patchValue({pris: lugar.pris});
         },
-        error => console.log(error)
-      );
+        (error) => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        });
   }
 
   endreLugar() {
@@ -114,8 +116,10 @@ export class LugarFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo('/lugarer');
         },
-      (error) => this.service.setError(error.error)
-    );
+      (error) => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        });
 
   }
 
@@ -134,8 +138,10 @@ export class LugarFormComponent implements OnInit{
           this.service.setMessage(data.message);
           this.redirectTo('/lugarer');
         },
-      (error) => this.service.setError(error.error)
-    );
+      (error) => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        });
   }
 
   slettLugar() {
@@ -144,10 +150,9 @@ export class LugarFormComponent implements OnInit{
         this.service.setMessage(data.message);
         this.redirectTo('/lugarer');
         },
-      error => console.error(error)
-    );
-
+      (error) => {
+          if(error.status == 401) window.location.href = "/loggInn.html";
+          this.service.setError(error.error);
+        });
   }
-
 }
-

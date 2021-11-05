@@ -8,3 +8,104 @@
  (8c113e45)
 2021-11-05T00:08:23.2439873+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
  (8c113e45)
+2021-11-05T00:22:46.7467392+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-05T00:22:46.7535709+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-05T00:22:46.7536878+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-05T00:22:46.7537156+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-05T00:22:47.0208793+01:00 0HMCVT81D943H:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-05T00:22:52.6542397+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-05T00:23:05.4186756+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:23:06.7989765+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:23:17.0360547+01:00 0HMCVT81D943K:00000006 [ERR] Failed executing DbCommand ("5"ms) [Parameters=["@p0='?'"], CommandType='Text', CommandTimeout='30']"
+""DELETE FROM \"Ruter\"
+WHERE \"RuteId\" = @p0;
+SELECT changes();" (627a98df)
+2021-11-05T00:23:17.0888709+01:00 0HMCVT81D943K:00000006 [ERR] An exception occurred in the database while saving changes for context type '"Web_app_oppgave_2.DAL.Db"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)" (170f029e)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details.
+ ---> Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'FOREIGN KEY constraint failed'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(DbContext _, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Web_app_oppgave_2.DAL.RuteServices.RuteRepository.Slett(Int32 id) in C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2\DAL\RuteServices\RuteRepository.cs:line 54
+2021-11-05T00:25:05.7566244+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-05T00:25:05.7630960+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-05T00:25:05.7631861+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-05T00:25:05.7632011+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-05T00:25:06.3102749+01:00 0HMCVT9ASQ6FT:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-05T00:25:10.9656198+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-05T00:25:23.2669419+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:31:16.5271218+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:31:55.3761408+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:32:25.0904154+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:32:31.3959021+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:32:42.8870115+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:32:50.2734561+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:34:09.9084619+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:37:40.5699918+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:38:33.4924956+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:39:02.5326483+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:39:22.2839367+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:40:04.0307497+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:42:43.5935528+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:52:00.9541231+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:53:02.0732022+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:54:06.4136465+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:56:29.4048752+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:57:43.7570968+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T00:59:50.4135769+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
