@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Web_app_oppgave_2.DAL.LugarServices;
 using Web_app_oppgave_2.Models;
 
@@ -11,11 +12,13 @@ namespace Web_app_oppgave_2.Controllers
     public class LugarController : ControllerBase
     {
         private readonly ILugarRepository _repo;
+        private ILogger<LugarController> _log;
         private const string _loggetInnString = "LoggetInn";
 
-        public LugarController(ILugarRepository repo)
+        public LugarController(ILugarRepository repo,ILogger<LugarController> log)
         {
             _repo = repo;
+            _log = log;
         }
         
         private bool ValidSession()
@@ -36,6 +39,10 @@ namespace Web_app_oppgave_2.Controllers
         public async Task<IActionResult> HentLugar(int id)
         {
             var value = await _repo.HentEn(id);
+            if (value == null)
+            {
+                _log.LogInformation("Lugar kunne ikke finnes");
+            }
             return Ok(value);
         }
 
@@ -45,6 +52,10 @@ namespace Web_app_oppgave_2.Controllers
         {
             if (!ValidSession()) return Unauthorized();
             var value = await _repo.Oppdater(id, lugar);
+            if (!value)
+            {
+                _log.LogInformation("Lugar kunne ikke oppdateres");
+            }
             return !value 
                 ? NotFound(new {error = "Lugar du prøver å oppdater finnes ikke."})
                 : StatusCode(200,new {message =  "Lugar er oppdatert."});
@@ -56,6 +67,10 @@ namespace Web_app_oppgave_2.Controllers
         {
             if (!ValidSession()) return Unauthorized();
             var value = await _repo.Slett(id);
+            if (!value)
+            {
+                _log.LogInformation("Lugar kunne ikke slettes");
+            }
             return !value 
                 ? NotFound(new {error = "Lugar du prøver å slette finnes ikke."})
                 : StatusCode(200,new {message =  "Lugar er slettet."});
@@ -67,6 +82,10 @@ namespace Web_app_oppgave_2.Controllers
         {
             if (!ValidSession()) return Unauthorized();
             var value = await _repo.Lagre(lugar);
+            if (!value)
+            {
+                _log.LogInformation("Lugar kunne ikke lagres");
+            }
             return !value 
                 ? BadRequest(new {error = "Noe gikk galt. Lugar ble ikke lagret."})
                 : StatusCode(200, new {message = "Ny lugar er lagret."});
