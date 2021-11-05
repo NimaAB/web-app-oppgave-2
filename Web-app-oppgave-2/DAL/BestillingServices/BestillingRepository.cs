@@ -38,14 +38,30 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                 {
                     nyKunde.Postnummer = sjekketPostnr;
                 }
+
+                var billettTur = new BillettRute()
+                {
+                    Billett = bestilling.Billetter.ElementAt(0),
+                    Rute = bestilling.Billetter.ElementAt(0).Tur.Rute,
+                    Tid = bestilling.Billetter.ElementAt(0).Utreise
+                };
+                BillettRute billettRetur= null;
+                if (bestilling.Billetter.ElementAt(0).Tur.Rute != null)
+                {
+                    billettRetur.Billett = bestilling.Billetter.ElementAt(0);
+                    billettRetur.Rute = bestilling.Billetter.ElementAt(0).Retur.Rute;
+                    billettRetur.Tid = bestilling.Billetter.ElementAt(0).Utreise;
+                }
+                
+                
                 var nyeBilletter = new List<Billett>();
                 bestilling.Billetter.ForEach(billett =>
                 {
                     nyeBilletter.Add(new Billett()
                     {
                         Type = billett.Type,
-                        Tur = billett.Tur,
-                        Retur = billett.Retur,
+                        Tur = billettTur,
+                        Retur = billettRetur,
                         Utreise = billett.Utreise,
                         Ankomst = billett.Ankomst,
                         Passasjer = billett.Passasjer,
