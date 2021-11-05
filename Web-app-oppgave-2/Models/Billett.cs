@@ -15,9 +15,7 @@ namespace Web_app_oppgave_2.Models
         public int Kjæledyr { get; set; }
         public virtual Passasjer Passasjer { get; set; }
         public virtual Bestilling Bestilling { get; set; }
-        [NotMapped]
-        public virtual BillettRute Tur { get; set; }
-        [NotMapped]
-        public virtual BillettRute Retur { get; set; }
+        public virtual Rute Tur { get; set; }
+        public virtual Rute Retur { get; set; }
     }
 }

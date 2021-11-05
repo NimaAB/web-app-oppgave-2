@@ -23,7 +23,6 @@ namespace Web_app_oppgave_2.DAL
         public virtual DbSet<LugarBestilling> LugarBestillinger { get; set; }
         public virtual DbSet<Postnummer> Poststeder { get; set; }
         public virtual DbSet<Rute> Ruter { get; set; }
-        public virtual DbSet<BillettRute> BillettRuter { get; set; }
         public virtual DbSet<Bruker> Brukere { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
