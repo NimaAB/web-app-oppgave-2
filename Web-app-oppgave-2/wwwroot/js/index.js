@@ -6,7 +6,7 @@
 ////////////////////////////////////////////////////////////////////
 
 // Trinn 1: Rute
-let rute = {}; // aksessere rutene med ruteFra, ruteTil og rutePris keys
+let rute = {}; // aksessere rutene med ruteId, ruteFra, ruteTil og rutePris keys
 let reiseType = ""; // kun 2 verdier: En-vei og Tur-retur
 let avreiseDato = ""; // string: DD/MM/YYYY
 let returDato = ""; // string: DD/MM/YYYY
@@ -131,18 +131,19 @@ function lagreBestilling(){
     // Reformatter slik at de har samme attributtene som i db tabellen.
     
     maaltider.forEach(function (item) {
-        let maaltid = { Maaltid: item.navn, Beskrivelse: item.beskrivelse, Pris: item.pris };
+        let maaltid = { MaaltidId: item.id, Maaltid: item.navn, Beskrivelse: item.beskrivelse, Pris: item.pris };
         Maaltider.push(maaltid);
     });
 
     lugarer.forEach(function (item) {
-        let lugar = { Type: item.type, Navn: item.tittel, Pris: item.pris };
+        let lugar = { LugarId: item.id, Type: item.type, Navn: item.tittel, Pris: item.pris };
         Lugarer.push(lugar);
     });
 
     // Oppretter en billett objekt for hver passasjer
     passasjerer.forEach(function (item) {
         let tur = {
+            ruteId: rute.ruteId,
             tur: rute.ruteFra + "-" + rute.ruteTil,
             pris: rute.pris
         };
@@ -184,13 +185,10 @@ function lagreBestilling(){
         Maaltider: Maaltider,
         TotalPris: bestillingTotalPris
     };
-    console.log(bestilling);
+    
     const url = "Bestilling/Lagre";
     $.post(url, bestilling, (saved) => {
         console.log(bestilling);
         console.log(saved);
-        if(saved){
-            location.href = '../kvittering.html';
-        }
     });
 }

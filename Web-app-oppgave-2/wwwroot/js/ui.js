@@ -286,6 +286,7 @@ function genererRuteDetaljer(ruter){
 
         // Elementene vi trenger for å vise en rute
         let col = child.querySelector('.rute-col');
+        let ruteId = child.querySelector('.rute-id');
         let ruteFra = col.querySelector('.rute-fra');
         let ruteTil = col.querySelector('.rute-til');
         let pris = col.querySelector('.pris');
@@ -300,6 +301,7 @@ function genererRuteDetaljer(ruter){
         label.setAttribute('for', 'rute-' + r.ruteId);
         ikon.setAttribute('id', 'rute-' + r.ruteId + '-ikon');
         pris.setAttribute('id', 'rute-' + r.ruteId + '-pris');
+        ruteId.innerText = r.ruteId;
         ruteFra.innerText = rArr[0];
         ruteTil.innerText = rArr[1];
         label.innerText = 'Velg'

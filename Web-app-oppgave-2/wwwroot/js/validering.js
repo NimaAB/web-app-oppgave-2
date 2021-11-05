@@ -28,6 +28,7 @@ function validerRute(){
         // Slik at navn til steder kan aksesseres
         rute['ruteFra'] = $('#' + checkedRute + '-col .rute-fra').text();
         rute['ruteTil'] = $('#' + checkedRute + '-col .rute-til').text();
+        rute['ruteId'] = $('#' + checkedRute + '-col .rute-id').text();
         rute['pris'] = Number(checkedRutePris);
         $("#rute-input-placeholder").removeClass('is-invalid');
         ruteInputFeilMelding.addClass('d-none');
