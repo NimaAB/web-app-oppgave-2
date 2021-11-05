@@ -92,6 +92,7 @@ export class MaaltidFormComponent implements OnInit{
 
   endreMaaltid() {
     const nyMaaltid = {
+      id: this.form.value.id,
       navn: this.form.value.navn,
       beskrivelse: this.form.value.beskrivelse,
       pris: this.form.value.pris

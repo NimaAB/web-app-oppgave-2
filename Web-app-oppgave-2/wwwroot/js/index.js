@@ -190,7 +190,7 @@ function lagreBestilling(){
         console.log(bestilling);
         console.log(saved);
         if(saved){
-            //location.href = '../kvittering.html';
+            location.href = '../kvittering.html';
         }
     });
 }

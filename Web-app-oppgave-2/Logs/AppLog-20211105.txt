@@ -109,3 +109,32 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updatin
  (8c113e45)
 2021-11-05T00:59:50.4135769+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
  (8c113e45)
+2021-11-05T01:15:09.1541910+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T01:35:16.0836722+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-05T01:35:16.0904262+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-05T01:35:16.0905491+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-05T01:35:16.0905737+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-05T01:35:17.3284987+01:00 0HMCVUGHKTB6D:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-05T01:35:26.3167905+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-05T01:35:39.8391714+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T09:36:40.3150219+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-05T09:36:40.3221406+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-05T09:36:40.3222174+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-05T09:36:40.3222436+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-05T09:36:41.6356941+01:00 0HMD06THP0P4M:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-05T09:36:54.0281173+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-05T09:37:18.3844922+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
+2021-11-05T09:42:52.8000528+01:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2021-11-05T09:42:52.8069042+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-11-05T09:42:52.8070583+01:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-11-05T09:42:52.8070718+01:00  [INF] Content root path: "C:\Users\Glaysa\RiderProjects\web-app-oppgave-2\Web-app-oppgave-2" (b5d60022)
+2021-11-05T09:42:53.5406202+01:00 0HMD0710RRP57:00000002 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2021-11-05T09:42:58.9080779+01:00  [ERR] - Generating browser application bundles (phase: setup)...
+ (b590080a)
+2021-11-05T09:43:13.7745261+01:00  [ERR] ΓêÜ Browser application bundle generation complete.
+ (8c113e45)
