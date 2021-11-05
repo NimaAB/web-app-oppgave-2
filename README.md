@@ -1,11 +1,14 @@
-# web-app-oppgave-2
-ITPE3200
+# Web App Oppgave 2
 
-## Oppgaver:
-- [x] Oppdatere DB
-- [x] Utvide DAL og controller (litt jobb med bestillingRepository gjenstår)
-- [ ] Admin-side (Begynt) 
-- [x] Kunde-side | getter
-- [ ] Login funksjonalitet
-- [ ] Enhetstester og Logger
-- [ ] Valideringer for Admin CRUD-Operasjoner
+## Admin Siden
+- Logg inn informasjon
+  - Brukernavn: **admin**
+  - Passord: **Admin1**
+####
+- Funskjonaliteter
+  - CRUD operasjoner for lugarer, måltider og ruter.
+  - Logg inn/ut med sessions.
+  - Admin siden er restricted. (Bruker **må** logge seg inn).
+
+## Kunde Siden
+- Rutene, lugarer og måltider kommer fra db.
