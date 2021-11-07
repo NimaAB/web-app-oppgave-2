@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Castle.Core.Logging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web_app_oppgave_2.Models;
 
 namespace Web_app_oppgave_2.DAL.BestillingServices
@@ -39,7 +42,11 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                     nyKunde.Postnummer = sjekketPostnr;
                 }
                 
+                var sjekketTur = await _db.Ruter.FindAsync(bestilling.Billetter[0].Tur.RuteId);
+                
                 var nyeBilletter = new List<Billett>();
+                
+                Console.WriteLine("Tur: " + bestilling.Billetter[0].Tur);
                 bestilling.Billetter.ForEach(billett =>
                 {
                     nyeBilletter.Add(new Billett()
@@ -65,7 +72,7 @@ namespace Web_app_oppgave_2.DAL.BestillingServices
                         Tid = bestilling.Billetter.ElementAt(0).Utreise
                     });
                 });
-
+                
                 var maaltidBestillinger = new List<MaaltidBestilling>();
                 bestilling.Maaltider.ForEach( maaltid =>
                 {

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using Web_app_oppgave_2.Controllers;
@@ -17,7 +19,8 @@ namespace web_app_2_unit_testing
         {
             var mock = new Mock<ILugarRepository>();
             mock.Setup(l => l.HentEn(1)).ReturnsAsync(new Lugar());
-            var controller = new LugarController(mock.Object);
+            var loggerMock = Mock.Of<ILogger<LugarController>>();
+            var controller = new LugarController(mock.Object, loggerMock);
 
             var resultat = await controller.HentLugar(1);
             var okResult = resultat as ObjectResult;
@@ -31,8 +34,9 @@ namespace web_app_2_unit_testing
         {
             var mock = new Mock<ILugarRepository>();
             mock.Setup(l => l.HentAlle()).ReturnsAsync(new List<Lugar>());
-            var controller = new LugarController(mock.Object);
-
+            var loggerMock = Mock.Of<ILogger<LugarController>>();
+            var controller = new LugarController(mock.Object, loggerMock);
+            
             var resultat = await controller.HentAlleLugarer();
             var okResult = resultat as ObjectResult;
             
@@ -55,8 +59,16 @@ namespace web_app_2_unit_testing
             
             var mock = new Mock<ILugarRepository>();
             mock.Setup(l => l.Oppdater(1, innLugar)).ReturnsAsync(true);
-            var controller = new LugarController(mock.Object);
+            var loggerMock = Mock.Of<ILogger<LugarController>>();
+            var controller = new LugarController(mock.Object, loggerMock);
+            /*
+            Mock<ISession> sessionMock = new Mock<ISession>();
             
+            controller.ControllerContext.HttpContext = new DefaultHttpContext();
+            controller.ControllerContext.HttpContext.Request.Headers["LoggetInn"] = "LoggetInn";
+            sessionMock.Verify();
+            //controller.HttpContext.Session.SetString("LoggetInn","LoggetInn");
+            */
             var resultat = await controller.OppdaterLugar(1, innLugar);
             var okResult = resultat as ObjectResult;
 
@@ -69,7 +81,8 @@ namespace web_app_2_unit_testing
         {
             var mock = new Mock<ILugarRepository>();
             mock.Setup(l => l.Slett(1)).ReturnsAsync(true);
-            var controller = new LugarController(mock.Object);
+            var loggerMock = Mock.Of<ILogger<LugarController>>();
+            var controller = new LugarController(mock.Object, loggerMock);
 
             var resultat = await controller.SlettLugar(1);
             var okResult = resultat as ObjectResult;
@@ -93,7 +106,8 @@ namespace web_app_2_unit_testing
 
             var mock = new Mock<ILugarRepository>();
             mock.Setup(l => l.Lagre(innLugar)).ReturnsAsync(true);
-            var controller = new LugarController(mock.Object);
+            var loggerMock = Mock.Of<ILogger<LugarController>>();
+            var controller = new LugarController(mock.Object, loggerMock);
 
             var resultat = await controller.LagreLugar(innLugar);
             var okResult = resultat as ObjectResult;

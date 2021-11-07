@@ -121,6 +121,7 @@ function merkerValgtRute() {
     $("input[name=ruter]").on('change', function () {
         // Viser sjekk ikon
         valgtRute = $("input[name=ruter]:checked").val();
+        console.log(valgtRute.ruteId);//midlertidig
         $('#' + valgtRute + "-ikon").removeClass('d-none');
         $('#' + valgtRute + "-col").css('background-color','#ebf9ff');
         

@@ -26,6 +26,8 @@ function validerRute(){
         return false;
     } else {
         // Slik at navn til steder kan aksesseres
+        console.log(checkedRute);//midlertidig
+        rute['ruteId'] = checkedRute.ruteId;
         rute['ruteFra'] = $('#' + checkedRute + '-col .rute-fra').text();
         rute['ruteTil'] = $('#' + checkedRute + '-col .rute-til').text();
         rute['pris'] = Number(checkedRutePris);
@@ -227,7 +229,7 @@ function leggTilValgtMaaltid(id){
     $(input).attr("checked", !$(input).attr("checked"));
 
     if($(input).is(':checked')) {
-        maaltider.push({'id': inputId, 'navn': maaltidNavn, 'beskrivelse': maaltidBeskrivelse, 'pris': maaltidPris});
+        maaltider.push({'maaltidId': inputId, 'navn': maaltidNavn, 'beskrivelse': maaltidBeskrivelse, 'pris': maaltidPris});
         $(inputId + "-ikon").removeClass('d-none');
         $(inputId + '-info').addClass('on');
     } else {

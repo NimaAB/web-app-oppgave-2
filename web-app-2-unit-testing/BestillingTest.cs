@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using NUnit.Framework;
 using Web_app_oppgave_2.Controllers;
@@ -13,6 +16,7 @@ namespace web_app_2_unit_testing
 {
     public class BestillingTest
     {
+        private ILogger<BestillingController> _log;
         [Test]
         public async Task LagreBestillingOk()
         {
@@ -82,9 +86,10 @@ namespace web_app_2_unit_testing
                 TotalPris = 4500
             };
 
+            var loggerMock = Mock.Of<ILogger<BestillingController>>();
             var mock = new Mock<IBestillingRepository>();
             mock.Setup(b => b.Lagre(innBestilling)).ReturnsAsync(true);
-            var controller = new BestillingController(mock.Object);
+            var controller = new BestillingController(mock.Object,loggerMock);
 
             var resultat = await controller.Lagre(innBestilling);
             var okResult = resultat as ObjectResult;
@@ -98,9 +103,10 @@ namespace web_app_2_unit_testing
         {
             var innBestilling = new Bestilling();
             
+            var loggerMock = Mock.Of<ILogger<BestillingController>>();
             var mock = new Mock<IBestillingRepository>();
             mock.Setup(b => b.Lagre(innBestilling)).ReturnsAsync(false);
-            var controller = new BestillingController(mock.Object);
+            var controller = new BestillingController(mock.Object,loggerMock);
 
             var resultat = await controller.Lagre(innBestilling);
             var okResult = resultat as ObjectResult;

@@ -1,4 +1,27 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=31277005_002D8566_002D414b_002D8227_002D5295856c30e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="BestillingTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::814905F4-C3C8-4CEE-91C6-E8C6CE3F4DEE::net5.0::web_app_2_unit_testing.BestillingTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3a2952e5_002Db388_002D4fb2_002Dae72_002D485a23aca1bd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="OppdaterLugar" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::814905F4-C3C8-4CEE-91C6-E8C6CE3F4DEE::net5.0::web_app_2_unit_testing.LugarTest.OppdaterLugar&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::814905F4-C3C8-4CEE-91C6-E8C6CE3F4DEE::net5.0::web_app_2_unit_testing.RuteTest.SlettRute&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a80e4a9a_002D364b_002D498d_002D9d3d_002D472d78337ff7/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LagreBestillingOk" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::814905F4-C3C8-4CEE-91C6-E8C6CE3F4DEE::net5.0::web_app_2_unit_testing.BestillingTest.LagreBestillingOk&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e62ba26f_002D5f80_002D4efa_002Da2e6_002D9ac63796ca30/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ecd73697_002D9dec_002D45ec_002D96a4_002Dfca8d2f0f126/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="LagreBestillingBadRequest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::814905F4-C3C8-4CEE-91C6-E8C6CE3F4DEE::net5.0::web_app_2_unit_testing.BestillingTest.LagreBestillingBadRequest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::814905F4-C3C8-4CEE-91C6-E8C6CE3F4DEE::net5.0::web_app_2_unit_testing.LugarTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::814905F4-C3C8-4CEE-91C6-E8C6CE3F4DEE::net5.0::web_app_2_unit_testing.RuteTest&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

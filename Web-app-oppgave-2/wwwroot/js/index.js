@@ -75,6 +75,7 @@ function bekreft(){
 function hentAlleRuter(){
     let url = '/api/rute/hentAlle';
     $.get(url, response => {
+        console.log(response); //midlertidig
         genererRuteDetaljer(response);
     })
         .done(function () {
@@ -131,18 +132,19 @@ function lagreBestilling(){
     // Reformatter slik at de har samme attributtene som i db tabellen.
     
     maaltider.forEach(function (item) {
-        let maaltid = { Maaltid: item.navn, Beskrivelse: item.beskrivelse, Pris: item.pris };
+        let maaltid = {MaaltId: item.maaltId, Navn: item.navn, Beskrivelse: item.beskrivelse, Pris: item.pris };
         Maaltider.push(maaltid);
     });
 
     lugarer.forEach(function (item) {
-        let lugar = { Type: item.type, Navn: item.tittel, Pris: item.pris };
+        let lugar = { LugarId: item.id ,Type: item.type, Navn: item.tittel, Pris: item.pris };
         Lugarer.push(lugar);
     });
 
     // Oppretter en billett objekt for hver passasjer
     passasjerer.forEach(function (item) {
         let tur = {
+            ruteId: rute.ruteId,
             tur: rute.ruteFra + "-" + rute.ruteTil,
             pris: rute.pris
         };
@@ -159,6 +161,7 @@ function lagreBestilling(){
         
         if (reiseType !== "En-vei") {
             billett['Retur'] = {
+                ruteId: rute.ruteId,
                 tur: rute.ruteTil + "-" + rute.ruteFra,
                 pris: rute.pris
             };
@@ -190,7 +193,7 @@ function lagreBestilling(){
         console.log(bestilling);
         console.log(saved);
         if(saved){
-            location.href = '../kvittering.html';
+            window.location.href = '../kvittering.html';
         }
     });
 }
